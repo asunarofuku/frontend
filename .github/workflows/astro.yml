@@ -31,14 +31,14 @@ env:
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Install rsync
-        run: |
-          sudo apt-get update -y
-          sudo apt-get install -y rsync
+      # - name: Install rsync
+      #   run: |
+      #     sudo apt-get update -y
+      #     sudo apt-get install -y rsync
       - name: Setup SSH
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
