@@ -63,4 +63,4 @@ jobs:
         run: |
           rsync --checksum -avz --delete \
           -e "ssh -o StrictHostKeyChecking=no" \
-           ./dist/ root@web.asunarofuku.jp:/var/lib/docker/volumes/asunarofuku_jp_web/_data/
+           ./dist/ root@web.asunarofuku.jp:/var/lib/docker/volumes/asunarofuku_jp_nginx/_data/
