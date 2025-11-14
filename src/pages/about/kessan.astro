@@ -1,0 +1,382 @@
+---
+import ServicesH from "../../components/ServicesH.astro";
+import type { TocItem } from "../../components/TableOfContents.astro";
+import AboutLayout from "../../layouts/about/AboutLayout.astro";
+
+const crumbs = [
+  {
+    text: "ホーム",
+    href: "/",
+  },
+  {
+    text: "法人について",
+    href: "./",
+ },
+  {
+    text: "決算書",
+  },
+];
+
+---
+
+<AboutLayout title="決算書" description="決算書のアーカイブ一覧"  tocItems={null} crumbs={crumbs}>
+    <div class="container mx-auto">
+        <section class="mb-24" id="certificates">
+            <div class="p-4">
+                <ServicesH>令和5年度</ServicesH>
+                <ul class="mb-12 flex items-center justify-center space-x-4">
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/r5/r5_t.pdf"
+                            class="text-blue-600 hover:underline">貸借対照表</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/r5/r5_j.pdf"
+                            class="text-blue-600 hover:underline"
+                            >事業活動計算書</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/r5/r5_s.pdf"
+                            class="text-blue-600 hover:underline"
+                            >資金収支計算書</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/r5/r5_z.pdf"
+                            class="text-blue-600 hover:underline">財産目録</a
+                        >
+                    </li>
+                </ul>
+            </div>
+            <div class="p-4">
+                <ServicesH>令和4年度</ServicesH>
+                <ul class="mb-12 flex items-center justify-center space-x-4">
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/r4/r4_t.pdf"
+                            class="text-blue-600 hover:underline">貸借対照表</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/r4/r4_j.pdf"
+                            class="text-blue-600 hover:underline"
+                            >事業活動計算書</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/r4/r4_s.pdf"
+                            class="text-blue-600 hover:underline"
+                            >資金収支計算書</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/r4/r4_z.pdf"
+                            class="text-blue-600 hover:underline">財産目録</a
+                        >
+                    </li>
+                </ul>
+            </div>
+            <div class="p-4">
+                <ServicesH>令和3年度</ServicesH>
+                <ul class="mb-12 flex items-center justify-center space-x-4">
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/r3/r3_t.pdf"
+                            class="text-blue-600 hover:underline">貸借対照表</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/r3/r3_j.pdf"
+                            class="text-blue-600 hover:underline"
+                            >事業活動計算書</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/r3/r3_s.pdf"
+                            class="text-blue-600 hover:underline"
+                            >資金収支計算書</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/r3/r3_z.pdf"
+                            class="text-blue-600 hover:underline">財産目録</a
+                        >
+                    </li>
+                </ul>
+            </div>
+            <div class="p-4">
+                <ServicesH>令和2年度</ServicesH>
+                <ul class="mb-12 flex items-center justify-center space-x-4">
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/r2/r2_t.pdf"
+                            class="text-blue-600 hover:underline">貸借対照表</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/r2/r2_j.pdf"
+                            class="text-blue-600 hover:underline"
+                            >事業活動計算書</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/r2/r2_s.pdf"
+                            class="text-blue-600 hover:underline"
+                            >資金収支計算書</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/r2/r2_z.pdf"
+                            class="text-blue-600 hover:underline">財産目録</a
+                        >
+                    </li>
+                </ul>
+            </div>
+            <div class="p-4">
+                <ServicesH>令和元年度</ServicesH>
+                <ul class="mb-12 flex items-center justify-center space-x-4">
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/r1/r1_t.pdf"
+                            class="text-blue-600 hover:underline">貸借対照表</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/r1/r1_j.pdf"
+                            class="text-blue-600 hover:underline"
+                            >事業活動計算書</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/r1/r1_s.pdf"
+                            class="text-blue-600 hover:underline"
+                            >資金収支計算書</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/r1/r1_z.pdf"
+                            class="text-blue-600 hover:underline">財産目録</a
+                        >
+                    </li>
+                </ul>
+            </div>
+            <div class="p-4">
+                <ServicesH>平成30年度</ServicesH>
+                <ul class="mb-12 flex items-center justify-center space-x-4">
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h30/h30_t.pdf"
+                            class="text-blue-600 hover:underline">貸借対照表</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h30/h30_j.pdf"
+                            class="text-blue-600 hover:underline"
+                            >事業活動計算書</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h30/h30_s.pdf"
+                            class="text-blue-600 hover:underline"
+                            >資金収支計算書</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h30/h30_z.pdf"
+                            class="text-blue-600 hover:underline">財産目録</a
+                        >
+                    </li>
+                </ul>
+            </div>
+            <div class="p-4">
+                <ServicesH>平成29年度</ServicesH>
+                <ul class="mb-12 flex items-center justify-center space-x-4">
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h29/h29_t.pdf"
+                            class="text-blue-600 hover:underline">貸借対照表</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h29/h29_j.pdf"
+                            class="text-blue-600 hover:underline"
+                            >事業活動計算書</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h29/h29_s.pdf"
+                            class="text-blue-600 hover:underline"
+                            >資金収支計算書</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h29/h29_z.pdf"
+                            class="text-blue-600 hover:underline">財産目録</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h29/h29_h.pdf"
+                            class="text-blue-600 hover:underline"
+                            >法人全体（計算書類注記）</a
+                        >
+                    </li>
+                </ul>
+            </div>
+            <div class="p-4">
+                <ServicesH>平成28年度</ServicesH>
+                <ul class="mb-12 flex items-center justify-center space-x-4">
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h28/h28_t.pdf"
+                            class="text-blue-600 hover:underline">貸借対照表</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h28/h28_j.pdf"
+                            class="text-blue-600 hover:underline"
+                            >事業活動計算書</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h28/h28_s.pdf"
+                            class="text-blue-600 hover:underline"
+                            >資金収支計算書</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h28/h28_z.pdf"
+                            class="text-blue-600 hover:underline">財産目録</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h28/h28_h.pdf"
+                            class="text-blue-600 hover:underline"
+                            >法人全体（計算書類注記）</a
+                        >
+                    </li>
+                </ul>
+            </div>
+            <div class="p-4">
+                <ServicesH>平成27年度</ServicesH>
+                <ul class="mb-12 flex items-center justify-center space-x-4">
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h27/balance_sheet_h27.pdf"
+                            class="text-blue-600 hover:underline">貸借対照表</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h27/katsudokeisan_h27.pdf"
+                            class="text-blue-600 hover:underline"
+                            >事業活動計算書</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h27/shikinsyuusikeisansyo_h27.pdf"
+                            class="text-blue-600 hover:underline"
+                            >資金収支計算書</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h27/zaisanmokuroku_h27.pdf"
+                            class="text-blue-600 hover:underline">財産目録</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h27/business_report_h27.pdf"
+                            class="text-blue-600 hover:underline">事業報告書</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h27/soukatuhyo.pdf"
+                            class="text-blue-600 hover:underline">総括表</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h27/genkyo_h27.pdf"
+                            class="text-blue-600 hover:underline">現況報告書</a
+                        >
+                    </li>
+                </ul>
+            </div>
+            <div class="p-4">
+                <ServicesH>平成26年度</ServicesH>
+                <ul class="mb-12 flex items-center justify-center space-x-4">
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h26/20150625-091517.pdf"
+                            class="text-blue-600 hover:underline">貸借対照表</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h26/20150625-091555.pdf"
+                            class="text-blue-600 hover:underline"
+                            >事業活動計算書</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h26/20150625-091644.pdf"
+                            class="text-blue-600 hover:underline"
+                            >資金収支計算書</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h26/20150625-091724.pdf"
+                            class="text-blue-600 hover:underline">財産目録</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h26/20150625-091811.pdf"
+                            class="text-blue-600 hover:underline"
+                            >現況報告書・総括表様式(共通)</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="content/files/asunaro/kessan/h26/business_report_h26.pdf"
+                            class="text-blue-600 hover:underline">事業報告書</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</AboutLayout>

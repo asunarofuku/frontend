@@ -1,0 +1,49 @@
+---
+import Activities from "../../../components/Activities.astro";
+import ServicesH from "../../../components/ServicesH.astro";
+import type { TocItem } from "../../../components/TableOfContents.astro";
+import TamaribaLayout from "../../../layouts/services/TamaribaLayout.astro";
+const crumbs = [
+    {
+        text: "ホーム",
+        href: "/",
+    },
+    {
+        text: "たまりば",
+        href: "./",
+    },
+    {
+        text: "事業報告",
+    },
+];
+const informations = [
+    {
+        date: "H29年",
+        title: "H29年",
+        imagePath: "/services/tamariba/business_report/h29.jpg",
+        imageAlt: "H29年",
+        url: "/services/tamariba/business_report/h29.pdf",
+    },
+];
+const tocItems: TocItem[] = [
+    {
+        title: "アーカイブ",
+        link: "#archive",
+    },
+];
+---
+
+<TamaribaLayout
+title="事業報告",
+title_en="岡山市委託事業 たまりば"
+tocItems={null}
+crumbs={crumbs}
+>
+    <div class="container mx-auto">
+        <section class="mb-24" id="archive">
+            <ServicesH>アーカイブ</ServicesH>
+
+            <Activities items={informations} />
+        </section>
+    </div>
+</TamaribaLayout>

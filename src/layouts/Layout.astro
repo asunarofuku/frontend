@@ -1,0 +1,92 @@
+---
+import { SITE_TITLE } from "../components/site";
+import BaseHead from "./BaseHead.astro";
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<html lang="ja">
+	<head>
+		<BaseHead
+			title={`${title} | ${SITE_TITLE}`}
+			description={description}
+		/>
+	</head>
+	<body>
+		<div class="grid grid-rows-[auto_1fr_auto] grid-cols-1 min-h-screen">
+			<slot />
+		</div>
+		<script>
+			{
+				/* スライドアニメーション */
+			}
+
+			document.addEventListener("DOMContentLoaded", () => {
+				handleScrollIn();
+			});
+
+			const handleScrollIn = () => {
+				const targets = document.querySelectorAll(".js-scrollIn");
+
+				const options = {
+					root: null,
+					rootMargin: "-20% 0px",
+					threshold: [0],
+				};
+
+				const callback = (
+					entries: any[],
+					observer: { unobserve: (arg0: any) => void },
+				) => {
+					entries.forEach(
+						(entry: {
+							isIntersecting: any;
+							target: {
+								classList: { add: (arg0: string) => void };
+							};
+						}) => {
+							if (entry.isIntersecting) {
+								entry.target.classList.add("active");
+								observer.unobserve(entry.target);
+							}
+						},
+					);
+				};
+
+				const observer = new IntersectionObserver(callback, options);
+				targets.forEach((target) => {
+					observer.observe(target);
+				});
+			};
+		</script>
+		<script>
+			{
+				/* スライドショー */
+			}
+			const swiper = new Swiper(".swiper", {
+				effect: "fade",
+				fadeEffect: {
+					crossFade: true,
+				},
+				loop: true,
+				loopAdditionalSlides: 1,
+				speed: 2000,
+				autoplay: {
+					delay: 7000,
+					disableOnInteraction: false,
+					waitForTransition: false,
+				},
+				followFinger: false,
+				pagination: {
+					el: ".swiper-pagination",
+					clickable: true,
+				},
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,86 @@
+---
+import Activities from "../../../components/Activities.astro";
+import ServicesH from "../../../components/ServicesH.astro";
+import type { TocItem } from "../../../components/TableOfContents.astro";
+import JscaLayout from "../../../layouts/services/JscaLayout.astro";
+
+const crumbs = [
+  {
+    text: "ホーム",
+    href: "/",
+  },
+  {
+    text: "JSCA",
+    href: "./",
+  },  {
+    text: "IPS情報",
+  },
+];
+
+const informations = [
+    {
+        date: "2013年",
+        title: "2013年度 IPSフィディリティー調査報告",
+        imagePath: "/services/jsca/ips/jsca_f_2013.jpg",
+        imageAlt: "2013年度 IPSフィディリティー調査報告",
+        url: "/services/jsca/ips/jsca_f_2013.pdf",
+    },
+    {
+        date: "2015年",
+        title: "2015年度 IPSフィディリティー調査報告",
+        imagePath: "/services/jsca/ips/jsca_f_2015.jpg",
+        imageAlt: "2015年度 IPSフィディリティー調査報告",
+        url: "/services/jsca/ips/jsca_f_2015.pdf",
+    },
+    {
+        date: "2017年",
+        title: "2017年度 IPSフィディリティー調査報告",
+        imagePath: "/services/jsca/ips/jsca_f_2017.jpg",
+        imageAlt: "2017年度 IPSフィディリティー調査報告",
+        url: "/services/jsca/ips/jsca_f_2017.pdf",
+    },
+
+    {
+        date: "2021年",
+        title: "2021年度 IPSフィディリティー調査報告",
+        imagePath: "/services/jsca/ips/jsca_f_2021.jpg",
+        imageAlt: "2021年度 IPSフィディリティー調査報告",
+        url: "/services/jsca/ips/jsca_f_2021.pdf",
+    },
+    {
+        date: "2023年",
+        title: "2023年度 IPSフィディリティー調査報告",
+        imagePath: "/services/jsca/ips/jsca_f_2023.jpg",
+        imageAlt: "2023年度 IPSフィディリティー調査報告",
+        url: "/services/jsca/ips/jsca_f_2023.pdf",
+    },
+    {
+        date: "",
+        title: "リカバリーとIPS",
+        imagePath: "/services/jsca/ips/recoveryandips.jpg",
+        imageAlt: "リカバリーとIPS",
+        url: "/services/jsca/ips/recoveryandips.pdf",
+    },
+];
+const tocItems: TocItem[] = [
+    {
+        title: "アーカイブ",
+        link: "#archive",
+    },
+];
+---
+
+<JscaLayout
+    tocItems={null}
+    title_en="多機能型事業所 JSCA(Job Support Center ASUNAR)"
+    title="IPS情報 "
+    crumbs={crumbs}
+  >
+    <div class="container mx-auto">
+        <section class="mb-24" id="archive">
+            <ServicesH>アーカイブ</ServicesH>
+
+            <Activities items={informations} />
+        </section>
+    </div>
+</JscaLayout>

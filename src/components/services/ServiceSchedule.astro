@@ -1,0 +1,53 @@
+---
+import ServicesSub from "../ServicesSub.astro";
+import { REST_API_SCHEDULES_URL } from "../site";
+
+let responseSchedule = await fetch(`${REST_API_SCHEDULES_URL}`);
+if (!responseSchedule.ok) {
+    throw new Error(`HTTP error! status: ${responseSchedule.status}`);
+}
+
+let schedulesJson = await responseSchedule.json();
+
+const currentSchedules = {
+    JSCA: schedulesJson.jsca[0],
+    MOMO: schedulesJson.momo[0],
+    クローバー: schedulesJson.clover[0],
+    "ぱる・おかやま": schedulesJson.palokayama[0],
+    たまりば: schedulesJson.tamariba[0],
+};
+const previousSchedules = {
+    JSCA: schedulesJson.jsca[1],
+    MOMO: schedulesJson.momo[1],
+    クローバー: schedulesJson.clover[1],
+    "ぱる・おかやま": schedulesJson.palokayama[1],
+    たまりば: schedulesJson.tamariba[1],
+};
+
+type ScheduleKey = keyof typeof currentSchedules;
+
+interface Props {
+    name: ScheduleKey;
+}
+
+const { name } = Astro.props;
+---
+
+<div class="grid grid-cols-2 gap-12">
+    <div>
+        <ServicesSub>{currentSchedules[name]?.date}</ServicesSub>
+        <a href={currentSchedules[name]?.file.url}>
+            <div class="p-2 bg-[var(--secondary-color)]">
+                <img src={currentSchedules[name]?.file.thumb.url} />
+            </div>
+        </a>
+    </div>
+    <div>
+        <ServicesSub>{previousSchedules[name]?.date}</ServicesSub>
+        <a href={previousSchedules[name]?.file.url}>
+            <div class="p-2 bg-[var(--secondary-color)]">
+                <img src={previousSchedules[name]?.file.thumb.url} />
+            </div>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,218 @@
+---
+import Access from "../../../components/Access.astro";
+import Activities from "../../../components/Activities.astro";
+import ServiceSchedule from "../../../components/services/ServiceSchedule.astro";
+import ServicesH from "../../../components/ServicesH.astro";
+import ServicesSub from "../../../components/ServicesSub.astro";
+import ServicesTopic from "../../../components/ServicesTopic.astro";
+import type { TocItem } from "../../../components/TableOfContents.astro";
+import TamaribaLayout from "../../../layouts/services/TamaribaLayout.astro";
+const crumbs = [
+    {
+        text: "ホーム",
+        href: "/",
+    },
+    {
+        text: "たまりば",
+    },
+];
+const activities = [
+    {
+        date: "",
+        title: "事業報告",
+        imagePath: "/icons/dir.svg",
+        url: "/services/tamariba/business_report",
+    },
+];
+
+const informations = [
+    {
+        date: "",
+        title: "たまりば研修",
+        imagePath: "/icons/dir.svg",
+        url: "/services/tamariba/tamariba_training",
+    },
+    {
+        date: "",
+        title: "パンフレット",
+        imagePath: "/icons/pdf.svg",
+        url: "/services/tamariba/tamariba_2024.pdf",
+    },
+];
+
+const addresses = [
+    {
+        postalCode: "703-0822",
+        address: "岡山県岡山市北区表町3-7-27 /２階 （ぱる・おかやま内）",
+        fax: "（086）201-1713",
+        tel: "070-5306-4363",
+        email: "tamaribahataraku@gmail.com",
+    },
+];
+
+const tocItems: TocItem[] = [
+    {
+        title: "概要",
+        link: "#overview",
+    },
+    {
+        title: "事業内容",
+        link: "#service_content",
+    },
+    {
+        title: "活動紹介",
+        link: "#activities",
+    },
+    {
+        title: "情報",
+        link: "#informations",
+    },
+    {
+        title: "アクセス",
+        link: "#access",
+    },
+];
+---
+
+<TamaribaLayout
+    title="たまりば"
+    title_en="岡山市受託事業 "
+    tocItems={tocItems}
+    crumbs={crumbs}
+>
+    <div class="container mx-auto pt-12">
+        <section class="mb-24" id="overview">
+            <ServicesH>たまりば</ServicesH>
+            <div
+                class="leading-relaxed border border-[var(--secondary-color)] p-6 text-xl border-dashed border-8 rounded-3xl"
+            >
+                <section class="mb-6">
+                    <p>
+                        自分らしく働き続けるってどういうことだろう。<br />
+                        自分らしく過ごすことってムズカシイ・・・
+                    </p>
+
+                    <p>
+                        たまには、仕事のぐちの一つや二つ、こぼしたっていいよね。<br
+                        />
+                        仕事の失敗にへこんだり、手にした給料に喜んだり 「働く」ってナカナカタイヘンダ・・・
+                    </p>
+                    <p>
+                        「ただいま～」「おかえりなさい」<br />
+                        「いってきます」「いってらっしゃい」<br /> 「おつかれさま！」
+                    </p>
+                    <p>
+                        ふらっと立ち寄ってゆっくり過ごしたい。<br />
+                        仕事の悩み、これからのこと・・・<br />
+                        話を聞いてほしい。 働くみんなとつながりたい。
+                    </p>
+                    <p>
+                        あなたにとって また明日もがんばろう
+                        笑顔が広がる、元気がわき出る
+                        そんな場所になりますように・・・
+                    </p>
+                </section>
+                <section class="mb-6">
+                    <ServicesTopic>場所</ServicesTopic>
+                    場所 ぱる・おかやま（岡山市北区表町３－７－２７ ２階） 開所時間
+                    火曜日…午後５時～午後７時３０分 土曜日…午後２時～午後５時 対象者：一般就労している障害者で岡山市在住または岡山市内に勤務している方
+                    岡山市内在住の一般就労を目指している障害者で、面談により登録を認められた方
+                    利用のながれ 電話もしくは来所にてスタッフにご相談ください。 ※身体障害者手帳・療育手帳・精神障害者保健福祉手帳・医師の診断書（コピー可）等の所持が必要となります。
+                    面談の上、登録カードを発行します。 ※登録後は、予約なしで自由に利用できます。
+                    こんな目的の方が利用できます 働き続ける中で出てくる悩みや困りごとの相談にのってほしい。
+                    居場所が欲しい。働く仲間同士つながりたい。余暇を楽しみたい。
+                    どんなところ？ スタッフが常駐しているので、気軽に相談することができます。
+                    ゆっくりできるフリースペースで、思いのままに過ごせます。 時間内であれば、いつ来ても帰ってもOK。
+                    職場でのコミュニケーションの取り方や、自分が元気でいるために自分で出来ることを考えるグループワークを企画します。
+                </section>
+                <section class="mb-6">
+                    <h3 class="py-4 text-2xl">利用のながれ</h3>
+                    <p>
+                        電話もしくは来所にてスタッフにご相談ください。<br />
+                        ※身体障害者手帳・療育手帳・精神障害者保健福祉手帳・医師の診断書（コピー可）等の所持が必要となります。
+                    </p>
+                    <p>
+                        面談の上、登録カードを発行します。<br />
+                        ※登録後は、予約なしで自由に利用できます。
+                    </p>
+                </section>
+                <section class="mb-6">
+                    <h3 class="py-4 text-2xl">こんな目的の方が利用できます</h3>
+                    <p>
+                        働き続ける中で出てくる悩みや困りごとの相談にのってほしい。
+                    </p>
+                    <p>
+                        居場所が欲しい。働く仲間同士つながりたい。余暇を楽しみたい。
+                    </p>
+                </section>
+                <section class="mb-6">
+                    <h3 class="py-4 text-2xl">どんなところ？</h3>
+
+                    <p>
+                        スタッフが常駐しているので、気軽に相談することができます。
+                    </p>
+                    <p>
+                        ゆっくりできるフリースペースで、思いのままに過ごせます。
+                    </p>
+                    <p>時間内であれば、いつ来ても帰ってもOK。</p>
+                    <p>
+                        職場でのコミュニケーションの取り方や、自分が元気でいるために自分で出来ることを考えるグループワークを企画します。
+                    </p>
+                </section>
+            </div>
+        </section>
+        <section class="mb-24" id="schedule">
+            <ServicesH>スケジュール</ServicesH>
+            <ServiceSchedule name="たまりば" />
+        </section>
+        <section class="mb-24" id="service_content">
+            <ServicesH>事業内容・作業内容</ServicesH>
+            <section class="mb-6">
+                <ServicesSub>相談支援</ServicesSub>
+                <p>
+                    ・就労継続に関する個別相談の実施（職場での人間関係、業務上の困りごとなど）
+                </p>
+                <p>・常駐スタッフによる随時相談対応</p>
+            </section>
+            <section class="mb-6">
+                <ServicesSub>居場所・交流支援</ServicesSub>
+                <p>・フリースペースの開放（出入り自由）</p>
+                <p>・利用者同士の交流機会の提供</p>
+                <p>・余暇活動の支援・企画</p>
+            </section>
+            <section class="mb-6">
+                <ServicesSub>グループワーク</ServicesSub>
+                <p>・職場コミュニケーションスキル向上プログラムの実施</p>
+                <p>・セルフケア・ストレスマネジメント講座の開催</p>
+                <p>・当事者同士での経験共有・学び合いの場の提供</p>
+            </section>
+            <section class="mb-6">
+                <ServicesSub>利用について</ServicesSub>
+                <p>・開所時間内は自由に利用可能</p>
+                <p>・予約不要で気軽に立ち寄れる環境を整備</p>
+                <p>・利用者のペースに合わせた柔軟な対応</p>
+            </section>
+            <p>
+                ・上記のサービスを通じて、働く方々の心身の健康維持と職場定着を支援いたします。
+            </p>
+        </section>
+
+        <section class="mb-24" id="activities">
+            <ServicesH>活動紹介</ServicesH>
+            <Activities items={activities} />
+        </section>
+
+        <section class="mb-24" id="informations">
+            <ServicesH>情報</ServicesH>
+            <Activities items={informations} />
+        </section>
+
+        <section class="mb-24" id="access">
+            <ServicesH>アクセス</ServicesH>
+            <Access
+                addresses={addresses}
+                mapUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.8260000119294!2d133.92674341183445!3d34.65909698533026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355406349fc6b48f%3A0xd08a837380cca7cc!2z44CSNzAwLTA4MjIg5bKh5bGx55yM5bKh5bGx5biC5YyX5Yy66KGo55S677yT5LiB55uu77yX4oiS77yS77yXIOWyoeadkeWVhuS6i-ihqOeUuuODk-ODqw!5e0!3m2!1sja!2sjp!4v1729849138691!5m2!1sja!2sjp"
+            />
+        </section>
+    </div>
+</TamaribaLayout>

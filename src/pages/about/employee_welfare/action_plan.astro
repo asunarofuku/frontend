@@ -1,0 +1,83 @@
+---
+import ServicesH from "../../../components/ServicesH.astro";
+import type { TocItem } from "../../../components/TableOfContents.astro";
+import AboutLayout from "../../../layouts/about/AboutLayout.astro";
+
+const crumbs = [
+  {
+    text: "ホーム",
+    href: "/",
+  },
+  {
+    text: "法人について",
+    href: "../",
+  },
+  {
+    text: "従業員福祉への取り組み",
+    href: "./",
+  },
+  {
+    text: "一般事業主行動計画",
+  },
+];
+---
+
+<AboutLayout title="一般事業主行動計画" description="一般事業主行動計画の内容です。" , tocItems={null} crumbs={crumbs}>
+  <div class="container mx-auto">
+    <section class="mb-24" id="archive">
+      <ServicesH>行　動　計　画</ServicesH>
+
+      <div class="p-4 bg-gray-50 rounded-lg">
+        <p class="text-lg font-semibold mb-4">
+          職員が仕事と子育てを両立することができ、職員全員が働きやすい環境をつくることによって、すべての職員がその能力を十分に発揮できるようにするため、次のように行動計画を策定する。
+        </p>
+
+        <div class="space-y-4">
+          <div>
+            <p class="font-bold">1. 計画期間</p>
+            <p class="pl-4">平成27年7月1日から平成30年6月30日までの3年間</p>
+          </div>
+
+          <div>
+            <p class="font-bold">2. 内容</p>
+
+            <div class="pl-4">
+              <p class="font-semibold">
+                目標1：法に基づく育児休業、育児休業給付、産前産後休業など諸制度の周知
+              </p>
+              <div class="pl-4 space-y-2">
+                <p class="font-medium">＜対策＞</p>
+                <ul class="list-disc list-inside">
+                  <li>
+                    平成27年7月～　育児介護休業・産前産後休業についての資料作成
+                  </li>
+                  <li>平成27年9月～　資料をもとに職員への周知を行う</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="pl-4 mt-4">
+              <p class="font-semibold">
+                目標2：育児休業を取得しやすく、職場復帰しやすい環境の整備
+              </p>
+              <div class="pl-4 space-y-2">
+                <p class="font-medium">＜対策＞</p>
+                <ul class="list-disc list-inside">
+                  <li>
+                    平成27年7月～　育児休業を取得する労働者に対して休業中の待遇、復帰後の労働条件について周知する
+                  </li>
+                  <li>
+                    平成27年7月～　育児休業中の労働者に対して能力向上のための情報提供を行う
+                  </li>
+                  <li>
+                    平成27年9月～　育児休業後の労働者が復帰しやすい環境の整備を行う
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</AboutLayout>

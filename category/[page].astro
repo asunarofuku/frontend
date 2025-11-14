@@ -1,0 +1,89 @@
+---
+export const prerender = false;
+import { POSTS_PAGE_PER_PAGE, REST_API_URL } from "../../../components/site";
+import Paginate from "../../../components/posts/Paginate.astro";
+import PostsLayout from "../../../layouts/posts/PostsLayout.astro";
+import { formatDateToJapanese } from "../../../components/functions";
+import PostsItems from "../../../components/posts/PostsItems.astro";
+
+type Post = {
+    id: number;
+    title: {
+        rendered: string;
+    };
+};
+
+// カテゴリーを取得して表示する関数
+async function fetchCategories() {
+    const response = await fetch(`${REST_API_URL}categories`);
+    if (!response.ok) {
+        throw new Error("ネットワークの応答が正常ではありません");
+    }
+    const categories = await response.json();
+    return categories;
+}
+
+const categories = await fetchCategories();
+
+const { page } = Astro.params;
+
+const res = await fetch(
+    `${REST_API_URL}posts?page=${page}&_embed&per_page=${POSTS_PAGE_PER_PAGE}`,
+);
+const posts = (await res.json()) as Post[];
+const totalCount = res.headers.get("x-wp-totalpages") as string;
+const pages: number[] = Array(+totalCount)
+    .fill(null)
+    .map((_, i) => i + 1);
+
+const crumbs = [
+    {
+        text: "ホーム",
+        href: "/",
+    },
+    {
+        text: `お知らせ一覧`,
+    },
+];
+---
+
+<PostsLayout
+    title={`お知らせ一覧 ${page}ページ目`}
+    subTitle="お知らせ一覧"
+    description="お知らせ一覧"
+    tocItems={null}
+    crumbs={crumbs}
+>
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-10">
+            <div class="col-span-2">
+                <h2 class="text-sm font-bold mb-6">カテゴリー</h2>
+                <ul class="space-y-3 ml-3">
+                    {
+                        categories.map((cat: { id: any; name: unknown }) => {
+                            return (
+                                <li>
+                                    <a href={`/posts/category/${cat.id}/1`}>
+                                        {cat.name}
+                                    </a>
+                                </li>
+                            );
+                        })
+                    }
+                </ul>
+            </div>
+
+            <div class="col-span-8">
+                <PostsItems posts={posts} />
+            </div>
+        </div>
+
+        <div class="flex items-center justify-center mb-12">
+            <Paginate
+                pages={pages}
+                currentPage={Number(page)}
+                basePath="/posts/category/"
+            />
+        </div>
+    </div>
+</PostsLayout>

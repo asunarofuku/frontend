@@ -1,0 +1,125 @@
+---
+import H from "./H.astro";
+import { Image } from "astro:assets";
+import a1 from "../../assets/a1.png";
+import a2 from "../../assets/a2.png";
+import a3 from "../../assets/a3.png";
+const items = [
+    {
+        title: "住みたい地域で安心して暮らすことができ、生きがいを感じられる生活の場づくり ",
+        imagePath: "https://picsum.photos/250/150?random=21",
+        imageAlt: "クローバー",
+    },
+    {
+        title: "自分らしさが尊重され、 人としての誇りと自信を取り戻せる居場所づくり",
+        imagePath: "https://picsum.photos/250/150?random=22",
+        imageAlt: "クローバー",
+    },
+    {
+        title: "温かさ・優しさ・人としての絆を 大切にした、誰もが生き生きと 暮らすことができる地域づくり",
+        imagePath: "https://picsum.photos/250/150?random=23",
+        imageAlt: "クローバー",
+    },
+];
+---
+
+<div class="py-24 bg-[#f1ecda]">
+    <div class="container mx-auto mb-12">
+        <H>
+            <Fragment slot="title_en">ASUNARO</Fragment>
+            <Fragment slot="title">あすなろ福祉会</Fragment>
+        </H>
+        <p class="text-center">あすなろ福祉会の理念についてご紹介します。</p>
+    </div>
+    <section class="container mx-auto mb-24">
+        <h2
+            class="pb-6 text-3xl mb-6 top-0 left-0 underline-offset-8 underline text-[#234B6A]"
+        >
+            あすなろ福祉会が目指すもの
+        </h2>
+
+        <div class="bg-white py-12 js-scrollIn rounded-xl">
+            <ul class="grid grid-cols-3 divide-x divide-gray-300">
+                <li class="grid-item px-6">
+                    <div class="flex flex-col items-center">
+                        <Image
+                            class="mb-6 w-[250px] h-[150px]"
+                            src={a2}
+                            alt="住みたい地域で安心して暮らすことができ、生きがいを感じられる生活の場づくり"
+                        />
+                        <div class="first-letter:text-2xl">
+                            住みたい地域で安心して暮らすことができ、生きがいを感じられる生活の場づくり
+                        </div>
+                    </div>
+                </li>
+                <li class="grid-item px-6">
+                    <div class="flex flex-col items-center">
+                        <Image
+                            class="mb-6 w-[250px] h-[150px]"
+                            src={a1}
+                            alt="自分らしさが尊重され、 人としての誇りと自信を取り戻せる居場所づくり"
+                        />
+                        <div class="first-letter:text-2xl">
+                            自分らしさが尊重され、
+                            人としての誇りと自信を取り戻せる居場所づくり
+                        </div>
+                    </div>
+                </li>
+                <li class="grid-item px-6">
+                    <div class="flex flex-col items-center">
+                        <Image
+                            class="mb-6 w-[250px] h-[150px]"
+                            src={a3}
+                            alt="温かさ・優しさ・人としての絆を 大切にした、誰もが生き生きと 暮らすことができる地域づくり"
+                        />
+                        <div class="first-letter:text-2xl">
+                            温かさ・優しさ・人としての絆を
+                            大切にした、誰もが生き生きと
+                            暮らすことができる地域づくり
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="container mx-auto mb-12">
+        <h2
+            class="pb-6 text-3xl mb-6 underline-offset-8 underline text-[#234B6A]"
+        >
+            あすなろ福祉会のキーワード
+        </h2>
+        <div class="bg-white p-6 js-scrollIn rounded-xl">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="flex flex-col justify-center">
+                    <h2
+                        class="py-20 text-4xl m_plus_1_300 leading-10 underline underline-offset-8 decoration-5 decoration-white"
+                    >
+                        <span class="m_plus_1_300">“</span><spa
+                            ><ruby
+                                >Recovery<rt class="mincho">リカバリー</rt
+                                ></ruby
+                            > & <ruby
+                                >Support<rt class="mincho">サポート</rt></ruby
+                            > & <ruby>Hope<rt class="mincho">ホープ</rt></ruby
+                            ></spa
+                        >
+                        <span class="m_plus_1_300">”</span>
+                    </h2>
+                    <p class="leading-10 mincho">
+                        精神障がいのある方が、 人としての誇りと自信を回復し、 <br
+                        />
+                        何よりも自分の希望・要求・意思に基づいて、人に気兼ねすることなく、臆することなく、
+                        <br />
+                        自分らしい人生を歩んでいけるよう 私たちはサポートします。
+                    </p>
+                </div>
+                <div class="flex justify-end">
+                    <img
+                        src="https://picsum.photos/500/500?random=30"
+                        class="object-cover w-[500px] h-[400px]"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,91 @@
+---
+import Activities from "../../../components/Activities.astro";
+import ServicesH from "../../../components/ServicesH.astro";
+import type { TocItem } from "../../../components/TableOfContents.astro";
+import AboutLayout from "../../../layouts/about/AboutLayout.astro";
+
+
+const crumbs = [
+  {
+    text: "ホーム",
+    href: "/",
+  },
+  {
+    text: "法人について",
+    href: "../",
+ },
+  {
+    text: "日本財団助成事業",
+  },
+];
+const certificates = [
+    {
+        title: "感謝状",
+        imagePath: "/about/nippon_foundation/20180501.jpg",
+        url: "/about/nippon_foundation/20180501.pdf",
+    },
+];
+const charity = [
+    {
+        title: "2019年",
+        imagePath: "/about/nippon_foundation/20190426.jpg",
+        url: "/about/nippon_foundation/20190426.pdf",
+    },
+    {
+        title: "2020年",
+        imagePath: "/about/nippon_foundation/20200410.jpg",
+        url: "/about/nippon_foundation/20200410.pdf",
+    },
+    {
+        title: "2021年",
+        imagePath: "/about/nippon_foundation/20210409.jpg",
+        url: "/about/nippon_foundation/20210409.pdf",
+    },
+    {
+        title: "2022年",
+        imagePath: "/about/nippon_foundation/20220415.jpg",
+        url: "/about/nippon_foundation/20220415.pdf",
+    },
+];
+
+const recovery_college = [
+    {
+        title: "2018年",
+        imagePath: "/icons/dir.svg",
+        url: "/about/nippon_foundation/recovery_college/2018",
+    },
+    {
+        title: "2019年",
+        imagePath: "/icons/dir.svg",
+        url: "/about/nippon_foundation/recovery_college/2019",
+    },
+    {
+        title: "2020-21年",
+        imagePath: "/icons/dir.svg",
+        url: "/about/nippon_foundation/recovery_college/2020-21",
+    },
+];
+---
+
+<AboutLayout title="日本財団助成事業" description="日本財団助成事業のアーカイブ一覧です。" tocItems={null} crumbs={crumbs}>
+    <div class="container mx-auto">
+        <div class="flex justify-end">
+        <a href="https://www.nippon-foundation.or.jp/"><img class="w-32" src="/about/nippon_foundation/nippon_foundation.png"/></a>
+        </div>
+        <section class="mb-24" id="certificates">
+            <ServicesH>表彰状</ServicesH>
+
+            <Activities items={certificates} />
+        </section>
+        <section class="mb-24" id="charity">
+            <ServicesH>チャリティー自販機</ServicesH>
+
+            <Activities items={charity} />
+        </section>
+        <section class="mb-24" id="recovery_college">
+            <ServicesH>リカバリーカレッジ</ServicesH>
+
+            <Activities items={recovery_college} />
+        </section>
+    </div>
+</AboutLayout>

@@ -1,0 +1,72 @@
+---
+import Paginate from "../../../../components/posts/Paginate.astro";
+import PostsItems from "../../../../components/posts/PostsItems.astro";
+import { POSTS_PAGE_PER_PAGE, REST_API_URL } from "../../../../components/site";
+import PostsLayout from "../../../../layouts/posts/PostsLayout.astro";
+
+export const prerender = false;
+
+// カテゴリーを取得して表示する関数
+async function fetchCategoryName(id: any) {
+    const response = await fetch(`${REST_API_URL}categories/${id}`);
+    if (!response.ok) {
+        throw new Error("ネットワークの応答が正常ではありません");
+    }
+    const categories = await response.json();
+    return categories;
+}
+
+const { id, page } = Astro.params;
+
+const categoryName = await fetchCategoryName(id);
+
+type Post = {
+    id: number;
+    title: {
+        rendered: string;
+    };
+};
+
+const res = await fetch(
+    `${REST_API_URL}posts?categories=${id}&page=${page}&_embed&per_page=${POSTS_PAGE_PER_PAGE}`,
+);
+const posts = (await res.json()) as Post[];
+const totalCount = res.headers.get("x-wp-totalpages") as string;
+const pages: number[] = Array(+totalCount)
+    .fill(null)
+    .map((_, i) => i + 1);
+
+const crumbs = [
+    {
+        text: "ホーム",
+        href: "/",
+    },
+    {
+        text: "お知らせ一覧",
+        href: "/posts/category/1",
+    },
+    {
+        text: `「${categoryName.name}」`,
+    },
+];
+---
+
+<PostsLayout
+    title={`「${categoryName.name}」${page}ページ目 | お知らせ一覧`}
+    subTitle={`「${categoryName.name}」一覧`}
+    description="お知らせ一覧"
+    tocItems={null}
+    crumbs={crumbs}
+>
+    <div class="container mx-auto">
+        <PostsItems posts={posts} />
+
+        <div class="flex items-center justify-center mb-12">
+            <Paginate
+                pages={pages}
+                currentPage={Number(page)}
+                basePath=`/posts/category/${categoryName.id}/`
+            />
+        </div>
+    </div>
+</PostsLayout>

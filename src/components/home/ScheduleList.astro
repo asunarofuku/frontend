@@ -1,0 +1,81 @@
+---
+import { REST_API_SCHEDULES_URL, MANAGER_URL } from "../site";
+import GetSchedule from "./GetSchedule.astro";
+
+let responseSchedule = await fetch(`${REST_API_SCHEDULES_URL}`);
+if (!responseSchedule.ok) {
+    throw new Error(`HTTP error! status: ${responseSchedule.status}`);
+}
+
+let schedulesJson = await responseSchedule.json();
+
+---
+
+<div class="js-scrollIn grid md:grid-cols-4 grid-cols-3 gap-4 text-[#234B6A]">
+    {
+              <GetSchedule item={schedulesJson.jsca[0]} name="JSCA" />
+              <GetSchedule item={schedulesJson.momo[0]} name="MOMO" />
+              <GetSchedule item={schedulesJson.clover[0]} name="クローバー" />
+              <GetSchedule item={schedulesJson.palokayama[0]} name="ぱる・おかやま" />
+              <GetSchedule item={schedulesJson.tamariba[0]} name="たまりば" />
+
+    }
+</div>
+<!-- <div
+    x-cloak
+    x-data="{
+        error: null,
+        loading: true,
+        result: null,
+        items: [
+            { key: 'jsca', label: 'JSCA' },
+            { key: 'momo', label: 'MOMO' },
+            { key: 'clover', label: 'クローバー' },
+            { key: 'palokayama', label: 'ぱる・おかやま' },
+            { key: 'tamariba', label: 'たまりば' }
+        ]
+    }"
+    x-init="
+        fetch('https://wp.asunarofuku.jp/wp-json/asunarofuku_jp/v1/schedules')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('HTTP error ' + response.status);
+                }
+                return response.json();
+            })
+            .then(data => result = data)
+            .catch(e => error = e.message)
+            .finally(() => { loading = false; });
+    "
+>
+    <p x-show="loading">Loading...</p>
+    <p x-show="error" x-text="error"></p>
+    <div x-show="!loading && !error">
+        <div
+            class="js-scrollIn grid md:grid-cols-5 grid-cols-3 gap-0 text-[#234B6A]"
+        >
+            <template x-for="(item, index) in items" :key="item.key">
+                <div
+                    class="px-4"
+                    :class="{ 'border-r border-r-white': index !== items.length - 1 }"
+                >
+                    <a x-bind:href="result?.current?.[item.key]?.pdf">
+                        <div
+                            class="hover:bg-gray-100 flex flex-col items-center justify-center gap-4 p-4"
+                        >
+                            <img
+                                x-bind:src="result?.current?.[item.key]?.thumb"
+                                x-bind:alt="`${item.label} ${result?.current?.[item.key]?.title}`"
+                                x-show="result?.current?.[item.key]?.pdf"
+                            />
+                            <p
+                                x-text="`${item.label} ${result?.current?.[item.key]?.title}`"
+                            >
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </template>
+        </div>
+    </div>
+</div> -->

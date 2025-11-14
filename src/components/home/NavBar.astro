@@ -1,0 +1,85 @@
+---
+import astroLogo from "../assets/astro.svg";
+import background from "../assets/background.svg";
+import MobileMenu from "./MobileMenu.astro";
+import NavBarMenu from "./NavBarMenu.astro";
+
+const { isHome = false } = Astro.props;
+---
+
+<nav
+	x-data="{ mobileMenuIsOpen: false }"
+	@click.away="mobileMenuIsOpen = false"
+	class="flex items-center justify-between px-6 py-4 dark:border-neutral-700"
+	aria-label="ui menu"
+>
+	<!-- Brand Logo -->
+	<div>
+		<a
+			title="社会福祉法人あすなろ福祉会"
+			href="/"
+			class="flex flex-row justify-center items-center"
+		>
+			<img id="logo" class="w-[70px]" src="/logo.png" />
+			<div>
+				<div class="sm:text-[16px] mincho tracking-wider text-black">
+					社会福祉法人
+				</div>
+				<div
+					class="sm:text-[32px] text-[25px] mincho tracking-wider text-black"
+				>
+					あすなろ福祉会
+				</div>
+			</div>
+		</a>
+	</div>
+	<div class="flex gap-4">
+		<!-- <img src="./your-logo.svg" alt="brand logo" class="w-10" /> -->
+		<!-- Desktop Menu -->
+		{
+			isHome && (
+				<ul class="hidden md:flex items-center gap-4">
+					<NavBarMenu />
+				</ul>
+			)
+		}
+		<!-- Mobile Menu Button -->
+		<div class="w-24 h-24">
+			<button
+				@click="mobileMenuIsOpen = !mobileMenuIsOpen"
+				:aria-expanded="mobileMenuIsOpen"
+				type="button"
+				class="fixed rounded-full h-24 w-24 bg-[#234B6A] items-center justify-center space-y-3 flex z-20 flex-col items-center text-xs text-neutral-600 dark:text-neutral-300"
+				aria-label="mobile menu"
+				aria-controls="mobileMenu"
+			>
+				<span
+					class="block w-10 h-px bg-white transition-all duration-300"
+					:class="mobileMenuIsOpen ? '-rotate-45 translate-y-[13px]' : ''"
+				></span>
+				<span
+					class="block w-10 h-px bg-white transition-all duration-300"
+					:class="mobileMenuIsOpen ? 'opacity-0' : ''"></span>
+				<span
+					class="block w-10 h-px bg-white transition-all duration-300"
+					:class="mobileMenuIsOpen ? 'rotate-45 -translate-y-[13px]' : ''"
+				></span>
+			</button>
+		</div>
+	</div>
+
+	<!-- Mobile Menu -->
+	<MobileMenu />
+</nav>
+
+{
+	isHome && (
+		<nav>
+			<div class="container mx-auto">
+				<ul class="md:hidden flex items-center justify-center pb-4 sm:gap-4 gap-2 sm:text-base text-sm">
+					<NavBarMenu />
+				</ul>
+			</div>
+		</nav>
+	)
+}

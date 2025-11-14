@@ -1,0 +1,377 @@
+---
+import Activities from "../../components/Activities.astro";
+import Access from "../../components/Access.astro";
+import TableOfContents, {
+  type TocItem,
+} from "../../components/TableOfContents.astro";
+import ServicesH from "../../components/ServicesH.astro";
+import AboutLayout from "../../layouts/about/AboutLayout.astro";
+import { HONBU_ADDRESSES } from "../../components/site";
+
+const crumbs = [
+  {
+    text: "ホーム",
+    href: "/",
+  },
+  {
+    text: "法人について",
+  },
+];
+const activities = [
+  {
+    date: "2010年",
+    title: "デンマーク研修",
+    imagePath: "/icons/pdf.svg",
+    imageAlt: "デンマーク研修",
+    url: "/about/denmark_training_2010.pdf",
+  },
+  {
+    date: "2010年",
+    title: "社会福祉法人あすなろ福祉会の活動",
+    imagePath: "/icons/pdf.svg",
+    imageAlt: "社会福祉法人あすなろ福祉会の活動",
+    url: "/about/activity.pdf",
+  },
+
+  {
+    date: "",
+    title: "日本財団助成事業",
+    imagePath: "/about/nippon_foundation/nippon_foundation.png",
+    url: "/about/nippon_foundation",
+  }, // 必要な数だけ追加可能
+  {
+    date: "",
+    title: "パンフレット",
+    imagePath: "/icons/pdf.svg",
+    url: "/about/pamphlet_2022.pdf",
+  },
+];
+
+const informations = [
+  {
+    date: "",
+    title: "概要",
+    imagePath: "/icons/pdf.svg",
+    url: "/about/gaiyou2022.pdf",
+  },
+  {
+    date: "",
+    title: "決算書",
+    imagePath: "/icons/dir.svg",
+    url: "/about/kessan",
+  },  {
+    date: "",
+    title: "情報セキュリティポリシー",
+    imagePath: "/icons/file.svg",
+    url: "/about/security_policy",
+  },  {
+    date: "",
+    title: "定款",
+    imagePath: "/icons/pdf.svg",
+    url: "/about/art_r5_1_19.pdf",
+  },
+  {
+    date: "",
+    title: "従業員福祉への取り組み",
+    imagePath: "/icons/dir.svg",
+    url: "/about/employee_welfare",
+  },
+];
+
+
+const tocItems: TocItem[] = [
+  {
+    title: "概要",
+    link: "#overview",
+  },
+  {
+    title: "スケジュール",
+    link: "#schedule",
+  },
+  {
+    title: "事業内容",
+    link: "#service_content",
+  },
+  {
+    title: "活動紹介",
+    link: "#activities",
+  },
+  {
+    title: "情報",
+    link: "#informations",
+  },
+  {
+    title: "アクセス",
+    link: "#access",
+  },
+];
+
+const historyData = [
+  {
+    year: "平成7年",
+    month: "3月",
+    event: "社会福祉法人会 あすなろ福祉会 法人認可",
+  },
+  {
+    year: "平成7年",
+    month: "4月",
+    event: "精神障害者通所授産リサイクルせっけんセンター開所",
+  },
+  {
+    year: "平成8年",
+    month: "4月",
+    event: "精神障害者地域生活支援センターぱる・おかやま開設",
+  },
+  {
+    year: "平成9年",
+    month: "",
+    event: "小規模作業所（家族会設立）ぱるスペース MOMO 開所",
+  },
+  {
+    year: "平成9年",
+    month: "",
+    event: "グループホーム藤原荘開所 以後 3 箇所開設",
+  },
+  { year: "平成10年", month: "", event: "岡山市宇野学区盆踊り再興" },
+  {
+    year: "平成10年",
+    month: "",
+    event:
+      "第１回ぱる・おかやま杯ソフトボール大会開催（平成 16 年名称変更「もも太郎杯」）",
+  },
+  {
+    year: "平成12年",
+    month: "5月",
+    event:
+      "第１回調子はえーんじゃフェスティバル開催（当事者自ら企画運営する啓発活動）",
+  },
+  {
+    year: "平成12年",
+    month: "12月",
+    event: "小規模作業所クラブハウスビリーブ開設 〔平成 17 年閉所〕",
+  },
+  { year: "平成13年", month: "2月", event: "海外旅行（上海）" },
+  {
+    year: "平成14年",
+    month: "1月",
+    event: "第 2 回調子はえーんじゃフェスティバル開催",
+  },
+  {
+    year: "平成15年",
+    month: "9月",
+    event:
+      "第 11 回日本精神障害者リハビリテーション学会長崎大会（チャールズラップ氏講演：リカバリー・ストレングスの概念を職員が共有）",
+  },
+  {
+    year: "平成16年",
+    month: "2月",
+    event: "第 3 回調子はえーんじゃフェスティバル開催",
+  },
+  {
+    year: "平成16年",
+    month: "5月",
+    event: "ニュージーランド視察研修（当事者主体の支援、法人理念の確立）",
+  },
+  {
+    year: "平成17年",
+    month: "",
+    event: "アメリカ視察研修（IPS の考えを取り入れる）",
+  },
+  {
+    year: "平成17年",
+    month: "",
+    event: "ピアサポーターグループクローバー発足",
+  },
+  {
+    year: "平成17年",
+    month: "11月",
+    event:
+      "全国障害者スポーツ大会岡山大会（岡山国体） 精神障害者ソフトバレーボール競技 ぱる・おかやま全国 3 位入賞",
+  },
+  { year: "平成17年", month: "", event: "ぱる通信「100 号」発行" },
+  {
+    year: "平成18年",
+    month: "3月",
+    event: "法人設立 10 周年記念イベントを三木記念ホールにて開催",
+  },
+  {
+    year: "平成18年",
+    month: "4月",
+    event: "グループホーム事業を共同生活援助事業所あすなろに事業移行",
+  },
+  {
+    year: "平成18年",
+    month: "10月",
+    event:
+      "精神障害者地域生活支援センターぱる・おかやまを地域活動支援センターⅠ型・指定相談支援事業所へ事業移行",
+  },
+  {
+    year: "平成20年",
+    month: "4月",
+    event:
+      "精神障害者通所授産施設リサイクル石けんセンターと小規模通所授産施設ぱるスペースＭＯＭＯを多機能型事業所あすなろ（就労移行支援事業・就労継続支援Ｂ型事業）に事業移行",
+  },
+  { year: "平成21年", month: "9月", event: "イタリア視察研修" },
+  { year: "平成22年", month: "9月", event: "デンマーク視察研修" },
+  {
+    year: "平成24年",
+    month: "4月",
+    event: "ぱる・おかやま指定特定相談支援事業、指定一般相談支援事業開始",
+  },
+  {
+    year: "平成24年",
+    month: "",
+    event: "岡山県精神障害者ピアサポーター養成研修事業を岡山県より受託",
+  },
+  {
+    year: "平成25年",
+    month: "6月",
+    event: "就労移行支援事業 ＪＳＣＡ（ジョブサポートセンターあすなろ）開設",
+  },
+  {
+    year: "平成25年",
+    month: "3月",
+    event: "第 4 回調子はえーんじゃフェスティバル開催",
+  },
+  {
+    year: "平成26年",
+    month: "5月",
+    event: "ぱる・おかやま移転（中区国富⇒中区浜）",
+  },
+  {
+    year: "平成26年",
+    month: "",
+    event: "岡山市精神障害者ピアサポーター養成研修事業を岡山市より受託",
+  },
+  {
+    year: "平成26年",
+    month: "9月",
+    event:
+      "岡山市ひきこもり地域支援センター事業の一部を岡山市より受託ひきこもり支援センターあすなろ（あすてっぷ）業務開始",
+  },
+  { year: "平成26年", month: "", event: "ぱる通信「200 号」発行" },
+  {
+    year: "平成27年",
+    month: "3月",
+    event: "地域活動支援センターぱる・おかやま移転（中区浜⇒北区表町）",
+  },
+  {
+    year: "平成27年",
+    month: "6月",
+    event: "働く障害者のための交流拠点事業（たまり場）運営開始",
+  },
+  {
+    year: "平成27年",
+    month: "11月",
+    event: "第５回調子はえーんじゃフェスティバル開催",
+  },
+];
+---
+
+<AboutLayout title="法人について"  description="社会福祉法人あすなろ福祉会の法人情報です。"  tocItems={null} crumbs={crumbs}>
+  <div class="container mx-auto pt-12">
+    <section class="mb-24" id="greetings">
+      <ServicesH>理事長あいさつ</ServicesH>
+      <div class="leading-7 space-y-6" style=";">
+        <h3 class="text-3xl text-center font-bold mb-12">ごあいさつ</h3>
+
+        <p>
+          「障がいがあっても働きたい。誇りが持てる仕事がしたい」というメンバーの切なる願いに応えるため、自主製品である石けんの開発に取り組み、多くの市民の方々の賛同・協力を得て、平成７年「リサイクル石けんセンター」という、作業所から立ち上がった地域立地型の小規模な社会就労センターが誕生しました。
+          <br />
+
+          平成９年には、県内で初めて精神障害者地域生活支援センターとして認可され、「リサイクルせっけんセンター」に附置する形態で「ぱる・おかやま」の活動を始めました。
+          <br />
+
+          岡山は、医療を核として密度の高い精神保健福祉サービスが提供されている地域です。医療を背景とせず、入院機能も持たない社会就労センターや地域生活支援支援センターで、精神障がいのある方々が地域の一員として、あたりまえの生活を築くために何ができるのか、何を求められているのかを、試行錯誤しながら活動を続けてきました。
+          <br />
+          法人設立から２０年。これまで多くの方々の支えにより、節目の年を迎えることができました。スタッフ一同、心より感謝申し上げます。
+        </p>
+        <p>
+          あすなろ福祉会の目指してきた活動の使命は、「リカバリーを促進するサービスやコミュニティを作っていく」ことです。「リカバリー」とは、生活上の困難な状況から、自ら主体的に、新たな人生を構築していき、その人なりの生きがいや生活を取り戻していくことを意味しており、希望を持つというのは重要な要素です。
+        </p>
+        <p>
+          「働けなくても、飽きっぽくても、ほんの少ししか仕事ができなくっても、のみ込みが悪くっても、ぶつぶつ独語していても、ちょっとはずれたことを話しても、人付き合いが悪くっても・・・一人の人間、彼の人生は彼のもの」
+          <br />
+
+          法人設立時より私たちスタッフには、メンバーを障がい者として捉えて築く専門職業的対人関係ではなく、人として受け止め、人としての良さを「信じて・待つ」、関係性のあり方が問われていました。障がいのある仲間たちへのより深い理解とそして何よりリカバリーの可能性や希望を大切にした姿勢は、「あすなろらしさ(・・・)」として、今日まで大切に受け継がれています。
+        </p>
+        <p>
+          当法人はこれまで、通所授産施設、地域生活支援センター、クラブハウス、グループホームと、地域生活支援を充実させるための支援を充実させてきました。現在では時代の流れとニーズに合わせ、施設形態やサービス内容を変化させてきました。
+          <br />
+
+          これまでの活動において「リカバリー」を遂げた仲間たちは、次々に他の仲間たちの支えてとして「希望は伝染」していきました。リカバリーは一人でなされるものではなく、仲間と共に歩むことで、お互い影響を与えることができると実感しています。
+          <br />
+
+          「自分に誇りを持ち、自分らしく、自分自身の人生と自ら生きる希望を回復（リカバリー）し、勇気をもって初めの一歩を踏み出す」場と時間と支えの提供があすなろ福祉会の軸となる「サポート」です。
+        </p>
+        <p>
+          人と人のつながり、地域とのつながりに支えられ、多くの方々のお力添えにより、これまで活動を続けることができました。障がいのある仲間たちが、豊かで生きがいのある人生を送ることができるような社会を築いていけるよう、皆さんと共に様々な垣根を越えて、想いや信念を形にした活動を続けていきたいと思います。
+          <br />
+
+          皆さま、これからも私どもをよろしくお願い申し上げます。
+        </p>
+        <p class="text-right">
+          社会福祉法人あすなろ福祉会
+          <br />
+          理事長　杉原　綾乃
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-24" id="history">
+      <ServicesH>沿革</ServicesH>
+      <ul class="list-none text-lg">
+        {
+          (() => {
+            let prev = null;
+
+            return historyData.map((item) => {
+              const element = (
+                <li class="">
+                  <ul class="flex flex-cols items-center py-4 px-4 border-b-2 border-b-[var(--secondary-color)] ">
+                    <li class="w-[10%]">{item.year}</li>
+                    <li class="w-[10%]">{item.month}</li>
+                    <li class="flex-1  ">{item.event}</li>
+                  </ul>
+                </li>
+              );
+
+              prev = item;
+
+              return element;
+            });
+          })()
+        }
+      </ul>
+    </section>
+
+    <section class="mb-24" id="organization_chart">
+      <ServicesH>組織体制図</ServicesH>
+      <div class="flex justify-center items-center">
+        <a href="/about/organization_chart_r2.pdf"
+          ><img src="/about/organization_chart_r2.jpg" /></a
+        >
+      </div>
+    </section>
+
+    <section class="mb-24" id="information">
+      <ServicesH>情報公開</ServicesH>
+
+      <Activities items={informations} />
+    </section>
+
+    <section class="mb-24" id="activities">
+      <ServicesH>活動紹介</ServicesH>
+
+      <Activities items={activities} />
+    </section>
+
+    <section class="mb-24" id="access">
+      <ServicesH>アクセス</ServicesH>
+      <Access
+        addresses={HONBU_ADDRESSES}
+        mapUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d931.8858246198438!2d133.941559463032!3d34.672645678153444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3554061e4e8a2567%3A0x15fa1299efa3cb72!2zKOekvuemjynjgYLjgZnjgarjgo3npo_npYnkvJo!5e0!3m2!1sja!2sjp!4v1737699675785!5m2!1sja!2sjp"
+      />
+    </section>
+  </div>
+</AboutLayout>

@@ -1,0 +1,131 @@
+<div
+    x-cloak
+    x-show="mobileMenuIsOpen"
+    x-transition:enter="transition motion-reduce:transition-none ease-out duration-300"
+    x-transition:enter-start="-translate-y-full"
+    x-transition:enter-end="translate-y-0"
+    x-transition:leave="transition motion-reduce:transition-none ease-out duration-300"
+    x-transition:leave-start="translate-y-0"
+    x-transition:leave-end="-translate-y-full"
+    id="mobileMenu"
+    class="fixed min-h-svh overflow-y-auto w-full inset-x-0 top-0 z-10 bg-[#f3f8fb]"
+>
+    <div class="flex flex-col items-center justify-center">
+        <div class="w-full">
+            <div class="container mx-auto">
+                <div class="flex items-center justify-center pt-12 pb-6">
+                    <a href="/"><img src="/logo.png" class="w-32" /></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white w-full">
+            <div class="relative">
+                <img class="w-full absolute top-0" src="/hr_mb1.svg" />
+            </div>
+            <div class="container mx-auto">
+                <div class="flex flex-col items-center justify-center">
+                    <div class="grid grid-cols-2 divide-x py-12">
+                        <div class="px-6 text-lg">
+                            <ul
+                                class="flex flex-col divide-y divide-white border-b-white border-b"
+                            >
+                                <li class="py-4">
+                                    <a
+                                        href="/"
+                                        class=" text-lg font-bold hover:underline"
+                                        aria-current="page">ホーム</a
+                                    >
+                                </li>
+                                <li class="py-4">
+                                    <a
+                                        href="/about/"
+                                        class="   hover:underline"
+                                        >法人について</a
+                                    >
+                                </li>
+                                <li class="py-4">
+                                    <a
+                                        href="/about/#greetings"
+                                        class="   hover:underline"
+                                        >あいさつ</a
+                                    >
+                                </li>
+                                <li class="py-4">
+                                    <a
+                                        href="/about/#information"
+                                        class="   hover:underline"
+                                        >情報公開</a
+                                    >
+                                </li>
+                                <li class="py-4">
+                                    <a
+                                        href="/about/#access"
+                                        class=" hover:underline"
+                                        >アクセス</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="px-6 text-lg">
+                            <ul
+                                class="flex flex-col divide-y divide-white border-b-white border-b"
+                            >
+                                <li class="py-4">
+                                    <p
+                                        class=" font-bold"
+                                    >
+                                        事業所
+                                    </p>
+                                </li>
+                                <li class="py-4 ">
+                                    <a
+                                        href="/services/jsca"
+                                        class="   hover:underline"
+                                        >JSCA</a
+                                    >
+                                </li>
+                                <li class="py-4">
+                                    <a
+                                        href="/services/momo"
+                                        class="   hover:underline"
+                                        >MOMO</a
+                                    >
+                                </li>
+                                <li class="py-4">
+                                    <a
+                                        href="/services/monozukuri"
+                                        class="   hover:underline"
+                                        >ものづくりArt工房</a
+                                    >
+                                </li>
+                                <li class="py-4">
+                                    <a
+                                        href="/services/palokayama"
+                                        class="   hover:underline"
+                                        >ぱる・おかやま</a
+                                    >
+                                </li>
+                                <li class="py-4">
+                                    <a
+                                        href="/services/clover"
+                                        class="   hover:underline"
+                                        >ピアセンタークローバー</a
+                                    >
+                                </li>
+                                <li class="py-4">
+                                    <a
+                                        href="/services/tamariba"
+                                        class="  hover:underline"
+                                        >たまりば</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

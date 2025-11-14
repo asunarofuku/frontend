@@ -1,0 +1,58 @@
+---
+import Footer from "../../components/home/Footer.astro";
+import NavBar from "../../components/home/NavBar.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import type { TocItem } from "../../components/TableOfContents.astro";
+import { SITE_TITLE } from "../../components/site";
+import Layout from "../Layout.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  tocItems: TocItem[] | null;
+  crumbs: any;
+}
+const { title, description, tocItems, crumbs } = Astro.props;
+---
+
+<Layout title={`${title} | ${SITE_TITLE}`} description={description}>
+  <header
+    style={"--primary-color: " +
+      "#234B6A" +
+      ";--secondary-color: " +
+      "#eaeaea" +
+      ";"}
+  >
+    <div class="">
+      <NavBar />
+    </div>
+  </header>
+
+  <main
+    style={"--primary-color: " +
+      "#234B6A" +
+      ";--secondary-color: " +
+      "#eaeaea" +
+      ";"}
+  >
+    <div class="bg-[var(--primary-color)] text-white">
+      <div class="container mx-auto pt-12">
+        <section class="mb-24">
+          <h2 class="font-bold pb-6 pt-[100px] text-5xl mb-12 text-center">
+            <div class="inline-block">{title}</div>
+          </h2>
+        </section>
+      </div>
+      <img src="/wave.svg" class="w-full" />
+    </div>
+    <div class="container mx-auto pt-12">
+      <section class="mb-12">
+        <Breadcrumb crumbs={crumbs} />
+      </section>
+    </div>
+    <Fragment slot="content">
+      <slot />
+    </Fragment>
+  </main>
+  <Footer />
+</Layout>

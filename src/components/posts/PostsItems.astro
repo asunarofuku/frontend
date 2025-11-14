@@ -1,0 +1,52 @@
+---
+import { formatDateToJapanese } from "../functions";
+
+// コンポーネントのProps型定義
+interface Props {
+    posts: any[];
+}
+
+const { posts } = Astro.props;
+---
+
+<ul class="flex flex-col gap-0 mb-12">
+    {
+        posts.map((post: any) => {
+            const categories = post._embedded["wp:term"].find(
+                (termSet: { taxonomy: string }[]) =>
+                    termSet[0].taxonomy === "category",
+            );
+
+            const categoryNames = categories
+                ? categories.map((category: { name: any }) => {
+                      return (
+                          <span class="inline-block whitespace-nowrap px-3 bg-[#234b6a] text-white rounded-full text-sm">
+                              {category.name}{" "}
+                          </span>
+                      );
+                  })
+                : "カテゴリーなし";
+
+            return (
+                <a
+                    href={`/posts/${post.slug}/`}
+                    class="first:border-b  border-b hover:bg-gray-100 "
+                >
+                    <li class="w-full py-6">
+                        <div class="flex md:gap-6 gap-3 items-center ">
+                            <div class=" ">
+                                <Fragment
+                                    set:html={formatDateToJapanese(post.date)}
+                                />
+                            </div>
+                            <div class="space-x-3">{categoryNames}</div>
+                            <h3 class="">
+                                <Fragment set:html={post.title.rendered} />
+                            </h3>
+                        </div>
+                    </li>
+                </a>
+            );
+        })
+    }
+</ul>

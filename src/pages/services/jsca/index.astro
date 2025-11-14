@@ -1,0 +1,247 @@
+---
+;
+import Activities from "../../../components/Activities.astro";
+import JscaLayout from "../../../layouts/services/JscaLayout.astro";
+import Access from "../../../components/Access.astro";
+import TableOfContents, {
+    type TocItem,
+} from "../../../components/TableOfContents.astro";
+import ServicesH from "../../../components/ServicesH.astro";
+import ServicesSub from "../../../components/ServicesSub.astro";
+import ServicesTopic from "../../../components/ServicesTopic.astro";
+import TransportationAllowance from "../../../components/services/TransportationAllowance.astro";
+import ServiceSchedule from "../../../components/services/ServiceSchedule.astro";
+const crumbs = [
+    {
+        text: "ホーム",
+        href: "/",
+    },
+    {
+        text: "JSCA",
+    },
+];
+const activities = [
+    {
+        date: "",
+        title: "就職状況",
+        imagePath: "/icons/dir.svg",
+        url: "/services/jsca/employment_report",
+    },
+    {
+        date: "",
+        title: "IPS情報",
+        imagePath: "/icons/dir.svg",
+        url: "/services/jsca/ips",
+    },
+    {
+        date: "",
+        title: "事業報告",
+        imagePath: "/icons/dir.svg",
+        url: "/services/jsca/business_report",
+    },
+    {
+        date: "",
+        title: "パンフレット",
+        imagePath: "/icons/pdf.svg",
+        url: "/services/jsca/jsca_pamphlet_2017.pdf",
+    },
+];
+
+const informations = [
+    {
+        date: "",
+        title: "運営規程（就労移行支援）",
+        imagePath: "/icons/pdf.svg",
+        url: "/services/jsca/jsca_ets_reg_r5_11_1.pdf",
+    },
+];
+
+const addresses = [
+    {
+        postalCode: "700-0822",
+        address: "岡山県岡山市北区表町3-7-27 /１階",
+        fax: "（086）201-1434",
+        tel: "（086）201-1432",
+    },
+];
+
+const tocItems: TocItem[] = [
+    {
+        title: "概要",
+        link: "#overview",
+    },
+    {
+        title: "スケジュール",
+        link: "#schedule",
+    },
+    {
+        title: "事業内容",
+        link: "#service_content",
+    },
+    {
+        title: "交通費補助と交通費申請",
+        link: "#transportation_allowance",
+    },
+    {
+        title: "活動紹介",
+        link: "#activities",
+    },
+    {
+        title: "情報",
+        link: "#informations",
+    },
+    {
+        title: "アクセス",
+        link: "#access",
+    },
+];
+---
+
+<JscaLayout
+    title="JSCA(Job Support Center ASUNAR)"
+    title_en="多機能型事業所 "
+    tocItems={tocItems}
+    crumbs={crumbs}
+>
+    <div class="container mx-auto pt-12">
+        <section class="mb-24" id="overview">
+            <ServicesH>JSCA（Job Support Center ASUNAR）</ServicesH>
+            <div
+                class="leading-relaxed border border-[var(--secondary-color)] p-6 text-xl border-dashed border-8 rounded-3xl"
+            >
+                <p>仕事探しへの道のり・働き方は、人それぞれです。</p>
+                <p>
+                    当事業所では、障がいのある方の、これまでの経験、興味や関心といった「ストレングス（強み）」に焦点を当て1人ひとりに合った「仕事探し」をご提案させて頂きます。
+                </p>
+                <p>
+                    同じ「悩み」「不安」「目標」を持った仲間がいるから「頑張れる！！」そんな「場所」の提供を行っています。
+                </p>
+                <p>就職準備から就職後まで、しっかりサポートします！！</p>
+            </div>
+        </section>
+
+        <section class="mb-24" id="schedule">
+            <ServicesH>スケジュール</ServicesH>
+            <ServiceSchedule name="JSCA" />
+        </section>
+
+        <section class="mb-24" id="service_content">
+            <ServicesH>事業内容・作業内容</ServicesH>
+            <section class="mb-12">
+                <ServicesSub>座学</ServicesSub>
+                <ServicesTopic>座学とは</ServicesTopic>
+                <p class="mb-4">
+                    障がいの事は伝えた方が良い？ どんな働き方があるの？
+                    働く上で必要な事は？ 職場でこんな事があったらどうする?
+                    　　…など、 グループで意見交換しながら「就職」に向けて、
+                    不安の解消や、モチベーションを高め合って行きます。
+                </p>
+                <ServicesTopic>座学内容</ServicesTopic>
+
+                <p>
+                    就労セミナー・ビジネスマナー講座・コミュニケーション力UP講座
+                    健康講座・WRAP・SSTなど...
+                </p>
+            </section>
+            <section class="mb-12">
+                <ServicesSub>施設外作業</ServicesSub>
+                <p>
+                    週に２～３回、グループで「一般企業」に出向き、仕事をします。
+                    仲間やスタッフがいるので、安心して働けます。
+                    また、施設内で学んだビジネスマナーを実践することができます。
+                </p>
+            </section>
+            <section class="mb-12">
+                <ServicesSub>ジョブコーチ支援</ServicesSub>
+
+                <p class="mb-4">
+                    ジョブコーチという専門の資格を持ったスタッフが、障がいのある方や企業の調整役としてサポート致します。
+                </p>
+                <ServicesTopic>障がいのある方</ServicesTopic>
+                <ul class="mb-4">
+                    <li>ハローワークや職業センターへの登録同行</li>
+                    <li>職場見学や面接同行</li>
+                    <li>職場での人間関係やコミュニケーションに関する助言</li>
+                    <li>
+                        仕事に適応する（業務内容の理解、作業能率を上げる、作業のミスを減らす）ための支援
+                    </li>
+                </ul>
+                <ServicesTopic>企業</ServicesTopic>
+                <ul>
+                    <li>病気や障がいについての理解の促進</li>
+                    <li>業務内容や勤務時間などの調整</li>
+                    <li>
+                        仕事の指示の仕方や、配慮すべき所、対応方法などの助言
+                    </li>
+                </ul>
+            </section>
+            <section class="mb-12">
+                <ServicesSub>就職後のフォローアップ</ServicesSub>
+
+                <p>採用決定後も、継続して支援します。</p>
+
+                <ul>
+                    <li>定期的な職場訪問</li>
+
+                    <li>業務内容や勤務時間などの調整</li>
+                    <li>医療機関との連携</li>
+                    <li>やむを得ず、離職に至った後の再就職支援</li>
+                    <li>就労者同士の交流会の開催</li>
+                    <li>就労以外の生活相談</li>
+                </ul>
+                <p>など…</p>
+            </section>
+            <section class="mb-12">
+                <ServicesSub>IPSモデルを取り入れた就労支援</ServicesSub>
+                <p>
+                    IPS（Individual(インディビジュアル)　Placement(プレイスメント)
+                    ＆
+                    Support(サポート)）とは、当事者の「働きたい」という希望を尊重し、
+                    「働くことを含むその人の人生」の実現を叶えようとする支援モデルです。
+                </p>
+                <p>
+                    「どんなに重い精神障害を持つ人々であっても、本人に働きたいという希望さえあれば、
+                    本人の興味、技能、経験に適合する職場で働くことができる。働くこと自体が治療的であり、
+                    リカバリーの重要な要素となる」という信念に基づき
+                    従来の「train then
+                    place：訓練してから就労する」ではなく、「place
+                    then　train：就労してから練習する」というプロセスを重視し、高い就職・定着率を可能にしています。
+                </p>
+            </section>
+            <section class="mb-12">
+                <ServicesSub>主な就職先</ServicesSub>
+
+                <p>
+                    オハヨー乳業・ベネッセビジネスメイト・東横イン・岡山中央福祉会・大黒天物産・イトウゴフク・ZAGZAG・ナカヒロハイナックカンパニー・岡山市農業協同組合・東建コーポレーション・山陽マルナカ・明和ビルサービス・あさひ園・カメラのキタムラ（敬称略・順不同）　
+                    　　　　　　　　　　　　　　　　　　　　　　　　　　　　など…
+                </p>
+            </section>
+            <section class="mb-12">
+                <ServicesSub>就労実績</ServicesSub>
+
+                <p>これまでに 168名の方が就労されました！！</p>
+            </section>
+        </section>
+
+        <TransportationAllowance />
+
+        <section class="mb-24" id="activities">
+            <ServicesH>活動紹介</ServicesH>
+
+            <Activities items={activities} />
+        </section>
+
+        <section class="mb-24" id="informations">
+            <ServicesH>情報</ServicesH>
+            <Activities items={informations} />
+        </section>
+
+        <section class="mb-24" id="access">
+            <ServicesH>アクセス</ServicesH>
+            <Access
+                addresses={addresses}
+                mapUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.8260000119294!2d133.92674341183445!3d34.65909698533026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355406349fc6b48f%3A0xd08a837380cca7cc!2z44CSNzAwLTA4MjIg5bKh5bGx55yM5bKh5bGx5biC5YyX5Yy66KGo55S677yT5LiB55uu77yX4oiS77yS77yXIOWyoeadkeWVhuS6i-ihqOeUuuODk-ODqw!5e0!3m2!1sja!2sjp!4v1729849138691!5m2!1sja!2sjp"
+            />
+        </section>
+    </div>
+</JscaLayout>

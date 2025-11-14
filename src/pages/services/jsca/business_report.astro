@@ -1,0 +1,56 @@
+---
+import Activities from "../../../components/Activities.astro";
+import ServicesH from "../../../components/ServicesH.astro";
+import type { TocItem } from "../../../components/TableOfContents.astro";
+import Layout from "../../../layouts/Layout.astro";
+import JscaLayout from "../../../layouts/services/JscaLayout.astro";
+const crumbs = [
+  {
+    text: "ホーム",
+    href: "/",
+  },
+  {
+    text: "JSCA",
+    href: "./",
+  },  {
+    text: "事業報告",
+  },
+];
+const informations = [
+    {
+        date: "事業報告（H27年度下半期）",
+        title: "事業報告（H27年度下半期）",
+        imagePath: "/services/jsca/business_report/h27.jpg",
+        imageAlt: "事業報告（H27年度下半期）",
+        url: "/services/jsca/business_report/h27.pdf",
+    },
+    {
+        date: "事業報告（H28年度）",
+        title: "事業報告（H28年度）",
+        imagePath: "/services/jsca/business_report/h28.jpg",
+        imageAlt: "事業報告（H28年度）",
+        url: "/services/jsca/business_report/h28.pdf",
+    },
+];
+const tocItems: TocItem[] = [
+    {
+        title: "アーカイブ",
+        link: "#archive",
+    },
+];
+---
+
+<JscaLayout
+title="事業報告"
+title_en="多機能型事業所 JSCA(Job Support Center ASUNAR)"
+tocItems={null}
+crumbs={crumbs}
+>
+    <div class="container mx-auto">
+        <section class="mb-24" id="archive">
+            <ServicesH>アーカイブ</ServicesH>
+
+            <Activities items={informations} />
+        </section>
+    </div>
+</JscaLayout>

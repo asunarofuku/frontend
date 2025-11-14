@@ -1,0 +1,56 @@
+---
+import Activities from "../../../components/Activities.astro";
+import ServicesH from "../../../components/ServicesH.astro";
+import type { TocItem } from "../../../components/TableOfContents.astro";
+import CloverLayout from "../../../layouts/services/CloverLayout.astro";
+
+const crumbs = [
+  {
+    text: "ホーム",
+    href: "/",
+  },
+  {
+    text: "ピアセンタークローバー",
+    href: "./",
+ },
+  {
+    text: "クローバー便り",
+ },
+];
+
+const informations = [
+    {
+        title: "第1号",
+        imagePath: "/services/clover/clover_dayori/cloverdayori_vol1.jpg",
+        imageAlt: "第1号",
+        url: "/services/clover/clover_dayori/cloverdayori_vol1.pdf",
+    },
+    {
+        title: "第2号",
+        imagePath: "/services/clover/clover_dayori/cloverdayori_vol2.jpg",
+        imageAlt: "第2号",
+        url: "/services/clover/clover_dayori/cloverdayori_vol2.pdf",
+    },
+    {
+        title: "第3号",
+        imagePath: "/services/clover/clover_dayori/cloverdayori_vol3.jpg",
+        imageAlt: "第3号",
+        url: "/services/clover/clover_dayori/cloverdayori_vol3.pdf",
+    },
+];
+---
+
+<CloverLayout
+    title="クローバー便り"
+    title_en="就労移行支援B型 ピアセンタークローバー"
+    tocItems={null}
+    crumbs={crumbs}
+>
+    <div class="container mx-auto">
+        <section class="mb-24" id="archive">
+            <ServicesH>アーカイブ</ServicesH>
+
+            <Activities items={informations} />
+        </section>
+    </div>
+</CloverLayout>

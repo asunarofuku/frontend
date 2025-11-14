@@ -1,0 +1,129 @@
+---
+import Activities from "../../../../components/Activities.astro";
+import ServicesH from "../../../../components/ServicesH.astro";
+import type { TocItem } from "../../../../components/TableOfContents.astro";
+import AboutLayout from "../../../../layouts/about/AboutLayout.astro";
+
+
+const crumbs = [
+  {
+    text: "ホーム",
+    href: "/",
+  },
+  {
+    text: "法人について",
+    href: "../../",
+ },
+  {
+    text: "日本財団助成事業",
+    href: "../",
+ },
+  {
+    text: "リカバリーカレッジ（2018年）",
+ },
+];
+
+const archives = [
+    {
+        title: "研修2018年06月02日",
+        imagePath: "/about/nippon_foundation/recovery_college/2018/rco20180602.jpg",
+        url: "/about/nippon_foundation/recovery_college/2018/rco20180602.pdf",
+    },
+    {
+        title: "研修2018年08月25日",
+        imagePath: "/about/nippon_foundation/recovery_college/2018/rco20180825.jpg",
+        url: "/about/nippon_foundation/recovery_college/2018/rco20180825.pdf",
+    },
+    {
+        title: "研修2018年08月26日",
+        imagePath: "/about/nippon_foundation/recovery_college/2018/rco20180826.jpg",
+        url: "/about/nippon_foundation/recovery_college/2018/rco20180826.pdf",
+    },
+    {
+        title: "研修2018年09月24日",
+        imagePath: "/about/nippon_foundation/recovery_college/2018/rco20180924.jpg",
+        url: "/about/nippon_foundation/recovery_college/2018/rco20180924.pdf",
+    },
+    {
+        title: "研修2018年11月23日",
+        imagePath: "/about/nippon_foundation/recovery_college/2018/rco20181123.jpg",
+        url: "/about/nippon_foundation/recovery_college/2018/rco20181123.pdf",
+    },
+    {
+        title: "オープンカレッジ",
+        imagePath: "/about/nippon_foundation/recovery_college/2018/rco20181209.jpg",
+        url: "/about/nippon_foundation/recovery_college/2018/rco20181209.pdf",
+    },
+    {
+        title: "パンフレット",
+        imagePath: "/about/nippon_foundation/recovery_college/2018/rcokayama_pamphlet_201901012.jpg",
+        url: "/about/nippon_foundation/recovery_college/2018/rcokayama_pamphlet_201901012.pdf",
+    },
+    {
+        title: "2018年度冬だより",
+        imagePath: "/about/nippon_foundation/recovery_college/2018/rc2019dayori.jpg",
+        url: "/about/nippon_foundation/recovery_college/2018/rc2019dayori.pdf",
+    },
+    {
+        title: "2018年度冬公開講座",
+        imagePath: "/about/nippon_foundation/recovery_college/2018/rc20190127.jpg",
+        url: "/about/nippon_foundation/recovery_college/2018/rc20190127.pdf",
+    },
+    {
+        title: "助成事業完了報告書2018",
+        imagePath: "/about/nippon_foundation/recovery_college/2018/2018houkoku.jpg",
+        url: "/about/nippon_foundation/recovery_college/2018/2018houkoku.pdf",
+    },
+    {
+        title: "特集(ぱる通信8月号)",
+        imagePath: "/about/nippon_foundation/recovery_college/2018/rc2018pal.jpg",
+        url: "/about/nippon_foundation/recovery_college/2018/rc2018pal.pdf",
+    },
+    {
+        title: "学生証",
+        imagePath: "/about/nippon_foundation/recovery_college/2018/rcgakuseishou.jpg",
+        url: "/about/nippon_foundation/recovery_college/2018/rcgakuseishou.pdf",
+    },
+    {
+        title: "講座フィードバック",
+        imagePath: "/about/nippon_foundation/recovery_college/2018/rc2018feedback.jpg",
+        url: "/about/nippon_foundation/recovery_college/2018/rc2018feedback.pdf",
+    },
+    {
+        title: "講座報告書(原本)",
+        imagePath: "/about/nippon_foundation/recovery_college/2018/rc2018houkoku.jpg",
+        url: "/about/nippon_foundation/recovery_college/2018/rc2018houkoku.pdf",
+    },
+    {
+        title: "プログラム満足度調査",
+        imagePath: "/about/nippon_foundation/recovery_college/2018/rc_manzoku.jpg",
+        url: "/about/nippon_foundation/recovery_college/2018/rc_manzoku.pdf",
+    },
+    {
+        title: "利用規約",
+        imagePath: "/about/nippon_foundation/recovery_college/2018/rc_kiyaku.jpg",
+        url: "/about/nippon_foundation/recovery_college/2018/rc_kiyaku.pdf",
+    },
+    {
+        title: "グランドルール",
+        imagePath: "/about/nippon_foundation/recovery_college/2018/rc_gr.jpg",
+        url: "/about/nippon_foundation/recovery_college/2018/rc_gr.pdf",
+    },
+    {
+        title: "誓約書",
+        imagePath: "/about/nippon_foundation/recovery_college/2018/rc_seiyaku.jpg",
+        url: "/about/nippon_foundation/recovery_college/2018/rc_seiyaku.pdf",
+    }
+];
+
+---
+
+<AboutLayout title="リカバリーカレッジ（2018年）" ,  description="日本財団助成事業リカバリーカレッジのアーカイブ（2018年）" tocItems={null} crumbs={crumbs}>
+    <div class="container mx-auto">
+        <section class="mb-24" id="certificates">
+            <ServicesH>アーカイブ</ServicesH>
+
+            <Activities items={archives} />
+        </section>
+    </div>
+</AboutLayout>

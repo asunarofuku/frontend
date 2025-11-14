@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+
+@plugin '@egoist/tailwindcss-icons' {
+    scale: 1;
+}
+
+@plugin "@egoist/tailwindcss-icons" {
+    collections: "fa6-solid";
+}
+
+@plugin "@tailwindcss/typography";
+
+@theme {
+    --breakpoint-*: initial;
+    --breakpoint-sm: 768px;
+    --breakpoint-md: 1200px;
+}
+
+
+/* @theme {
+    screens: {
+        // モバイル: 0-520px（デフォルト）
+
+        // タブレット: 521px-960px
+        'sm': '521px',
+
+            // デスクトップ: 961px以上
+            'md': '961px',
+    }
+
+    ,
+    container: {
+        screens: {
+            sm: '520px', // モバイルの最大幅
+                md: '960px', // タブレットの最大幅
+                lg: '1200px', // デスクトップの最大幅（任意の値）
+        }
+
+        ,
+        padding: {
+            DEFAULT: '1rem',
+                sm: '1.5rem',
+                md: '2rem',
+        }
+
+        ,
+    }
+
+} */

@@ -1,0 +1,372 @@
+---
+import Asunaro from "../components/home/Asunaro.astro";
+import Footer from "../components/home/Footer.astro";
+import H from "../components/home/H.astro";
+import NavBar from "../components/home/NavBar.astro";
+import Services from "../components/home/Services.astro";
+import Topics from "../components/home/Topics.astro";
+import { REST_API_SCHEDULES_URL } from "../components/site";
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import top1 from "../assets/IMGP9450.JPG";
+import top2 from "../assets/IMGP9349.JPG";
+import top3 from "../assets/IMGP9360.JPG";
+import top4 from "../assets/IMGP9383.JPG";
+
+import volunteer from "../assets/volunteer.jpg";
+---
+
+<style>
+	:root {
+		--easing: cubic-bezier(0.2, 1, 0.2, 1);
+		--transition: 0.8s var(--easing);
+	}
+
+	html {
+		background-color: #fafafa;
+		-webkit-appearance: none;
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	.l-inner {
+		position: relative;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 10rem;
+	}
+
+	.l-section {
+		border-top: 1px solid #eee;
+	}
+	.l-section .l-inner {
+		padding-top: 8rem;
+		padding-bottom: 8rem;
+	}
+
+	.slide-media img,
+	.thumb-media img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.swiper-fade .swiper-slide {
+		transition-property: opacity, transform !important;
+		pointer-events: none;
+	}
+	.swiper-fade .swiper-slide-active {
+		pointer-events: auto;
+	}
+	.slide-media {
+		height: 800px;
+	}
+	.slide-media img {
+		-webkit-transition: 7s 1s ease-out;
+		transition: 7s 1s ease-out;
+	}
+	.slide-title {
+		font-size: 4rem;
+		font-weight: normal;
+		line-height: 1.6;
+		position: absolute;
+		right: 8rem;
+		bottom: 15%;
+		margin-left: 16rem;
+		text-align: right;
+		color: #fff;
+	}
+	.swiper-slide[class*="-active"] .slide-media img {
+		transition-delay: 0s;
+		transform: scale(1.05);
+	}
+	.swiper-slide[class*="-active"] .slide-title {
+		animation: mv01-fadeIn 2s 0.5s var(--easing) both;
+	}
+
+	@keyframes mv01-fadeIn {
+		0% {
+			transform: scale(0.5);
+			opacity: 0;
+			filter: blur(300px);
+		}
+		100% {
+			transform: scale(1);
+			opacity: 1;
+			filter: blur(0);
+		}
+	}
+
+	@media only screen and (max-width: 1024px) {
+		.slide-media {
+			height: max(65vh, 65vw);
+		}
+	}
+	@media only screen and (max-width: 599px) {
+		.slide-title {
+			font-size: 2.8rem;
+			right: 4rem;
+			margin-left: 6rem;
+		}
+	}
+</style>
+<Layout
+	title="ホーム"
+	description="社会福祉法人あすなろ福祉会のトップページです。"
+>
+	<div class="">
+		<div class="bg-white">
+			<div class="pt-[20px]">
+				<NavBar isHome={true} />
+			</div>
+		</div>
+		<div class="bg-gray-100 relative fade-in">
+			<div>
+				<div class="swiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="slide">
+								<div class="slide-media img-cover">
+									<Image src={top1} alt="" />
+								</div>
+								<h2 class="slide-title"></h2>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="slide">
+								<div class="slide-media img-cover">
+									<Image src={top2} alt="" />
+								</div>
+								<h2 class="slide-title"></h2>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="slide">
+								<div class="slide-media img-cover">
+									<Image src={top3} alt="" />
+								</div>
+								<h2 class="slide-title"></h2>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<article class="slide">
+								<div class="slide-media img-cover">
+									<Image src={top4} alt="" />
+								</div>
+								<h2 class="slide-title"></h2>
+							</article>
+						</div>
+					</div><!-- /swiper-wrapper -->
+				</div><!-- /swiper -->
+				<div class="swiper-pagination"></div>
+			</div>
+
+			<img
+				src="1.png"
+				class="md:w-[400px] sm:w-[300px] w-[200px] absolute sm:-bottom-[50px] -bottom-[25px] left-[3%] z-10"
+			/>
+			<img
+				src="tree.png"
+				class="md:w-[300px] sm:w-[200px] w-[100px] absolute sm:-bottom-[50px] -bottom-[25px] right-0 z-10"
+			/>
+			<div class="absolute w-full left-0 top-[55%] z-10">
+				<ul
+					class="transition text-black tracking-widest duration-700 animate-fade-in p-10"
+				>
+					<div
+						class="mincho text-white md:text-[50px] sm:text-[30px] text-[25px]"
+					>
+						<li class="mb-2">
+							<span class="py-3 bg-[#888888]/50"
+								>悩みを分かち合える仲間がいる</span
+							>
+						</li>
+						<li class="mb-2">
+							<span class="py-3 bg-[#888888]/50"
+								>共に歩いてくれる仲間がいる</span
+							>
+						</li>
+					</div>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- <div class=" bg-gradient-to-br from-[#ffffff] to-[#fafafa]"> -->
+	<div class="">
+		<div class="container mx-auto py-8">
+			<div
+				class="flex flex-row items-center justify-center gap-1 divide-x divide-gray-300"
+			>
+				<a
+					href="https://www.facebook.com/okayamaasunaro/"
+					class="hover:bg-gray-100"
+				>
+					<div
+						class="p-4 flex flex-col items-center justify-center gap-2"
+					>
+						<div class="p-4">
+							<img class="w-16" src="/icons/facebook.svg" />
+						</div>
+						<div class="text-center">あすなろのFacebook</div>
+					</div>
+				</a>
+				<a
+					href="https://www.instagram.com/clover.asunaro/"
+					class="hover:bg-gray-100"
+				>
+					<div class="p-4 flex flex-col items-center gap-2">
+						<div class="p-4">
+							<img class="w-16" src="/icons/instagram.svg" />
+						</div>
+						<div class="text-center">クローバーのInstagram</div>
+					</div>
+				</a>
+				<a
+					href="https://ameblo.jp/clover-sprit/"
+					class="hover:bg-gray-100"
+				>
+					<div class="p-4 flex flex-col items-center gap-2">
+						<div class="p-4">
+							<img class="w-16" src="/icons/clover.jpg" />
+						</div>
+						<div class="text-center">クローバーのブログ</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+	<section class="">
+		<div class="">
+			<div class="">
+				<Topics />
+			</div>
+		</div>
+	</section>
+	<section class="">
+		<div class="">
+			<div class="relative">
+				<img class="w-full absolute top-0" src="hr1.svg" />
+			</div>
+			<Services />
+		</div>
+		<div class="relative">
+			<img
+				src="20.png"
+				class="md:w-[75px] object-contain h-auto sm:w-[75px] w-[50px] absolute sm:-bottom-[50px] -bottom-[25px] left-[6%] z-10"
+			/>
+		</div>
+	</section>
+	<section class="">
+		<div class="relative">
+			<img class="w-full absolute top-0" src="hr_gray.svg" />
+		</div>
+		<div class="">
+			<div class="">
+				<Asunaro />
+			</div>
+		</div>
+		<div class="relative">
+			<img
+				src="10.png"
+				class="md:w-[150px] object-contain h-auto sm:w-[100px] w-[100px] absolute sm:-bottom-[50px] -bottom-[25px] right-[3%] z-10"
+			/>
+		</div>
+	</section>
+
+	<section class="">
+		<div class="relative">
+			<img class="w-full absolute top-0" src="hr_as.svg" />
+		</div>
+		<div class="py-24">
+			<div class="container mx-auto mb-12">
+				<H>
+					<Fragment slot="title_en">VOLUNTEER</Fragment>
+					<Fragment slot="title">ボランティア募集</Fragment>
+				</H>
+				<p class="text-center">
+					あすなろ福祉会ではボランティアを大募集しています。
+				</p>
+			</div>
+			<section class="container mx-auto">
+				<div class="grid grid-cols-2 gap-4 js-scrollIn">
+					<div class="grid-item">
+						<Image src={volunteer} alt="" />
+					</div>
+					<div class="grid-item text-2xl">
+						あすなろ福祉会ではボランティアを大募集しています。<br
+						/>下記を参照の上、まずは連絡ください！
+
+						<ul class="text-lg">
+							<li>
+								<br /><br />1. 登録<br /><br />
+								以下の様式へ記入の上、メールまたはFAXにて送付してください。<br
+								/>
+								<br />
+								ボランティア登録用紙（ワード）<br />
+								ボランティア登録用紙（PDF）<br /><br /><br />
+							</li>
+
+							<li>
+								2. スタッフから連絡<br /><br />
+								あすなろ福祉会のスタッフから、必要としているボランティアをご連絡します。<br
+								/><br />
+							</li>
+							<li>
+								3. 活動
+								<br /><br />
+								活動できそうなら、お返事ください。
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+	</section>
+	<section>
+		<div class="bg-gray-100 py-6">
+			<ul
+				class="divide-x divide-gray-300 container mx-auto flex gap-4 items-center justify-center"
+			>
+				<li class="p-4">
+					<a target="_blank" href="https://rcokayama.jp/"
+						>リカバリーカレッジOKAYAMA<span
+							class="ml-1 i-fa6-solid-arrow-up-right-from-square"
+						></span></a
+					>
+				</li>
+				<li class="p-4">
+					<a target="_blank" href="https://okjiritsushien.com/"
+						>岡山市障害者自立支援協議会<span
+							class="ml-1 i-fa6-solid-arrow-up-right-from-square"
+						></span></a
+					>
+				</li>
+				<li class="p-4">
+					<a target="_blank" href="https://www.city.okayama.jp/"
+						>岡山市<span
+							class="ml-1 i-fa6-solid-arrow-up-right-from-square"
+						></span></a
+					>
+				</li>
+				<li class="p-4">
+					<a target="_blank" href="https://www.pref.okayama.jp/"
+						>岡山県<span
+							class="ml-1 i-fa6-solid-arrow-up-right-from-square"
+						></span></a
+					>
+				</li>
+				<li class="p-4">
+					<a target="_blank" href="https://www.mhlw.go.jp/"
+						>厚生労働省<span
+							class="ml-1 i-fa6-solid-arrow-up-right-from-square"
+						></span></a
+					>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<Footer />
+</Layout>

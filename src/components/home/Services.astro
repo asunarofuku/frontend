@@ -1,0 +1,141 @@
+---
+import H from "./H.astro";
+
+const items = [
+	{
+		subTitle: "多機能型事業所",
+		title: "JSCA",
+		imagePath: "https://picsum.photos/250/150?random=10",
+		imageAlt: "JSCA",
+		url: "/services/jsca",
+		top: "border-t-blue-500",
+		button: "border-blue-500",
+		description:
+			// "JSCAは、障害のある方の個性や強みを活かした就労支援を実施。IPSモデルに基づき「働きながら学ぶ」方式を採用し、ジョブコーチ同行や職場定着支援まで一貫サポート。168名の就労実績と交通費補助制度を備え、利用者の自立を包括的に支える岡山の多機能型事業所です。",
+			// "IPSモデルに基づく就労支援。ジョブコーチ同行から職場定着まで一貫サポート（実績168名）交通費補助あり。",
+			"JSCAは障がいのある方の「強み」に焦点を当て一人ひとりに合った仕事探しをサポートします。同じ悩みや目標を持つ仲間とともに就職準備から就職後までしっかり支援します。",
+	},
+	{
+		subTitle: "就労移行支援B型",
+		title: "MOMO",
+		imagePath: "https://picsum.photos/250/150?random=11",
+		imageAlt: "MOMO",
+		url: "/services/momo",
+		top: "border-t-red-500",
+		button: "border-red-500",
+		description:
+			// "MOMOは、就労継続支援B型事業所として1997年に喫茶店兼交流スペースとして誕生。軽作業・無農薬野菜栽培・手工芸品制作などを通じ、個々のペースに合わせた就労支援を実施。利用者の「私らしさ」を尊重し、ミーティングやレクリエーションを通して自信回復を促す。通所日数に応じた交通費補助（上限2万円）も特徴の温かい居場所です。",
+			"MOMOは一人一人の個性を大切にする就労継続支援B型事業所です。軽作業や野菜作り、手工芸品制作など、それぞれのペースで自分らしく活動できます。",
+	},
+	{
+		subTitle: "就労移行支援B型",
+		title: "ものづくりArt工房あすなろ",
+		imagePath: "https://picsum.photos/250/150?random=12",
+		imageAlt: "ものづくり",
+		url: "/services/monozukuri",
+		top: "border-t-yellow-500",
+		button: "border-yellow-500",
+		description:
+			// "「ものづくりArt工房あすなろ」は、就労継続支援B型事業所として陶芸・絵画・立体造形など多様な創作活動を実施。個々の感性を尊重した作品制作を軸に、市役所や商店街イベントでの展示販売を通じ社会と繋がります。共同作業や作品発表で自己表現を促し、利用者の芸術的成長と社会参加を支えるアート工房です。",
+			"ものづくりArt工房あすなろは陶芸や絵画、手工芸品の制作を通じて、一人一人の感性と自己表現を大切にする福祉施設です。共に創造する喜びを分かち合える場所です。",
+	},
+	{
+		subTitle: "地域活動支援センターI型",
+		title: "ぱる・おかやま",
+		imagePath: "https://picsum.photos/250/150?random=13",
+		imageAlt: "ぱる・おかやま",
+		url: "/services/palokayama",
+		top: "border-t-orange-500",
+		button: "border-orange-500",
+		description:
+			// "「ぱる・おかやま」は、障害のある方の自尊心回復と地域共生を推進。お抹茶教室やスポーツサークル等15種以上の活動を展開し、悩み相談からイベント企画まで支援。情報誌発行やピアサポートを通し、支え合いながら「生きやすい街」を創造する岡山の交流拠点です。",
+			"ぱる・おかやまは障害のある方の相談支援や交流スペース、サークル活動を通じて一人ひとりの回復をサポート。専門スタッフによる支援と仲間との出会いの場を提供します。",
+	},
+	{
+		subTitle: "就労移行支援B型",
+		title: "ピアセンタークローバー",
+		imagePath: "https://picsum.photos/250/150?random=14",
+		imageAlt: "クローバー",
+		url: "/services/clover",
+		top: "border-t-green-500",
+		button: "border-green-500",
+		description:
+			// "ピアセンタークローバーは、経験を共有する仲間が支え合う就労支援B型事業所。四葉のクローバーに「みんなの幸せ」を託し、認定ピアサポーターが電話相談・居場所づくり・創作活動を展開。養成講座を経たメンバーが対等な立場で地域に安心の交流拠点を創造しています。",
+			"ピアセンタークローバーは認定を受けたピアサポーターが、自身の経験を活かして電話相談や居場所づくり、交流会の運営などを行っています。",
+	},
+	{
+		subTitle: "岡山市委託事業",
+		title: "たまりば",
+		imagePath: "https://picsum.photos/250/150?random=15",
+		imageAlt: "たまりば",
+		url: "/services/tamariba",
+		top: "border-t-indigo-500",
+		button: "border-indigo-500",
+		description:
+			// "「たまりば」は、働く障害者のための憩いの場。仕事の悩み相談や仲間との交流ができるフリースペースで、常駐スタッフが相談に応じ、職場コミュニケーション講座やストレス管理ワークも実施。登録後は予約不要で利用可能。表町の「ぱる・おかやま」2階で、働く方々の「明日も頑張ろう」を優しく支えます。",
+			// "働く障害者の憩い場。相談対応＆コミュニケーション講座実施（予約不要）。表町の交流スペース。",
+			"たまりばは、働く障害者が気軽に立ち寄れる居場所です。個別相談や仲間との交流、グループワークなどを通じて、働き続けるためのサポートを提供します。",
+	},
+];
+---
+
+<div class="py-24">
+	<div class="container mx-auto mb-12">
+		<H>
+			<Fragment slot="title_en">SERVICES</Fragment>
+			<Fragment slot="title">事業所</Fragment>
+		</H>
+		<p class="text-center">あすなろ福祉会の事業所についてご紹介します。</p>
+	</div>
+	<section class="container mx-auto">
+		<ul
+			class="grid md:grid-cols-3 grid-cols-2 items-center justify-center w-full sm:gap-6 gap-3"
+		>
+			{
+				items.map((item) => (
+					<li
+						class={
+							"js-scrollIn border border-gray-300 border-t-4 " +
+							item.top
+						}
+					>
+						<a href={item.url}>
+							<ul class="bg-white flex flex-col justify-center px-4">
+								<li>
+									<div class="text-center line-clamp-2 py-6">
+										{item.subTitle}
+									</div>
+									<img
+										class="w-full h-full object-contain "
+										src={item.imagePath}
+										alt={item.imageAlt || ""}
+									/>
+								</li>
+								<li class="">
+									<div class="py-6 space-y-2 text-center">
+										<div class="text-center text-xl font-bold	line-clamp-1">
+											{item.title}
+										</div>
+										<div class="">{item.description}</div>
+									</div>
+								</li>
+								<li class="text-right ">
+									<button
+										type="button"
+										class={
+											"text-gray-900 bg-white border " +
+											item.button +
+											" focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2"
+										}
+									>
+										もっと見る
+									</button>
+								</li>
+							</ul>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+</div>

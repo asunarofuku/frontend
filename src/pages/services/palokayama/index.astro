@@ -1,0 +1,549 @@
+---
+import Access from "../../../components/Access.astro";
+import Activities from "../../../components/Activities.astro";
+import ServiceSchedule from "../../../components/services/ServiceSchedule.astro";
+import ServicesH from "../../../components/ServicesH.astro";
+import ServicesSub from "../../../components/ServicesSub.astro";
+import ServicesTopic from "../../../components/ServicesTopic.astro";
+import type { TocItem } from "../../../components/TableOfContents.astro";
+import PalokayamaLayout from "../../../layouts/services/PalokayamaLayout.astro";
+const crumbs = [
+    {
+        text: "ホーム",
+        href: "/",
+    },
+    {
+        text: "ぱる・おかやま",
+    },
+];
+const activities = [
+    {
+        date: "",
+        title: "サークル一覧(令和5年度)",
+        imagePath: "/icons/pdf.svg",
+        url: "/services/palokayama/list_c_r5.pdf",
+    },
+    {
+        date: "",
+        title: "事業報告",
+        imagePath: "/icons/dir.svg",
+        url: "/services/palokayama/business_report",
+    },
+    {
+        date: "",
+        title: "ぱる通信",
+        imagePath: "/icons/dir.svg",
+        url: "/services/palokayama/journals",
+    },
+    {
+        date: "",
+        title: "パンフレット",
+        imagePath: "/icons/pdf.svg",
+        url: "/services/palokayama/palokayama2017.pdf",
+    },
+];
+
+const informations = [
+    {
+        date: "",
+        title: "運営規程",
+        imagePath: "/icons/pdf.svg",
+        url: "/services/palokayama/pal_reg_r5_1_1.pdf",
+    },
+    {
+        date: "",
+        title: "運営規程（特定相談）",
+        imagePath: "/icons/pdf.svg",
+        url: "/services/palokayama/regulation_t_h28.pdf",
+    },
+    {
+        date: "",
+        title: "運営規程（一般相談）",
+        imagePath: "/icons/pdf.svg",
+        url: "/services/palokayama/regulation_i_h28.pdf",
+    },
+    {
+        date: "",
+        title: "利用規定",
+        imagePath: "/icons/pdf.svg",
+        url: "/services/palokayama/pal_rules.pdf",
+    },
+];
+
+const addresses = [
+    {
+        postalCode: "700-0822",
+        address: "岡山県岡山市北区表町3-7-27 /2階",
+        fax: "（086）201-1720",
+        tel: "（086）201-1713",
+        email: "pal-oka@mx35.tiki.ne.jp",
+    },
+];
+
+const tocItems: TocItem[] = [
+    {
+        title: "概要",
+        link: "#overview",
+    },
+    {
+        title: "スケジュール",
+        link: "#schedule",
+    },
+    {
+        title: "事業内容",
+        link: "#service_content",
+    },
+    {
+        title: "サークル一覧",
+        link: "#circle",
+    },
+    {
+        title: "活動紹介",
+        link: "#activities",
+    },
+    {
+        title: "利用にあたって",
+        link: "#guidelines_for_using",
+    },
+    {
+        title: "情報",
+        link: "#informations",
+    },
+    {
+        title: "アクセス",
+        link: "#access",
+    },
+];
+---
+
+<PalokayamaLayout
+    title="ぱる・おかやま"
+    title_en="地域活動支援センターI型 "
+    tocItems={tocItems}
+    crumbs={crumbs}
+>
+    <div class="container mx-auto pt-12">
+        <section class="mb-24" id="overview">
+            <ServicesH>ぱる・おかやま</ServicesH>
+            <section class="mb-12">
+                <div
+                    class="leading-relaxed border border-[var(--secondary-color)] p-6 text-xl border-dashed border-8 rounded-3xl"
+                >
+                    <ServicesTopic>リカバリー＆あたたかい街づくり</ServicesTopic
+                    >
+                    <section class="mb-6">
+                        <ServicesTopic>
+                            傷ついた自尊心を回復し、夢・希望をもって自分らしく生きていけるよう応援
+                        </ServicesTopic>
+                        <p>
+                            人としての誇り、自分が自分であることへの自信、人とつながることの喜びと信頼感、安心とゆとりと、社会と再び関わる勇気の回復をゆったりと見守り、喜びもつらさも分かり合いたい。
+                        </p>
+                    </section>
+                    <section class="mb-6">
+                        <ServicesTopic>
+                            障がいのある人もない人もお互いに認め合い、助け合えるあたたかい街づくり
+                        </ServicesTopic>
+                        <p>
+                            当事者の方を生きにくくしているものの一つは「偏見」。それは、病気や障がいを正しく知らないことから生まれるものです。当事者の方の本当の姿を知ってもらうきっかけになるイベントや交流など、様々な取り組みを行いながら、互いの違いを認め合い、支え合える街づくりを目指します。
+                        </p>
+                    </section>
+                </div>
+            </section>
+            <section class="mb-12">
+                <div class="flex flex-row gap-12">
+                    <a href="/services/palokayama/palinfo_2015.pdf">
+                        <div
+                            class="border p-1 flex flex-col items-center rounded-md"
+                        >
+                            <img
+                                src="/services/palokayama/palinfo_2015.jpg"
+                                class=""
+                            />
+                        </div>
+                    </a>
+
+                    <a href="/services/palokayama/peerokayama.pdf">
+                        <div
+                            class="border p-1 flex flex-col items-center rounded-md"
+                        >
+                            <img
+                                src="/services/palokayama/peerokayama.jpg"
+                                class=""
+                            />
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </section>
+
+        <section class="mb-24" id="schedule">
+            <ServicesH>スケジュール</ServicesH>
+            <ServiceSchedule name="ぱる・おかやま" />
+        </section>
+
+        <section class="mb-24" id="service_content">
+            <ServicesH>事業内容・作業内容</ServicesH>
+            <section class="mb-12">
+                <ServicesSub>悩み相談</ServicesSub>
+                <p>
+                    日々の生活で不安に感じていること、困っていること、経済的なこと、福祉サービスの利用などに
+                    ついて、電話・来所・訪問相談を行っています。
+                </p>
+            </section>
+
+            <section class="mb-12">
+                <ServicesSub>生活サポート</ServicesSub>
+                <p>
+                    日々の生活を安心して過ごすことができるように「医・衣・職・食・友・住」に関わることなど、必要なサポートを行っています。
+                </p>
+            </section>
+
+            <section class="mb-12">
+                <ServicesSub>交流スペース</ServicesSub>
+                <p>
+                    ぱる・おかやまでは交流・安らぎのスペースを提供しています。
+                    ゆっくり、のんびりと自由に過ごしていただける憩いの場になっています。
+                </p>
+            </section>
+
+            <section class="mb-12">
+                <ServicesSub>サークル・イベント活動</ServicesSub>
+                <dl class="space-y-2">
+                    <dt>● サークル活動</dt>
+                    <dd class="ml-4">
+                        お抹茶教室、ソフトボール、手芸サークル、パソコン教室などの活動を行っています。
+                    </dd>
+                    <dt>● イベントの開催</dt>
+                    <dd class="ml-4">
+                        お花見、山登り、キャンプ、忘年会など季節にちなんだイベントを企画しています。
+                    </dd>
+                    <dt>● 地域交流</dt>
+                    <dd class="ml-4">
+                        地域の盆踊りやイベントへの参加、講演活動を通し、様々な方と交流しています。
+                    </dd>
+                </dl>
+            </section>
+
+            <section class="mb-12">
+                <ServicesSub>ピアサポート活動・当事者活動支援</ServicesSub>
+                <p>
+                    ピアセンター「クローバー」と連携し、より良い居場所作り・仲間作りを支援します。
+                    また、当事者自身が発言できる場・表現できる場を共に作り、誰もが生き生きと暮らすこと
+                    ができる地域づくりを目指します。
+                </p>
+            </section>
+
+            <section class="mb-12">
+                <ServicesSub>情報発信</ServicesSub>
+                <p>
+                    情報誌「ぱる通信」を発行し、地域での暮らしに役立つ情報を提供しています。
+                </p>
+            </section>
+
+            <section class="mb-12">
+                <ServicesSub>家族交流会</ServicesSub>
+                <p>
+                    家族交流会（2ヶ月に1回）を開催し、悩みを語り合い、交流することで家族自身が元気になり、
+                    前向きに歩いていけるように、ご本人のよき理解者であるように…とサポートしています。
+                </p>
+            </section>
+
+            <section class="mb-12">
+                <ServicesSub>指定特定相談支援事業 （計画相談）</ServicesSub>
+                <p>
+                    障害福祉サービス等を利用する際に必要な「サービス等利用計画」を作成します。
+                    ご本人の生活の希望や悩みごとをお聞きし、現在の状況をふまえて計画を作成し、定期的に振り返り（モニタリング）を行います。
+                </p>
+            </section>
+
+            <section class="mb-12">
+                <ServicesSub>
+                    指定一般相談支援事業（①地域移行・②定着支援事業）
+                </ServicesSub>
+                <ol>
+                    <li>
+                        地域で1人暮らしをしている方、もしくは同居のご家族に病気や障がいがあり、支援が見込めない方に対して、緊急時の支援体制を整え、安心して生活できるようサポートします。
+                    </li>
+                    <li>
+                        長期に渡り障害者支援施設等に入所している方、または精神科病院に入院している方が、地域生活へ円滑に移行する為の相談や必要な支援を行います。
+                    </li>
+                </ol>
+            </section>
+        </section>
+        <section class="mb-24" id="circle">
+            <ServicesH>サークル一覧</ServicesH>
+            <p class="text-right mb-4">令和５年12月28日現在</p>
+            <table class="w-full border mb-4 text-left">
+                <thead class="bg-gray-200 text-gray-600">
+                    <tr>
+                        <th class="px-4 py-3">No.</th>
+                        <th class="px-4 py-3">サークル等名称</th>
+                        <th class="px-4 py-3">規模</th>
+                        <th class="px-4 py-3">助成金</th>
+                        <th class="px-4 py-3">活動内容</th>
+                        <th class="px-4 py-3">活動日</th>
+                        <th class="px-4 py-3">活動時間</th>
+                        <th class="px-4 py-3">会費</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-4 py-3">1</td>
+                        <td class="px-4 py-3">えーたろうの部屋</td>
+                        <td class="px-4 py-3">小</td>
+                        <td class="px-4 py-3"></td>
+                        <td class="px-4 py-3">交流活動</td>
+                        <td class="px-4 py-3">月1回</td>
+                        <td class="px-4 py-3">2時間</td>
+                        <td class="px-4 py-3">無料</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-4 py-3">2</td>
+                        <td class="px-4 py-3">せおya</td>
+                        <td class="px-4 py-3">大</td>
+                        <td class="px-4 py-3"></td>
+                        <td class="px-4 py-3">交流活動</td>
+                        <td class="px-4 py-3">月1回</td>
+                        <td class="px-4 py-3">2時間</td>
+                        <td class="px-4 py-3">実費</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-4 py-3">3</td>
+                        <td class="px-4 py-3">WRAP</td>
+                        <td class="px-4 py-3">中</td>
+                        <td class="px-4 py-3"></td>
+                        <td class="px-4 py-3">交流・学習活動</td>
+                        <td class="px-4 py-3">月1回</td>
+                        <td class="px-4 py-3">2時間</td>
+                        <td class="px-4 py-3">無料</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-4 py-3">4</td>
+                        <td class="px-4 py-3">ぱるカフェ</td>
+                        <td class="px-4 py-3">大</td>
+                        <td class="px-4 py-3"></td>
+                        <td class="px-4 py-3">交流・学習活動</td>
+                        <td class="px-4 py-3">月1回</td>
+                        <td class="px-4 py-3">2時間</td>
+                        <td class="px-4 py-3">無料</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-4 py-3">5</td>
+                        <td class="px-4 py-3">ぱるランチ</td>
+                        <td class="px-4 py-3">大</td>
+                        <td class="px-4 py-3">○</td>
+                        <td class="px-4 py-3">交流活動</td>
+                        <td class="px-4 py-3">月1回</td>
+                        <td class="px-4 py-3">2時間</td>
+                        <td class="px-4 py-3">実費300円程度</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-4 py-3">6</td>
+                        <td class="px-4 py-3">パラダイスカフェ</td>
+                        <td class="px-4 py-3">大</td>
+                        <td class="px-4 py-3"></td>
+                        <td class="px-4 py-3">交流活動</td>
+                        <td class="px-4 py-3">隔月</td>
+                        <td class="px-4 py-3">2時間</td>
+                        <td class="px-4 py-3">実費</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-4 py-3">7</td>
+                        <td class="px-4 py-3">アートサークル</td>
+                        <td class="px-4 py-3">小</td>
+                        <td class="px-4 py-3"></td>
+                        <td class="px-4 py-3">交流活動</td>
+                        <td class="px-4 py-3">月1回</td>
+                        <td class="px-4 py-3">2時間</td>
+                        <td class="px-4 py-3">実費</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-4 py-3">8</td>
+                        <td class="px-4 py-3">ぱるクロビリヤード</td>
+                        <td class="px-4 py-3">中</td>
+                        <td class="px-4 py-3"></td>
+                        <td class="px-4 py-3">スポーツ活動</td>
+                        <td class="px-4 py-3">月1回</td>
+                        <td class="px-4 py-3">2時間程度</td>
+                        <td class="px-4 py-3">無料</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-4 py-3">9</td>
+                        <td class="px-4 py-3">ぱるクロスポーツ</td>
+                        <td class="px-4 py-3">大</td>
+                        <td class="px-4 py-3"></td>
+                        <td class="px-4 py-3">スポーツ活動</td>
+                        <td class="px-4 py-3">月1回</td>
+                        <td class="px-4 py-3">2時間程度</td>
+                        <td class="px-4 py-3">無料</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-4 py-3">10</td>
+                        <td class="px-4 py-3">コーヒーを楽しむ会</td>
+                        <td class="px-4 py-3">中</td>
+                        <td class="px-4 py-3"></td>
+                        <td class="px-4 py-3">交流活動</td>
+                        <td class="px-4 py-3">月1回</td>
+                        <td class="px-4 py-3">2時間程度</td>
+                        <td class="px-4 py-3">実費</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-4 py-3">11</td>
+                        <td class="px-4 py-3">ことのは会</td>
+                        <td class="px-4 py-3">中</td>
+                        <td class="px-4 py-3"></td>
+                        <td class="px-4 py-3">趣味活動</td>
+                        <td class="px-4 py-3">月1回</td>
+                        <td class="px-4 py-3">2時間程度</td>
+                        <td class="px-4 py-3">無料</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-4 py-3">12</td>
+                        <td class="px-4 py-3">お菓子サークル</td>
+                        <td class="px-4 py-3">大</td>
+                        <td class="px-4 py-3"></td>
+                        <td class="px-4 py-3">趣味活動</td>
+                        <td class="px-4 py-3">月1回</td>
+                        <td class="px-4 py-3">2時間程度</td>
+                        <td class="px-4 py-3">実費</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-4 py-3">13</td>
+                        <td class="px-4 py-3">図書館サークル</td>
+                        <td class="px-4 py-3">小</td>
+                        <td class="px-4 py-3"></td>
+                        <td class="px-4 py-3">趣味活動</td>
+                        <td class="px-4 py-3">月1回</td>
+                        <td class="px-4 py-3">2時間程度</td>
+                        <td class="px-4 py-3">実費</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-4 py-3">14</td>
+                        <td class="px-4 py-3">まんぷくサークル</td>
+                        <td class="px-4 py-3">大</td>
+                        <td class="px-4 py-3"></td>
+                        <td class="px-4 py-3">交流活動</td>
+                        <td class="px-4 py-3">月1回</td>
+                        <td class="px-4 py-3">2時間程度</td>
+                        <td class="px-4 py-3">実費</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-4 py-3">15</td>
+                        <td class="px-4 py-3">ソフトボール</td>
+                        <td class="px-4 py-3">大</td>
+                        <td class="px-4 py-3"></td>
+                        <td class="px-4 py-3">スポーツ活動</td>
+                        <td class="px-4 py-3">年2回</td>
+                        <td class="px-4 py-3">2時間程度</td>
+                        <td class="px-4 py-3">無料</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-4 py-3">16</td>
+                        <td class="px-4 py-3">テニスサークル</td>
+                        <td class="px-4 py-3">中</td>
+                        <td class="px-4 py-3"></td>
+                        <td class="px-4 py-3">スポーツ活動</td>
+                        <td class="px-4 py-3">年2回</td>
+                        <td class="px-4 py-3">2時間程度</td>
+                        <td class="px-4 py-3">無料</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-4 py-3">17</td>
+                        <td class="px-4 py-3">フットサル</td>
+                        <td class="px-4 py-3">中</td>
+                        <td class="px-4 py-3"></td>
+                        <td class="px-4 py-3">スポーツ活動</td>
+                        <td class="px-4 py-3">年２回</td>
+                        <td class="px-4 py-3">2時間程度</td>
+                        <td class="px-4 py-3">無料</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-4 py-3">18</td>
+                        <td class="px-4 py-3">屋内スポーツ</td>
+                        <td class="px-4 py-3">大</td>
+                        <td class="px-4 py-3"></td>
+                        <td class="px-4 py-3">スポーツ活動</td>
+                        <td class="px-4 py-3">年1回</td>
+                        <td class="px-4 py-3">2時間程度</td>
+                        <td class="px-4 py-3">無料</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-4 py-3">19</td>
+                        <td class="px-4 py-3">登山</td>
+                        <td class="px-4 py-3">大</td>
+                        <td class="px-4 py-3"></td>
+                        <td class="px-4 py-3">スポーツ活動</td>
+                        <td class="px-4 py-3">年1回</td>
+                        <td class="px-4 py-3">2時間程度</td>
+                        <td class="px-4 py-3">無料</td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul class="space-y-1">
+                <li>※参加人数　大：10名以上　中：5名～9名　小：2名～4名</li>
+                <li>
+                    ※助成金は申請書をもとに審査を行い、上限金額の範囲内でサークル活動に助成を行います。
+                </li>
+                <li>
+                    ※開催日時・内容はぱるおかやまスケジュール（ぱる掲示・ホームページ掲載）をご確認ください。
+                </li>
+            </ul>
+        </section>
+
+        <section class="mb-24" id="activities">
+            <ServicesH>活動紹介</ServicesH>
+            <Activities items={activities} />
+        </section>
+
+        <section class="mb-24" id="guidelines_for_using">
+            <ServicesH>利用にあたって</ServicesH>
+            <p class="mb-6">
+                「障害を抱えながら生活しているが、悩みや困ったことなどをどこに相談すればいいのかわからない」「一人ぼっちでさびしい。仲間がほしい」こんな時、地域活動支援センターを活用してください。ひとりひとりに合った、具体的な援助・相談を提供します。
+            </p>
+            <section class="mb-12">
+                <ServicesSub> このような人が利用できます。 </ServicesSub>
+                <p>
+                    地域で生活している障害者が利用できます。利用するためには、登録手続きが必要です。これは個人に対して、細やかで、かつ継続的な支援を提供するためです。詳しいことはスタッフにお尋ねください。
+                </p>
+            </section>
+            <section class="mb-12">
+                <ServicesSub> 利用するには？ </ServicesSub>
+                <ol class="list-decimal ml-6 space-y-1 mb-6">
+                    <li>
+                        はじめは、まず　ぱる・おかやまに来所するかお電話下さい。
+                    </li>
+                    <li>
+                        スタッフからぱる・おかやまについての説明を行います。
+                    </li>
+                    <li>
+                        利用希望される場合にはスタッフと面接をしていただき、利用目的や今後の支援についての相談を行います。利用が適当と思われた場合、登録手続きを行っていただきます。
+                    </li>
+                    <li>
+                        手続きは、以下の書類が必要となります。手続きは、スタッフより説明します。
+                    </li>
+                </ol>
+
+                <ServicesTopic>必要書類</ServicesTopic>
+
+                <ul class="list-disc ml-6 space-y-1 mb-6">
+                    <li>利用（登録）申請書</li>
+                    <li>障がい者手帳のコピー又は自立支援医療受給者証コピー</li>
+                    <li>又は医師の診断書・契約書・医師の意見書</li>
+                </ul>
+            </section>
+        </section>
+
+        <section class="mb-24" id="informations">
+            <ServicesH>情報</ServicesH>
+            <Activities items={informations} />
+        </section>
+
+        <section class="mb-24" id="access">
+            <ServicesH>アクセス</ServicesH>
+            <Access
+                addresses={addresses}
+                mapUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.8260000119294!2d133.92674341183445!3d34.65909698533026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355406349fc6b48f%3A0xd08a837380cca7cc!2z44CSNzAwLTA4MjIg5bKh5bGx55yM5bKh5bGx5biC5YyX5Yy66KGo55S677yT5LiB55uu77yX4oiS77yS77yXIOWyoeadkeWVhuS6i-ihqOeUuuODk-ODqw!5e0!3m2!1sja!2sjp!4v1729849138691!5m2!1sja!2sjp"
+            />
+        </section>
+    </div>
+</PalokayamaLayout>

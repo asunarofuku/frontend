@@ -1,0 +1,78 @@
+---
+import Footer from "../../components/home/Footer.astro";
+import NavBar from "../../components/home/NavBar.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import TableOfContents, {
+    type TocItem,
+} from "../../components/TableOfContents.astro";
+import Layout from "../Layout.astro";
+
+// import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+    primaryColor: string;
+    secondaryColor: string;
+    title: string;
+    title_en: string;
+    description: string;
+    eyecatch: string;
+    tocItems: TocItem[] | null;
+    crumbs: any;
+}
+const {
+    primaryColor,
+    secondaryColor,
+    title,
+    title_en,
+    description,
+    eyecatch = "/blog-placeholder-1.jpg",
+    tocItems,
+    crumbs,
+} = Astro.props;
+---
+
+<Layout title={title} description={description}>
+    <header
+        style={"--primary-color: " +
+            primaryColor +
+            ";--secondary-color: " +
+            secondaryColor +
+            ";"}
+    >
+        <div class="">
+            <NavBar />
+        </div>
+    </header>
+
+    <main
+        style={"--primary-color: " +
+            primaryColor +
+            ";--secondary-color: " +
+            secondaryColor +
+            ";"}
+    >
+        <div class="bg-[var(--primary-color)]">
+            <h2 class="text-center text-4xl text-white py-4 m_plus_1_300">
+                <div class="en text-2xl">{title_en}</div>{title}
+            </h2>
+        </div>
+        <div class="w-full bg-[var(--secondary-color)] py-12">
+            <div class="container mx-auto">
+                <img src={eyecatch} class="" />
+            </div>
+        </div>
+        <div class="container mx-auto pt-6">
+            <section class="mb-12">
+                <Breadcrumb crumbs={crumbs} />
+            </section>
+
+            <section class="mb-24" id="tableOfContents">
+                {tocItems && <TableOfContents items={tocItems} />}
+            </section>
+        </div>
+
+        <slot />
+    </main>
+
+    <Footer />
+</Layout>

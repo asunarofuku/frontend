@@ -1,0 +1,49 @@
+---
+// NewsItem型の定義
+interface NewsItem {
+  date: string;
+  title: string;
+  imagePath: string;
+  imageAlt?: string;
+  url: string;
+}
+
+// コンポーネントのProps型定義
+interface Props {
+  items: NewsItem[];
+}
+
+// Propsを受け取る
+const { items } = Astro.props;
+---
+
+<ul class="flex flex-wrap gap-4">
+  {
+    items.map((item) => (
+      <li class="w-[calc(32%-8px)]">
+        <a href={item.url}>
+          <ul class="flex flex-col gap-2 border-[var(--secondary-color)] border-b-4 py-4">
+            <li>
+              <ul class="flex items-center gap-4">
+                <li>
+                  <div class="border border-gray-200 w-24 h-24 flex items-center justify-center p-1">
+                    <img
+                      class="max-w-full max-h-full object-contain"
+                      src={item.imagePath}
+                      alt={item.imageAlt || ""}
+                    />
+                  </div>
+                </li>
+                <li>
+                  <div class="flex flex-col gap-2">
+                    <div class="text-sm		">{item.title}</div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </a>
+      </li>
+    ))
+  }
+</ul>

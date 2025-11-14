@@ -1,0 +1,252 @@
+---
+import Access from "../../../components/Access.astro";
+import Activities from "../../../components/Activities.astro";
+import ServicesH from "../../../components/ServicesH.astro";
+import ServicesSub from "../../../components/ServicesSub.astro";
+import ServicesTopic from "../../../components/ServicesTopic.astro";
+import type { TocItem } from "../../../components/TableOfContents.astro";
+import ServiceSchedule from "../../../components/services/ServiceSchedule.astro";
+import TransportationAllowance from "../../../components/services/TransportationAllowance.astro";
+import MomoLayout from "../../../layouts/services/MomoLayout.astro";
+
+const crumbs = [
+    {
+        text: "ホーム",
+        href: "/",
+    },
+    {
+        text: "MOMO",
+    },
+];
+const activities = [
+    {
+        date: "",
+        title: "パンフレット",
+        imagePath: "/icons/pdf.svg",
+        url: "",
+    },
+];
+
+const informations = [
+    {
+        date: "",
+        title: "運営規程",
+        imagePath: "/icons/pdf.svg",
+        url: "/services/momo/momo_reg_r2_8_1.pdf",
+    },
+    {
+        date: "",
+        title: "営業許可証",
+        imagePath: "/icons/pdf.svg",
+        url: "/services/momo/business_license.pdf",
+    },
+];
+
+const addresses = [
+    {
+        postalCode: "700-0822",
+        address: "岡山県岡山市北区表町3丁目3‐32 ウエスタンビル３０１",
+        fax: "（086）230-4780",
+        tel: "（086）230-4780",
+    },
+    {
+        postalCode: "700-0822",
+        address: "岡山県岡山市北区表町3丁目3‐32 ウエスタンビル４０１",
+        tel: "（086）230-5720",
+        fax: "（086）230-5720",
+        email: "asunaro_fuku@mx32.tiki.ne.jp",
+    },
+];
+
+const tocItems: TocItem[] = [
+    {
+        title: "概要",
+        link: "#overview",
+    },
+    {
+        title: "スケジュール",
+        link: "#schedule",
+    },
+    {
+        title: "事業内容",
+        link: "#service_content",
+    },
+    {
+        title: "交通費補助と交通費申請",
+        link: "#transportation_allowance",
+    },
+    {
+        title: "活動紹介",
+        link: "#activities",
+    },
+    {
+        title: "情報",
+        link: "#informations",
+    },
+    {
+        title: "アクセス",
+        link: "#access",
+    },
+];
+---
+
+<MomoLayout
+    title="MOMO"
+    title_en="就労移行支援B型 "
+    tocItems={tocItems}
+    crumbs={crumbs}
+>
+    <div class="container mx-auto pt-12">
+        <section class="mb-24" id="overview">
+            <ServicesH>MOMO</ServicesH>
+            <div
+                class="leading-relaxed border border-[var(--secondary-color)] p-6 text-xl border-dashed border-8 rounded-3xl"
+            >
+                <section class="mb-6">
+                    <ServicesTopic>これまでのあゆみ</ServicesTopic>
+                    <p>
+                        平成9
+                        年、「街中に」「気軽に集まれる場を」「おしゃれな喫茶店をつくりたい」。そ
+                        んな思いを形にしたのが、当時、岡山市北区表町三丁目にオープンした「
+                        MOMO 」」です。
+                    </p>
+                    <p>
+                        家族会と協力しあい募金を訴え、１階が喫茶店、２階、３階がフリースペースとな
+                        っている家族会運営の作業所を立ち上げました。次第に
+                        一般市民の来客も増え、 障
+                        がいの垣根をこえた、自然に交流できる場となりました。
+                    </p>
+                    <p>
+                        その後は、岡山市北区内山下に移転し、現在は開設当初の
+                        地域である岡山市北区表町三丁目 にあります 。
+                    </p>
+                </section>
+                <section>
+                    <ServicesTopic>大切にしていること</ServicesTopic>
+                    <p>私らしさが大切にされる、あたたかい場所</p>
+                    <p>
+                        ひとりひとりの得意なことや、その人の持つ良さが発揮できる場所
+                    </p>
+                    <p>
+                        自信を取り戻し、これからの一歩に向けて夢や希望を持つことが出来る場所
+                    </p>
+                </section>
+            </div>
+        </section>
+
+        <section class="mb-24" id="schedule">
+            <ServicesH>スケジュール</ServicesH>
+            <ServiceSchedule name="MOMO" />
+        </section>
+
+        <section class="mb-24" id="service_content">
+            <ServicesH>事業内容・作業内容</ServicesH>
+            <section class="mb-12">
+                <ServicesSub>就労継続支援事業 B 型（定員 ２０ 名）</ServicesSub>
+                <p>
+                    一般就労には不安な方々が、それぞれの状況に合わせて作業を行います。また、ひとりひとりに支援の計画を立て、各
+                    自の希望や目標 に
+                    向かえるように応援していきます。様々な困りごとや将来に対する相談なども受けられ、「今」の問題
+                    も解決できるように、スタッフと共に
+                    一緒に考えて取り組んでいきます。
+                </p>
+                <p>
+                    主な作業内容は、施設内での軽作業（
+                    組み立て・封入・ラベル張りなど）、畑での無農薬野菜作り、手工芸品づくり
+                    お菓子、石けんなどの商品販売、創作活動を行っています。
+                </p>
+            </section>
+            <section class="mb-12">
+                <ServicesSub>「MOMO」の１日 の流れ</ServicesSub>
+                <ul>
+                    <li class="w-[calc(100%-8px)]">
+                        <ul class="flex flex-row gap-4 p-2">
+                            <li class="w-30 border-b-4">10：00</li>
+                            <li class="flex-1">朝のミーティング</li>
+                        </ul>
+                    </li>
+                    <li class="w-[calc(100%-8px)]">
+                        <ul class="flex flex-row gap-4 p-2">
+                            <li class="w-30 border-b-4">10：30</li>
+                            <li class="flex-1">午前作業 開始</li>
+                        </ul>
+                    </li>
+                    <li class="w-[calc(100%-8px)]">
+                        <ul class="flex flex-row gap-4 p-2">
+                            <li class="w-30 border-b-4">12：15</li>
+                            <li class="flex-1">昼休憩</li>
+                        </ul>
+                    </li>
+                    <li class="w-[calc(100%-8px)]">
+                        <ul class="flex flex-row gap-4 p-2">
+                            <li class="w-30 border-b-4">13：00</li>
+                            <li class="flex-1">午後作業開始</li>
+                        </ul>
+                    </li>
+                    <li class="w-[calc(100%-8px)]">
+                        <ul class="flex flex-row gap-4 p-2">
+                            <li class="w-30 border-b-4">14：45</li>
+                            <li class="flex-1">片付け</li>
+                        </ul>
+                    </li>
+                    <li class="w-[calc(100%-8px)]">
+                        <ul class="flex flex-row gap-4 p-2">
+                            <li class="w-30 border-b-4">15：00</li>
+                            <li class="flex-1">作業終了</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section class="mb-12">
+                <ServicesSub>その他の活動</ServicesSub>
+                <div
+                    class="w-[30%] float-right border p-1 flex flex-col items-center rounded-md"
+                >
+                    <img src="/services/momo/momo-recreation.jpg" class="" />
+                    <p>レクリエーション</p>
+                </div>
+                <section class="mb-6">
+                    <ServicesTopic>ＭＯＭＯミーティング</ServicesTopic>
+                    <p>
+                        ＭＯＭＯを良くするために意見
+                        を出し合ったり、レクリエーションで出かける場所を決めます。
+                    </p>
+                </section>
+                <section class="mb-6">
+                    <ServicesTopic>ＭＯＭＯレク</ServicesTopic>
+                    <p>
+                        ＭＯＭＯミーティングで話し合って、みんなで内容を考えて、
+                        楽しい時間を過ごします。
+                    </p>
+                </section>
+                <section class="mb-6">
+                    <ServicesTopic>イベント</ServicesTopic>
+                    <p>
+                        あすなろ福祉会全体でのイベントにも参加
+                        O.K!（お花見、キャンプ、忘年会等）
+                    </p>
+                </section>
+            </section>
+        </section>
+
+        <TransportationAllowance />
+
+        <section class="mb-24" id="activities">
+            <ServicesH>活動紹介</ServicesH>
+            <Activities items={activities} />
+        </section>
+
+        <section class="mb-24" id="informations">
+            <ServicesH>情報</ServicesH>
+            <Activities items={informations} />
+        </section>
+
+        <section class="mb-24" id="access">
+            <ServicesH>アクセス</ServicesH>
+            <Access
+                addresses={addresses}
+                mapUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6563.696288511943!2d133.92723042327881!3d34.65853779974284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355407cb2da89bc7%3A0x2b215e9d1fc7bfe3!2z44CSNzAwLTA4MjIg5bKh5bGx55yM5bKh5bGx5biC5YyX5Yy66KGo55S677yT5LiB55uu77yT4oiS77yT77ySIOOCpuOCqOOCueOCv-ODs-ODk-ODqw!5e0!3m2!1sja!2sjp!4v1729949023591!5m2!1sja!2sjp"
+            />
+        </section>
+    </div>
+</MomoLayout>

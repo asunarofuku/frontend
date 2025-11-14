@@ -1,0 +1,184 @@
+---
+import Access from "../../../components/Access.astro";
+import Activities from "../../../components/Activities.astro";
+import ServicesH from "../../../components/ServicesH.astro";
+import ServicesSub from "../../../components/ServicesSub.astro";
+import type { TocItem } from "../../../components/TableOfContents.astro";
+import MonozukuriLayout from "../../../layouts/services/MonozukuriLayout.astro";
+
+const crumbs = [
+    {
+        text: "ホーム",
+        href: "/",
+    },
+    {
+        text: "ものづくりArt工房あすなろ",
+    },
+];
+const activities = [
+    {
+        date: "",
+        title: "事業報告",
+        imagePath: "/icons/dir.svg",
+        url: "/services/monozukuri/business_report",
+    },
+    {
+        date: "",
+        title: "パンフレット",
+        imagePath: "/icons/pdf.svg",
+        url: "/services/jsca/jsca_pamphlet_2017.pdf",
+    },
+];
+const informations = [];
+
+const addresses = [
+    {
+        postalCode: "703-8256",
+        address: "岡山県岡山市中区浜475-5 /１階",
+        fax: "（086）273-9692",
+        tel: "（086）273-9692",
+    },
+];
+
+const tocItems: TocItem[] = [
+    {
+        title: "概要",
+        link: "#overview",
+    },
+    {
+        title: "事業内容",
+        link: "#service_content",
+    },
+    {
+        title: "活動紹介",
+        link: "#activities",
+    },
+    {
+        title: "情報",
+        link: "#informations",
+    },
+    {
+        title: "アクセス",
+        link: "#access",
+    },
+];
+---
+
+<MonozukuriLayout
+    title="ものづくりArt工房あすなろ"
+    title_en="就労移行支援B型 "
+    tocItems={tocItems}
+    crumbs={crumbs}
+>
+    <div class="container mx-auto pt-12">
+        <section class="mb-24" id="overview">
+            <ServicesH>ものづくりArt工房あすなろ</ServicesH>
+            <section class="mb-12">
+                <div
+                    class="leading-relaxed border border-[var(--secondary-color)] p-6 text-xl border-dashed border-8 rounded-3xl"
+                >
+                    <p>
+                        ひとつひとつの自己表現として
+                        それぞれの感性を大切に、みんなで一緒に活動できるように
+                    </p>
+                </div>
+            </section>
+            <section class="mb-12">
+                <div class="flex flex-row gap-12">
+                    <a href="/services/monozukuri/201704017.jpg">
+                        <div
+                            class="border p-1 flex flex-col items-center rounded-md"
+                        >
+                            <img
+                                src="/services/monozukuri/201704017.jpg"
+                                class=""
+                            />
+                        </div>
+                    </a>
+
+                    <a href="/services/monozukuri/20171105.pdf">
+                        <div
+                            class="border p-1 flex flex-col items-center rounded-md"
+                        >
+                            <img
+                                src="/services/monozukuri/20171105.jpg"
+                                class=""
+                            />
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </section>
+
+        <section class="mb-24" id="service_content">
+            <ServicesH>事業内容・作業内容</ServicesH>
+            <section class="mb-12">
+                <p class="mb-4">陶芸、絵画、立体的な造形品、手工芸品の制作</p>
+            </section>
+
+            <section class="mb-12">
+                <ServicesSub>１日 の流れ</ServicesSub>
+                <ul>
+                    <li class="w-[calc(100%-8px)]">
+                        <ul class="flex flex-row gap-4 p-2">
+                            <li class="w-30 border-b-4">１０時</li>
+                            <li class="flex-1">
+                                始まりミーティング・制作活動　開始
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="w-[calc(100%-8px)]">
+                        <ul class="flex flex-row gap-4 p-2">
+                            <li class="w-30 border-b-4">１２時</li>
+                            <li class="flex-1">お昼休憩</li>
+                        </ul>
+                    </li>
+                    <li class="w-[calc(100%-8px)]">
+                        <ul class="flex flex-row gap-4 p-2">
+                            <li class="w-30 border-b-4">１３時</li>
+                            <li class="flex-1">制作活動</li>
+                        </ul>
+                    </li>
+                    <li class="w-[calc(100%-8px)]">
+                        <ul class="flex flex-row gap-4 p-2">
+                            <li class="w-30 border-b-4">１５時</li>
+                            <li class="flex-1">
+                                片づけ・終わりミーティングをして終了
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section class="mb-12">
+                <ServicesSub>作品の展示・販売場所と機会</ServicesSub>
+                <ul class="list-disc ml-8">
+                    <li>
+                        『ものづくりArt工房あすなろ』の活動場所で、随時展示販売
+                    </li>
+                    <li>市役所販売、ナイスハートバザール</li>
+                    <li>商店街イベント</li>
+                    <li>セルプセンター、元気の輪など</li>
+                </ul>
+            </section>
+        </section>
+
+        <section class="mb-24" id="activities">
+            <ServicesH>活動紹介</ServicesH>
+
+            <Activities items={activities} />
+        </section>
+
+        <section class="mb-24" id="informations">
+            <ServicesH>情報</ServicesH>
+            <!-- <Activities items={informations} /> -->
+        </section>
+
+        <section class="mb-24" id="access">
+            <ServicesH>アクセス</ServicesH>
+            <Access
+                addresses={addresses}
+                mapUrl="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2450.169308071904!2d133.94243671771278!3d34.672517195748185!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3554061e4e8a2567%3A0x15fa1299efa3cb72!2zKOekvuemjynjgYLjgZnjgarjgo3npo_npYnkvJo!5e0!3m2!1sja!2sjp!4v1729990787369!5m2!1sja!2sjp"
+            />
+        </section>
+    </div>
+</MonozukuriLayout>

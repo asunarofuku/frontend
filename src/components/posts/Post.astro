@@ -1,0 +1,48 @@
+---
+import PostsLayout from "../../layouts/posts/PostsLayout.astro";
+import { formatDateToJapanese } from "../functions";
+
+// コンポーネントのProps型定義
+interface Props {
+    post: any;
+    subTitle: string;
+}
+
+// Propsを受け取る
+const { post, subTitle } = Astro.props;
+
+const crumbs = [
+    {
+        text: "ホーム",
+        href: "/",
+    },
+    {
+        text: "お知らせ",
+    },
+    {
+        text: post.title.rendered,
+    },
+];
+---
+
+<PostsLayout
+    title={post.title}
+    subTitle={subTitle}
+    description={post.title}
+    tocItems={null}
+    crumbs={crumbs}
+>
+    <div class="container mx-auto mb-12">
+        <article class="prose !max-w-none">
+            <div class="mb-4">
+                <Fragment set:html={formatDateToJapanese(post.date)} />
+            </div>
+            <h1
+                class="text-[#234b6a] border-b-4 pb-4"
+                set:html={post.title}
+            />
+
+            <Fragment set:html={post.content} />
+        </article>
+    </div>
+</PostsLayout>

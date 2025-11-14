@@ -1,0 +1,270 @@
+---
+import Access from "../../../components/Access.astro";
+import Activities from "../../../components/Activities.astro";
+import ServicesH from "../../../components/ServicesH.astro";
+import ServicesSub from "../../../components/ServicesSub.astro";
+import ServicesTopic from "../../../components/ServicesTopic.astro";
+import type { TocItem } from "../../../components/TableOfContents.astro";
+import ServiceSchedule from "../../../components/services/ServiceSchedule.astro";
+import TransportationAllowance from "../../../components/services/TransportationAllowance.astro";
+import CloverLayout from "../../../layouts/services/CloverLayout.astro";
+
+const crumbs = [
+    {
+        text: "ホーム",
+        href: "/",
+    },
+    {
+        text: "ピアセンタークローバー",
+    },
+];
+const activities = [
+    {
+        date: "",
+        title: "クローバー便り",
+        imagePath: "/icons/dir.svg",
+        url: "/services/clover/clover_dayori",
+    },
+];
+
+const informations = [
+    {
+        date: "",
+        title: "運用規程（就労継続支援（Ｂ型））",
+        imagePath: "/icons/pdf.svg",
+        url: "/asunaro/nippon-foundation",
+    },
+    {
+        date: "",
+        title: "パンフレット",
+        imagePath: "/icons/pdf.svg",
+        url: "public/services/clover/clover2024.pdf",
+    },
+];
+
+const addresses = [
+    {
+        postalCode: "700-0822",
+        address: "岡山県岡山市北区表町3-7-27 /１階",
+        fax: "（086）201-1713",
+        tel: "070-5305-5975",
+        email: "",
+    },
+];
+
+const tocItems: TocItem[] = [
+    {
+        title: "概要",
+        link: "#overview",
+    },
+    {
+        title: "スケジュール",
+        link: "#schedule",
+    },
+    {
+        title: "事業内容",
+        link: "#service_content",
+    },
+    {
+        title: "活動紹介",
+        link: "#activities",
+    },
+    {
+        title: "情報",
+        link: "#informations",
+    },
+    {
+        title: "アクセス",
+        link: "#access",
+    },
+];
+---
+
+<CloverLayout
+    title="ピアセンタークローバー"
+    title_en="就労移行支援B型 "
+    tocItems={tocItems}
+    crumbs={crumbs}
+>
+    <div class="container mx-auto pt-12">
+        <section class="mb-24" id="overview">
+            <ServicesH>ピアセンタークローバー</ServicesH>
+            <section class="mb-12">
+                <div
+                    class="leading-relaxed border border-[var(--secondary-color)] p-6 text-xl border-dashed border-8 rounded-3xl"
+                >
+                    <section class="mb-6">
+                        <p>
+                            「ピア（peer）」とは、「仲間」「対等」という意味です。
+                        </p>
+                        <p>
+                            ピアセンタークローバーでは、同じ病気の体験をした仲間たちが、自分の経験をもとに、同じような悩みで困っている方々を支えていくピアサポート活動を行っています。
+                        </p>
+                        <p>
+                            ピアセンターで活動するメンバーは、「同じ経験をしているからこそ共感できる」「同じように悩んでいる仲間の力になりたい」「安心できる居場所を作りたい」という思いから、仲間として寄り添えるように活動しています。
+                        </p>
+                        <p>
+                            “クローバー”という名前の由来は、
+                            「四葉のクローバー」<br />
+                            つまり、 「みんなが幸せになることができるように…」という思いが込められています。
+                        </p>
+
+                        <p>
+                            ピアセンター クローバーで
+                            ピアサポーターとして活躍するメンバーは、認定を受けたメンバーです！
+                        </p>
+                        <p>
+                            ６回にわたる講習会（ピアサポーター養成講座）を受講後、ピアセンタークローバーの
+                            面接に合格し、認定を受けたメンバーが活動しています。
+                        </p>
+                    </section>
+                    <section>
+                        <ServicesTopic>私たちが大切にしていること</ServicesTopic
+                        >
+                        <p>
+                            ピアサポーターは一方的にサポートを提供するものではありません。
+                            一緒に会う・話す・動くが基本です。そして、お互いに成長できるように活動していきます。
+                        </p>
+                        <p>
+                            一緒に活動するメンバーの個人情報や活動時に知り得た情報は、外部には漏らしません。
+                        </p>
+                    </section>
+                </div>
+            </section>
+            <section class="mb-12">
+                <div class="flex flex-row gap-12">
+                    <a href="">
+                        <div
+                            class="border p-1 flex flex-col items-center rounded-md"
+                        >
+                            <img src="/cl.jpg" class="" />
+                            <p>クローバーのブログ</p>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div
+                            class="w-36 border p-1 flex flex-col items-center rounded-md"
+                        >
+                            <img src="/i.svg" class="" />
+                            <p>クローバーのインスタグラム</p>
+                        </div>
+                    </a>
+
+                    <a
+                        href="/services/clover/clover_telephone_pamphlet_202407.pdf"
+                    >
+                        <div
+                            class="border p-1 flex flex-col items-center rounded-md"
+                        >
+                            <img
+                                src="/services/clover/clover_telephone_pamphlet_202407.jpg"
+                                class=""
+                            />
+                            <p>電話相談</p>
+                        </div>
+                    </a>
+                    <a href="/services/clover/clover_dayori/">
+                        <div
+                            class="border p-1 flex flex-col items-center rounded-md"
+                        >
+                            <img
+                                src="/services/clover/clover_dayori/cloverdayori_vol1.jpg"
+                                class=""
+                            />
+                            <p>クローバー便り</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </section>
+
+        <section class="mb-24" id="schedule">
+            <ServicesH>スケジュール</ServicesH>
+            <ServiceSchedule name="クローバー" />
+        </section>
+
+        <section class="mb-24" id="service_content">
+            <ServicesH>事業内容・作業内容</ServicesH>
+            <section class="mb-12">
+                <ServicesSub>ピアサポート活動</ServicesSub>
+                <section class="mb-6">
+                    <ServicesTopic>居場所づくり</ServicesTopic>
+
+                    <p>
+                        地域活動支援センター「ぱる・おかやま」にて、クローバーのメンバーが居場所当番として、皆で一緒に安心できる、ほっとできる居場所づくりをおこなっています。
+                        手芸や料理、文芸創作など、「ぱる・おかやま」の利用者が楽しく参加できるサークル活動を企画し主催しています。
+                    </p>
+                </section>
+                <section class="mb-6">
+                    <ServicesTopic>電話相談</ServicesTopic>
+                    <p>
+                        クローバーのメンバーが電話相談に応じています。同じような悩みや不安を経験している仲間だからこそ、分かり合える、共感し合えることがあります。
+                        利用を希望される方は、クローバー電話相談パンフレットをご覧ください。
+                    </p>
+                </section>
+                <section class="mb-6">
+                    <ServicesTopic>交流会や講演会の運営・開催</ServicesTopic>
+                    <p>
+                        地域の当事者や家族が交流できる会を定期的に開催しています。
+                        地域の啓発活動や研修等の講師依頼を受け、登壇することもあります。
+                    </p>
+                </section>
+            </section>
+
+            <section class="mb-12">
+                <ServicesSub>その他の活動</ServicesSub>
+                <section class="mb-6">
+                    <ServicesTopic>勉強会、相談会</ServicesTopic>
+                    <p>
+                        ピアサポートの質の向上のための勉強会や、日々活動していくなかでの不安や困ったことについて皆で共有し相談できる会を設けています。
+                        ピアサポーター同士が支え合い、つながりをもてる活動をおこなっています。
+                    </p>
+                </section>
+                <section class="mb-6">
+                    <ServicesTopic>創作活動、事務作業</ServicesTopic>
+
+                    <p>
+                        交流会やイベントに使う資料や準備物、お土産、広報誌（クローバー便り）に載せる作品の製作を行っています。
+                        メンバーが得意なことを分担して取り組みます。
+                    </p>
+                </section>
+                <section class="mb-6">
+                    <ServicesTopic>広報活動</ServicesTopic>
+
+                    <p>
+                        ブログやインスタ等のSNSで日々の活動の様子を発信しています。
+                        広報紙（クローバー便り）を製作し、活動や取材の報告、創作作品などを掲載し発信しています。
+                    </p>
+                </section>
+                <section class="mb-6">
+                    <ServicesTopic>
+                        自立支援協議会ホームページの管理
+                    </ServicesTopic>
+                    <p>
+                        自立支援協議会のホームページ(え～んじゃネット)の管理をクローバーでおこなっています。
+                        パソコンが得意なメンバーが活躍しています。
+                    </p>
+                </section>
+            </section>
+        </section>
+        <TransportationAllowance />
+
+        <section class="mb-24" id="activities">
+            <ServicesH>活動紹介</ServicesH>
+            <Activities items={activities} />
+        </section>
+
+        <section class="mb-24" id="informations">
+            <ServicesH>情報</ServicesH>
+            <Activities items={informations} />
+        </section>
+
+        <section class="mb-24" id="access">
+            <ServicesH>アクセス</ServicesH>
+            <Access
+                addresses={addresses}
+                mapUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.8260000119294!2d133.92674341183445!3d34.65909698533026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355406349fc6b48f%3A0xd08a837380cca7cc!2z44CSNzAwLTA4MjIg5bKh5bGx55yM5bKh5bGx5biC5YyX5Yy66KGo55S677yT5LiB55uu77yX4oiS77yS77yXIOWyoeadkeWVhuS6i-ihqOeUuuODk-ODqw!5e0!3m2!1sja!2sjp!4v1729849138691!5m2!1sja!2sjp"
+            />
+        </section>
+    </div>
+</CloverLayout>

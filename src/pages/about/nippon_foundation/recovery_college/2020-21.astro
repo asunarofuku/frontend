@@ -1,0 +1,151 @@
+---
+import Activities from "../../../../components/Activities.astro";
+import ServicesH from "../../../../components/ServicesH.astro";
+import type { TocItem } from "../../../../components/TableOfContents.astro";
+import AboutLayout from "../../../../layouts/about/AboutLayout.astro";
+
+const crumbs = [
+  {
+    text: "ホーム",
+    href: "/",
+  },
+  {
+    text: "法人について",
+    href: "../../",
+ },
+  {
+    text: "日本財団助成事業",
+    href: "../",
+ },
+  {
+    text: "リカバリーカレッジ（2020-21年）",
+ },
+];
+const archives = [
+   {
+       title: "2021年スキルアップ講座",
+       imagePath: "/about/nippon_foundation/recovery_college/2020-21/rc20210221.jpg",
+       url: "/about/nippon_foundation/recovery_college/2020-21/rc20210221.pdf",
+   },
+   {
+       title: "カリキュラムの作り方",
+       imagePath: "/about/nippon_foundation/recovery_college/2020-21/rcc.jpg",
+       url: "/about/nippon_foundation/recovery_college/2020-21/rcc.pdf",
+   },
+   {
+       title: "リカバリーカレッジ講座の行程",
+       imagePath: "/about/nippon_foundation/recovery_college/2020-21/rc2021_1.jpg",
+       url: "/about/nippon_foundation/recovery_college/2020-21/rc2021_1.pdf",
+   },
+   {
+       title: "入門ワークショップコアな考えについて",
+       imagePath: "/about/nippon_foundation/recovery_college/2020-21/rctnws.jpg",
+       url: "/about/nippon_foundation/recovery_college/2020-21/rctnws.pdf",
+   },
+   {
+       title: "ジャムボード",
+       imagePath: "/about/nippon_foundation/recovery_college/2020-21/rc2021jb.jpg",
+       url: "/about/nippon_foundation/recovery_college/2020-21/rc2021jb.png",
+   },
+   {
+       title: "研修アンケート",
+       imagePath: "/about/nippon_foundation/recovery_college/2020-21/rc20210425.jpg",
+       url: "/about/nippon_foundation/recovery_college/2020-21/rc20210425.pdf",
+   },
+   {
+       title: "コ・プロダクションミーティング（第1回）",
+       imagePath: "/about/nippon_foundation/recovery_college/2020-21/rc20210523.jpg",
+       url: "/about/nippon_foundation/recovery_college/2020-21/rc20210523.pdf",
+   },
+   {
+       title: "コ・プロダクションミーティング（第２回）",
+       imagePath: "/about/nippon_foundation/recovery_college/2020-21/rc20210613.jpg",
+       url: "/about/nippon_foundation/recovery_college/2020-21/rc20210613.pdf",
+   },
+   {
+       title: "ファシリテーター研修",
+       imagePath: "/about/nippon_foundation/recovery_college/2020-21/rc20210724.jpg",
+       url: "/about/nippon_foundation/recovery_college/2020-21/rc20210724.pdf",
+   },
+   {
+       title: "コ・プロダクションミーティング（第4回）",
+       imagePath: "/about/nippon_foundation/recovery_college/2020-21/rc20210808.jpg",
+       url: "/about/nippon_foundation/recovery_college/2020-21/rc20210808.pdf",
+   },
+   {
+       title: "2021年度秋パンフレット",
+       imagePath: "/about/nippon_foundation/recovery_college/2020-21/rc2021aki.jpg",
+       url: "/about/nippon_foundation/recovery_college/2020-21/rc2021aki.pdf",
+   },
+   {
+       title: "ZOOMの使い方",
+       imagePath: "/about/nippon_foundation/recovery_college/2020-21/rc20210926.jpg",
+       url: "/about/nippon_foundation/recovery_college/2020-21/rc20210926.pdf",
+   },
+   {
+       title: "コ・プロダクションミーティング（第5回）",
+       imagePath: "/about/nippon_foundation/recovery_college/2020-21/rc20211024.jpg",
+       url: "/about/nippon_foundation/recovery_college/2020-21/rc20211024.pdf",
+   },
+   {
+       title: "コ・プロダクションミーティング（第6回）",
+       imagePath: "/about/nippon_foundation/recovery_college/2020-21/rc20211031.jpg",
+       url: "/about/nippon_foundation/recovery_college/2020-21/rc20211031.pdf",
+   },
+   {
+       title: "コ・プロダクションミーティング（第7回）",
+       imagePath: "/about/nippon_foundation/recovery_college/2020-21/rc20211114.jpg",
+       url: "/about/nippon_foundation/recovery_college/2020-21/rc20211114.pdf",
+   },
+   {
+       title: "2021年度秋公開講座",
+       imagePath: "/about/nippon_foundation/recovery_college/2020-21/rc20211123.jpg",
+       url: "/about/nippon_foundation/recovery_college/2020-21/rc20211123.pdf",
+   },
+   {
+       title: "2021年度冬パンフレット",
+       imagePath: "/about/nippon_foundation/recovery_college/2020-21/rc2021fuyu.jpg",
+       url: "/about/nippon_foundation/recovery_college/2020-21/rc2021fuyu.pdf",
+   },
+   {
+       title: "2021年度冬個別学習計画表",
+       imagePath: "/about/nippon_foundation/recovery_college/2020-21/rc2021fuyu_h.jpg",
+       url: "/about/nippon_foundation/recovery_college/2020-21/rc2021fuyu_h.pdf",
+   },
+   {
+       title: "2021年度冬学生証",
+       imagePath: "/about/nippon_foundation/recovery_college/2020-21/rc2021fuyu_g.jpg",
+       url: "/about/nippon_foundation/recovery_college/2020-21/rc2021fuyu_g.pdf",
+   },
+   {
+       title: "2021年度冬チラシ",
+       imagePath: "/about/nippon_foundation/recovery_college/2020-21/rc20220115.jpg",
+       url: "/about/nippon_foundation/recovery_college/2020-21/rc20220115.pdf",
+   },
+   {
+       title: "2021年度冬公開講座",
+       imagePath: "/about/nippon_foundation/recovery_college/2020-21/rc20220320.jpg",
+       url: "/about/nippon_foundation/recovery_college/2020-21/rc20220320.pdf",
+   },
+   {
+       title: "事業完了報告書2021",
+       imagePath: "/about/nippon_foundation/recovery_college/2020-21/2021houkoku.jpg",
+       url: "/about/nippon_foundation/recovery_college/2020-21/2021houkoku.pdf",
+   },
+   {
+       title: "申請補助資料",
+       imagePath: "/about/nippon_foundation/recovery_college/2020-21/rc2020sh.jpg",
+       url: "/about/nippon_foundation/recovery_college/2020-21/rc2020sh.pdf",
+   }
+];
+---
+
+<AboutLayout title="リカバリーカレッジ（2020-21年）" description="日本財団助成事業リカバリーカレッジのアーカイブ（2020-21年）" tocItems={null} crumbs={crumbs}>
+    <div class="container mx-auto">
+        <section class="mb-24" id="certificates">
+            <ServicesH>アーカイブ</ServicesH>
+
+            <Activities items={archives} />
+        </section>
+    </div>
+</AboutLayout>

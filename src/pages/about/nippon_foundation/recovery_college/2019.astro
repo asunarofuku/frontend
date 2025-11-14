@@ -1,0 +1,102 @@
+---
+import Activities from "../../../../components/Activities.astro";
+import ServicesH from "../../../../components/ServicesH.astro";
+import type { TocItem } from "../../../../components/TableOfContents.astro";
+import AboutLayout from "../../../../layouts/about/AboutLayout.astro";
+
+const crumbs = [
+  {
+    text: "ホーム",
+    href: "/",
+  },
+  {
+    text: "法人について",
+    href: "../../",
+ },
+  {
+    text: "日本財団助成事業",
+    href: "../",
+ },
+  {
+    text: "リカバリーカレッジ（2019年）",
+ },
+];
+const archives = [
+   {
+       title: "2019年度秋パンフレット",
+       imagePath: "/about/nippon_foundation/recovery_college/2019/rc2019aki.jpg",
+       url: "/about/nippon_foundation/recovery_college/2019/rc2019aki.pdf",
+   },
+   {
+       title: "岡山リカバリーカレッジ研修スケジュール",
+       imagePath: "/about/nippon_foundation/recovery_college/2019/rc20190823.jpg",
+       url: "/about/nippon_foundation/recovery_college/2019/rc20190823.pdf",
+   },
+   {
+       title: "Japan Day 1",
+       imagePath: "/about/nippon_foundation/recovery_college/2019/jpday1.jpg",
+       url: "/about/nippon_foundation/recovery_college/2019/jpday1.pdf",
+   },
+   {
+       title: "2019年講演会",
+       imagePath: "/about/nippon_foundation/recovery_college/2019/rc20190824.jpg",
+       url: "/about/nippon_foundation/recovery_college/2019/rc20190824.pdf",
+   },
+   {
+       title: "経験者交流会",
+       imagePath: "/about/nippon_foundation/recovery_college/2019/rc20190824_2.jpg",
+       url: "/about/nippon_foundation/recovery_college/2019/rc20190824_2.pdf",
+   },
+   {
+       title: "Japan Day 2",
+       imagePath: "/about/nippon_foundation/recovery_college/2019/jpday2.jpg",
+       url: "/about/nippon_foundation/recovery_college/2019/jpday2.pdf",
+   },
+   {
+       title: "Japan Day 3 AM",
+       imagePath: "/about/nippon_foundation/recovery_college/2019/jpday3am.jpg",
+       url: "/about/nippon_foundation/recovery_college/2019/jpday3am.pdf",
+   },
+   {
+       title: "2019年トレーナー養成研修",
+       imagePath: "/about/nippon_foundation/recovery_college/2019/rc20190825.jpg",
+       url: "/about/nippon_foundation/recovery_college/2019/rc20190825.pdf",
+   },
+   {
+       title: "Japan Day 3 PM",
+       imagePath: "/about/nippon_foundation/recovery_college/2019/jpday3pm.jpg",
+       url: "/about/nippon_foundation/recovery_college/2019/jpday3pm.pdf",
+   },
+   {
+       title: "Japan Day 5",
+       imagePath: "/about/nippon_foundation/recovery_college/2019/jpday5.jpg",
+       url: "/about/nippon_foundation/recovery_college/2019/jpday5.pdf",
+   },
+   {
+       title: "2019年公開講座",
+       imagePath: "/about/nippon_foundation/recovery_college/2019/rc20191026.jpg",
+       url: "/about/nippon_foundation/recovery_college/2019/rc20191026.pdf",
+   },
+   {
+       title: "2019年度秋冬だより",
+       imagePath: "/about/nippon_foundation/recovery_college/2019/2019akifuyudayori.jpg",
+       url: "/about/nippon_foundation/recovery_college/2019/2019akifuyudayori.pdf",
+   },
+   {
+       title: "助成事業完了報告書2019",
+       imagePath: "/about/nippon_foundation/recovery_college/2019/2019houkoku.jpg",
+       url: "/about/nippon_foundation/recovery_college/2019/2019houkoku.pdf",
+   }
+];
+
+---
+
+<AboutLayout title="リカバリーカレッジ（2019年）"    description="日本財団助成事業リカバリーカレッジのアーカイブ（2019年）" tocItems={null} crumbs={crumbs}>
+    <div class="container mx-auto">
+        <section class="mb-24" id="certificates">
+            <ServicesH>アーカイブ</ServicesH>
+
+            <Activities items={archives} />
+        </section>
+    </div>
+</AboutLayout>

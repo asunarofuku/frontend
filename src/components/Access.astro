@@ -1,0 +1,60 @@
+---
+// アドレス情報の型定義
+interface Address {
+    postalCode: string;
+    address: string;
+    tel: string;
+    fax: string;
+    email?: string;
+}
+
+interface Props {
+    addresses: Address[];
+    mapUrl: string;
+}
+
+const { addresses, mapUrl } = Astro.props;
+---
+
+<div class="space-y-4 mb-6">
+    {
+        addresses.map((addr) => (
+            <>
+                <address class="not-italic bg-gray-50 p-4 ">
+                    <p class="text-base mb-2">
+                        <span class="">〒{addr.postalCode}</span>
+                        <span class="">{addr.address}</span>
+                    </p>
+                    {addr.tel && (
+                        <p class="">
+                            TEL:<span class="font-medium">{addr.tel}</span>
+                        </p>
+                    )}
+                    {addr.fax && (
+                        <p class="">
+                            FAX:<span class="font-medium">{addr.fax}</span>
+                        </p>
+                    )}
+
+                    {addr.email && (
+                        <p class="">
+                            Mail:{" "}
+                            <a
+                                href={`mailto:${addr.email}`}
+                                class="text-blue-600 hover:text-blue-800 hover:underline"
+                            >
+                                {addr.email}
+                            </a>
+                        </p>
+                    )}
+                </address>
+            </>
+        ))
+    }
+</div>
+<iframe
+    src={mapUrl}
+    class="w-full h-[576px] mb-6"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"></iframe>

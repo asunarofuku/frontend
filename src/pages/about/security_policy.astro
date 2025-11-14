@@ -1,0 +1,98 @@
+---
+import ServicesH from "../../components/ServicesH.astro";
+import type { TocItem } from "../../components/TableOfContents.astro";
+import AboutLayout from "../../layouts/about/AboutLayout.astro";
+
+const crumbs = [
+  {
+    text: "ホーム",
+    href: "/",
+  },
+  {
+    text: "法人について",
+    href: "./",
+ },
+  {
+    text: "情報セキュリティポリシー",
+  },
+];
+---
+
+<AboutLayout title="情報セキュリティポリシー" , description="情報セキュリティポリシーについて" tocItems={null} crumbs={crumbs}>
+  <div class="container mx-auto">
+    <section class="mb-24" id="archive">
+      <ServicesH>情報セキュリティポリシー</ServicesH>
+      <div class="p-4 bg-gray-50 rounded-lg">
+        <p class="text-base text-gray-700 mb-6">
+        情報セキュリティポリシー（以下「本ポリシー」という。）は、社会福祉法人あすなろ福祉会（以下「当法人」という。）が、情報に対する適切な管理を重要な運営課題として認識し、保有する情報について適正な管理のもとに情報セキュリティを確保するために、情報セキュリティに関する基本方針を定めたものです。
+      </p>
+
+      <dl class="space-y-4">
+        <div>
+          <dt class="text-lg font-semibold text-gray-900 mb-1">１．適用範囲</dt>
+          <dd class="text-base text-gray-700 ml-4 mb-4">
+            当法人の全ての職員は、本ポリシーを遵守します。
+          </dd>
+        </div>
+        <div>
+          <dt class="text-lg font-semibold text-gray-900 mb-1">２．情報資産</dt>
+          <dd class="text-base text-gray-700 ml-4 mb-4">
+            情報資産とは、媒体を問わず当法人が事業の活動の中で扱う情報、および情報を扱うために必要な装置・施設・サービスを言います。
+          </dd>
+        </div>
+        <div>
+          <dt class="text-lg font-semibold text-gray-900 mb-1">
+            ３．組織・体制
+          </dt>
+          <dd class="text-base text-gray-700 ml-4 mb-4">
+            当法人は、保有する保護が必要な情報資産について、適正な管理を実現するための組織及び体制を維持します。
+          </dd>
+        </div>
+        <div>
+          <dt class="text-lg font-semibold text-gray-900 mb-1">
+            ４．情報セキュリティポリシーの運用
+          </dt>
+          <dd class="text-base text-gray-700 ml-4 mb-4">
+            当法人は、保有する保護が必要な情報資産について、不正アクセス、改ざん等の事件、事故に対応する体制整備と、人的対策、物理的対策、技術的対策、運用対策、災害対策を実施します。
+          </dd>
+        </div>
+        <div>
+          <dt class="text-lg font-semibold text-gray-900 mb-1">
+            ５．情報セキュリティに関する規定の整備
+          </dt>
+          <dd class="text-base text-gray-700 ml-4 mb-4">
+            当社は情報資産の適正な管理を実現するため、情報セキュリティ規定、手順を整備し明確なルールを法人内に周知徹底します。
+          </dd>
+        </div>
+        <div>
+          <dt class="text-lg font-semibold text-gray-900 mb-1">
+            ６．教育の実施
+          </dt>
+          <dd class="text-base text-gray-700 ml-4 mb-4">
+            当法人の情報資産に対する適正な管理を実現するため、職員の教育・訓練を継続的に実施します。
+          </dd>
+        </div>
+        <div>
+          <dt class="text-lg font-semibold text-gray-900 mb-1">７．法令遵守</dt>
+          <dd class="text-base text-gray-700 ml-4 mb-4">
+            当法人は、関係する法令などの遵守に加え、当法人が定めた規定、ルールの遵守を徹底します。これに違反した場合は、当法人は然るべき処置を行います。
+          </dd>
+        </div>
+        <div>
+          <dt class="text-lg font-semibold text-gray-900 mb-1">
+            ８．継続的改善
+          </dt>
+          <dd class="text-base text-gray-700 ml-4 mb-4">
+            当法人は、必要に応じて本ポリシーの見直しを行い、継続的改善に努めます。
+          </dd>
+        </div>
+      </dl>
+
+      <div class="text-right mt-8">
+        <p class="text-base text-gray-700">社会福祉法人あすなろ福祉会</p>
+        <p class="text-base text-gray-700">理事長　杉原　綾乃</p>
+      </div>
+    </div>
+  </section>
+  </div>
+</AboutLayout>

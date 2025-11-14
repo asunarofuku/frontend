@@ -1,0 +1,31 @@
+---
+import type { TocItem } from "../../components/TableOfContents.astro";
+import ServiceLayout from "./ServiceLayout.astro";
+
+interface Props {
+    title: string,
+    title_en:string,
+    tocItems: TocItem[] | null;
+    crumbs: any;
+}
+const {
+    title,
+    title_en,
+    tocItems,
+    crumbs,
+} = Astro.props;
+---
+
+<ServiceLayout
+    primaryColor="#ed4603"
+    secondaryColor="#ffece4"
+    title={title}
+    title_en={title_en}
+    description=""
+    eyecatch="https://picsum.photos/1800/817?random=1"
+    tocItems={tocItems}
+    crumbs={crumbs}
+>
+
+<slot/>
+</ServiceLayout>

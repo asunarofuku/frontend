@@ -1,0 +1,143 @@
+---
+import { formatDateToJapanese } from "../functions";
+import { POSTS_PER_PAGE, REST_API_SCHEDULES_URL, REST_API_URL } from "../site";
+import H from "./H.astro";
+import ScheduleList from "./ScheduleList.astro";
+
+let response = await fetch(`${REST_API_URL}posts?per_page=${POSTS_PER_PAGE}&page=0`);
+if (!response.ok) {
+  throw new Error(`HTTP error! status: ${response.status}`);
+}
+
+let posts = await response.json();
+---
+
+<div class="py-24 bg-[#daeef2]">
+  <div class="container mx-auto mb-12">
+    <H>
+      <Fragment slot="title_en">NEWS</Fragment>
+      <Fragment slot="title">お知らせ</Fragment>
+    </H>
+    <p class="text-center">
+      あすなろ福祉会からの最新情報やスケジュール表などをお伝えします。
+    </p>
+  </div>
+  <div class="container mx-auto">
+    <div class="grid md:grid-cols-12 grid-cols-1 gap-4 mb-4">
+      <div class="col-span-10">
+        <h3 class="mb-6 text-2xl top-0 text-[#234B6A]">最新情報</h3>
+        <div class="mb-6 js-scrollIn">
+          <ul class="flex flex-col">
+            {
+              posts.pageItems.map((post: any, index) => {
+                const categoryNames = post.post_categories.map(
+                  (category: any, indexCategory) => {
+                    return (
+                      <span class="inline-block whitespace-nowrap px-3 bg-[#234b6a] text-white rounded-full text-sm">
+                        {category.type_value}
+                      </span>
+                    );
+                  },
+                );
+                return (
+                  <a
+                    href={`/posts/${post.id}/`}
+                    class="border-b border-b-[#daeef2] bg-[#ecf6f8] hover:bg-gray-100 "
+                  >
+                    <li class="w-full py-6 px-6">
+                      <div class="flex md:gap-6 gap-3 items-center ">
+                        <div class="text-[#234B6A]">
+                          {formatDateToJapanese(post.date)}
+                        </div>
+                        <div class="space-x-3">{categoryNames}</div>
+                        <h3 class="text-[#234B6A]">{post.title}</h3>
+                      </div>
+                    </li>
+                  </a>
+                );
+              })
+            }
+
+            <!-- {
+              posts.map((post: any) => {
+                const categories = post._embedded["wp:term"].find(
+                  (termSet: { taxonomy: string }[]) =>
+                    termSet[0].taxonomy === "category",
+                );
+
+                const categoryNames = categories
+                  ? categories.map((category: { name: any }) => {
+                      return (
+                        <span class="inline-block whitespace-nowrap px-3 bg-[#234b6a] text-white rounded-full text-sm">
+                          {category.name}{" "}
+                        </span>
+                      );
+                    })
+                  : "カテゴリーなし";
+
+                return (
+                  <a
+                    href={`/posts/${post.slug}/`}
+                    class="border-b border-b-[#daeef2] bg-[#ecf6f8] hover:bg-gray-100 "
+                  >
+                    <li class="w-full py-6 px-6">
+                      <div class="flex md:gap-6 gap-3 items-center ">
+                        <div class="text-[#234B6A]">
+                          <Fragment
+                            set:html={formatDateToJapanese(post.date)}
+                          />
+                        </div>
+                        <div class="space-x-3">{categoryNames}</div>
+                        <h3 class="text-[#234B6A]">
+                          <Fragment set:html={post.title.rendered} />
+                        </h3>
+                      </div>
+                    </li>
+                  </a>
+                );
+              })
+            } -->
+          </ul>
+        </div>
+        <div class="text-right">
+          <a
+            href="/posts/category/1"
+            class="inline-block rounded-full bg-[#234B6A] px-5 py-2.5 text-white"
+            >»もっと見る</a
+          >
+        </div>
+        <h3 class="mb-6 text-2xl text-[#234B6A]">スケジュール表</h3>
+        <ScheduleList />
+      </div>
+      <div class="col-span-2">
+        <h3 class="mb-6 text-2xl text-[#234B6A]">チラシ</h3>
+        <div
+          class="js-scrollIn grid md:grid-cols-1 grid-cols-2 gap-4 mb-6 text-[#234B6A]"
+        >
+          <a href="/flyer290924a.pdf" class="hover:bg-gray-100 bg-[#ecf6f8]"
+            ><div class="p-4 flex flex-col items-center justify-center gap-4">
+              <div><img src="/flyer290924a.jpg" /></div><div>
+                私たちとお話しませんか？
+              </div>
+            </div>
+          </a>
+          <a
+            href="/services/clover/clover_dayori/"
+            class="hover:bg-gray-100 bg-[#ecf6f8]"
+            ><div class="p-4 flex flex-col items-center justify-center gap-4">
+              <div><img src="/cloverdayori_vol3.jpg" /></div><div>
+                クローバー便り
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="relative">
+  <img
+    src="4.png"
+    class="md:w-[275px] object-contain h-auto sm:w-[200px] w-[150px] absolute sm:-bottom-[50px] -bottom-[25px] right-[3%] z-10"
+  />
+</div>

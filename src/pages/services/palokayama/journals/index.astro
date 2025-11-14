@@ -1,0 +1,46 @@
+---
+import PalokayamaLayout from "../../../../layouts/services/PalokayamaLayout.astro";
+import ServicesH from "../../../../components/ServicesH.astro";
+import { groupJournalFilesByYear } from "../../../../components/services/journals/JournalData";
+
+const data = groupJournalFilesByYear();
+const crumbs = [
+    {
+        text: "ホーム",
+        href: "/",
+    },
+    {
+        text: "ぱる・おかやま",
+        href: "../",
+    },
+    {
+        text: "ぱる通信",
+    },
+];
+
+const {} = Astro.props;
+---
+
+<PalokayamaLayout
+    title="ぱる通信"
+    title_en="地域活動支援センターI型 ぱる・おかやま"
+    tocItems={null}
+    crumbs={crumbs}
+>
+    <div class="container mx-auto">
+        <section class="mb-24" id="archive">
+            <ServicesH>アーカイブ</ServicesH>
+            <div class="grid grid-cols-4 justify-center gap-4">
+                {
+                    data.map(([year, files]) => (
+                        <a href={"./journals/" + year}>
+                            <div class="text-center p-4 text-lg font-bold border-r-2 border-gray-100/30 border-b-4 border-b-gray-200/50">
+                                {year}年
+                            </div>
+                        </a>
+                    ))
+                }
+            </div>
+        </section>
+    </div>
+</PalokayamaLayout>

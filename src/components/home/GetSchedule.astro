@@ -1,0 +1,22 @@
+---
+import { MANAGER_URL } from "../site";
+const { item, name } = Astro.props;
+
+function GetDate(value: string) {
+  if (!value) return "";
+  const [y, m] = value.split("-");
+  return `${y}年${m}月`;
+}
+---
+
+<a href={MANAGER_URL + item?.file.url}>
+  <div>
+    <div
+      class="bg-[#ecf6f8] hover:bg-gray-100 flex flex-col items-center justify-center gap-4 p-4"
+    >
+      <img src={MANAGER_URL + item?.file.thumb.url} />
+      {name}
+      {GetDate(item?.date)}
+    </div>
+  </div>
+</a>

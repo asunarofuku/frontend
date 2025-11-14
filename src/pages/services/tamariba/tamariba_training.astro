@@ -1,0 +1,66 @@
+---
+import Activities from "../../../components/Activities.astro";
+import ServicesH from "../../../components/ServicesH.astro";
+import type { TocItem } from "../../../components/TableOfContents.astro";
+import CloverLayout from "../../../layouts/services/CloverLayout.astro";
+const crumbs = [
+    {
+        text: "ホーム",
+        href: "/",
+    },
+    {
+        text: "たまりば",
+        href: "./",
+    },
+    {
+        text: "たまりば研修",
+    },
+];
+const informations = [
+    {
+        title: "2016年",
+        imagePath: "/services/tamariba/tamariba_training/tamaken2016.jpg",
+        imageAlt: "2016年",
+        url: "/services/tamariba/tamariba_training/tamaken2016.pdf",
+    },
+    {
+        title: "2017年",
+        imagePath: "/services/tamariba/tamariba_training/tamaken2017.jpg",
+        imageAlt: "2017年",
+        url: "/services/tamariba/tamariba_training/tamaken2017.pdf",
+    },
+    {
+        title: "2017年報告",
+        imagePath: "/services/tamariba/tamariba_training/201704017.jpg",
+        imageAlt: "2017年報告",
+        url: "/services/tamariba/tamariba_training/201704017.pdf",
+    },
+    {
+        title: "2018年",
+        imagePath: "/services/tamariba/tamariba_training/tamaken2018.jpg",
+        imageAlt: "2018年",
+        url: "/services/tamariba/tamariba_training/tamaken2018.pdf",
+    },
+    {
+        title: "2019年",
+        imagePath: "/services/tamariba/tamariba_training/tamaken2019.jpg",
+        imageAlt: "2019年",
+        url: "/services/tamariba/tamariba_training/tamaken2019.pdf",
+    },
+];
+---
+
+<CloverLayout
+    title="たまりば研修"
+    title_en="岡山市委託事業 たまりば"
+    tocItems={null}
+    crumbs={crumbs}
+>
+    <div class="container mx-auto">
+        <section class="mb-24" id="archive">
+            <ServicesH>アーカイブ</ServicesH>
+
+            <Activities items={informations} />
+        </section>
+    </div>
+</CloverLayout>

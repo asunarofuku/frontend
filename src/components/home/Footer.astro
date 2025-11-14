@@ -1,0 +1,87 @@
+---
+import { HONBU_ADDRESSES } from "../site";
+---
+
+<footer class="p-12 border-t bg-[#234B6A] text-white">
+    <div class="container mx-auto">
+        <div
+            class="grid sm:grid-cols-2 grid-cols-1 items-center sm:divide-x sm:space-y-0 space-y-6"
+        >
+            <div class="px-4">
+                <div class="flex justify-center items-center">
+                    <div class="">
+                        <a title="社会福祉法人あすなろ福祉会" href="/">
+                            <img id="logo" class="w-24" src="/logo.png" />
+                        </a>
+                    </div>
+                    <div class="px-4">
+                        <h2 class="font-bold text-md mb-2">
+                            社会福祉法人あすなろ福祉会 本部：
+                        </h2>
+                        <div class="">
+                            {
+                                HONBU_ADDRESSES.map((addr) => (
+                                    <>
+                                        <address class="not-italic ">
+                                            <p class="">
+                                                <span class="">
+                                                    〒{addr.postalCode}
+                                                </span>
+                                                <span class="">
+                                                    {addr.address}
+                                                </span>
+                                            </p>
+                                            {addr.tel && (
+                                                <p class="">
+                                                    TEL:
+                                                    <span class="font-medium">
+                                                        {addr.tel}
+                                                    </span>
+                                                </p>
+                                            )}
+                                            {addr.fax && (
+                                                <p class="">
+                                                    FAX:
+                                                    <span class="font-medium">
+                                                        {addr.fax}
+                                                    </span>
+                                                </p>
+                                            )}
+                                            {addr.email && (
+                                                <p class="">
+                                                    Mail:{" "}
+                                                    <a
+                                                        href={`mailto:${addr.email}`}
+                                                        class="text-blue-600 hover:text-blue-800 hover:underline"
+                                                    >
+                                                        {addr.email}
+                                                    </a>
+                                                </p>
+                                            )}
+                                        </address>
+                                    </>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="px-4">
+                <div class="flex justify-center items-center">
+                    <img src="/tamagotori.png" class="w-16" />
+
+                    <div class="flex flex-col px-4">
+                        <h2 class="font-bold text-md mb-2">
+                            ホームページについて・謝辞
+                        </h2>
+                        このホームページと、たまごとりは、それぞれ、あすなろ福祉会の利用者の方が、心を込めて作ってくださいました。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex justify-center text-sm pt-6">
+            <div class="mincho">(c)社会福祉法人あすなろ福祉会</div>
+        </div>
+    </div>
+</footer>
