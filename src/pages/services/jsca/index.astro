@@ -1,5 +1,4 @@
 ---
-;
 import Activities from "../../../components/Activities.astro";
 import JscaLayout from "../../../layouts/services/JscaLayout.astro";
 import Access from "../../../components/Access.astro";
@@ -11,6 +10,10 @@ import ServicesSub from "../../../components/ServicesSub.astro";
 import ServicesTopic from "../../../components/ServicesTopic.astro";
 import TransportationAllowance from "../../../components/services/TransportationAllowance.astro";
 import ServiceSchedule from "../../../components/services/ServiceSchedule.astro";
+import Gallery from "../../../components/services/Gallery.astro";
+
+const gallery = await Astro.glob("@assets/jsca/*.{jpg,png}");
+
 const crumbs = [
     {
         text: "ホーム",
@@ -83,6 +86,10 @@ const tocItems: TocItem[] = [
         link: "#transportation_allowance",
     },
     {
+        title: "JSCAのようす",
+        link: "#gallery",
+    },
+    {
         title: "活動紹介",
         link: "#activities",
     },
@@ -97,6 +104,47 @@ const tocItems: TocItem[] = [
 ];
 ---
 
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table tr {
+        border-bottom: solid 4px white;
+    }
+
+    table tr:last-child {
+        border-bottom: none;
+    }
+
+    table th {
+        position: relative;
+        text-align: left;
+        width: 30%;
+        background-color: var(--secondary-color);
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    table th:after {
+        display: block;
+        content: "";
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        top: calc(50% - 10px);
+        right: -10px;
+        border-left: 10px solid var(--secondary-color);
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+    }
+
+    table td {
+        text-align: left;
+        width: 70%;
+    }
+</style>
 <JscaLayout
     title="JSCA(Job Support Center ASUNAR)"
     title_en="多機能型事業所 "
@@ -105,19 +153,189 @@ const tocItems: TocItem[] = [
 >
     <div class="container mx-auto pt-12">
         <section class="mb-24" id="overview">
-            <ServicesH>JSCA（Job Support Center ASUNAR）</ServicesH>
-            <div
-                class="leading-relaxed border border-[var(--secondary-color)] p-6 text-xl border-dashed border-8 rounded-3xl"
-            >
-                <p>仕事探しへの道のり・働き方は、人それぞれです。</p>
-                <p>
-                    当事業所では、障がいのある方の、これまでの経験、興味や関心といった「ストレングス（強み）」に焦点を当て1人ひとりに合った「仕事探し」をご提案させて頂きます。
-                </p>
-                <p>
-                    同じ「悩み」「不安」「目標」を持った仲間がいるから「頑張れる！！」そんな「場所」の提供を行っています。
-                </p>
-                <p>就職準備から就職後まで、しっかりサポートします！！</p>
-            </div>
+            <section class="mb-24" id="">
+                <ServicesH>JSCA（Job Support Center ASUNAR）</ServicesH>
+                <div
+                    class="leading-relaxed bg-[var(--secondary-color)] p-6 rounded-xl"
+                >
+                    <p>仕事探しへの道のり・働き方は、人それぞれです。</p>
+                    <p>
+                        当事業所では、障がいのある方の、これまでの経験、興味や関心といった「ストレングス（強み）」に焦点を当て1人ひとりに合った「仕事探し」をご提案させて頂きます。
+                    </p>
+                    <p>
+                        同じ「悩み」「不安」「目標」を持った仲間がいるから「頑張れる！！」そんな「場所」の提供を行っています。
+                    </p>
+                    <p>就職準備から就職後まで、しっかりサポートします！！</p>
+                </div>
+            </section>
+            <section class="mb-24" id="">
+                <ServicesSub>就労移行支援</ServicesSub>
+                <table>
+                    <tr>
+                        <th class="py-4 px-8 rounded-xl">対象者</th>
+                        <td class="py-4 px-8">
+                            一般企業で「働きたい」と希望される方
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="py-4 px-8 rounded-xl">定員</th>
+                        <td class="py-4 px-8"> 10名</td>
+                    </tr>
+                    <tr>
+                        <th class="py-4 px-8 rounded-xl">ご利用方法</th>
+                        <td class="py-4 px-8"> </td>
+                    </tr>
+                    <tr>
+                        <th class="py-4 px-8 rounded-xl">利用期間</th>
+                        <td class="py-4 px-8">２年</td>
+                    </tr>
+
+                    <tr>
+                        <th class="py-4 px-8 rounded-xl">支援内容</th>
+                        <td class="py-4 px-8">
+                            <div>
+                                <div class="font-bold mb-1">【事業の目的】</div>
+                                <p>
+                                    「働きたい」という希望をもたれている方を対象にして、障害者総合支援法に基づく就労移行支援サービスを行い、企業で働き続けることを目標にした事業です。<br
+                                    />
+                                    障害のある方の経験や興味、「ストレングス（強み）」に焦点を当て、一人ひとりに合った「仕事探し」を提案します。
+                                </p>
+                            </div>
+
+                            <div>
+                                <div class="font-bold mb-1">【特色】</div>
+                                <p class="font-semibold">
+                                    ■IPSモデルを取り入れた就労支援
+                                </p>
+                                <p class="mb-2">
+                                    IPS（Individual Placement &
+                                    Support）とは、ご本人の「働きたい」という希望を尊重し、「働くことを含むその人の人生」の実現を目指す支援モデルです。
+                                </p>
+
+                                <p class="font-semibold">
+                                    ■IPSが大切にする8つのこと
+                                </p>
+                                <ol class="list-decimal list-inside space-y-1">
+                                    <li>働きたい全ての人が利用できます</li>
+                                    <li>一般企業等でのお仕事を目指します</li>
+                                    <li>
+                                        なるべく早く一緒に就職活動を始めます
+                                    </li>
+                                    <li>就職を希望する職場に連絡を取ります</li>
+                                    <li>医療や生活のこともサポート</li>
+                                    <li>必要に応じて、長期にサポート</li>
+                                    <li>お金のことも一緒に考えます</li>
+                                    <li>個々の希望に合わせてサポート</li>
+                                </ol>
+                            </div>
+
+                            <div>
+                                <div class="font-bold mb-1">
+                                    【サポート内容】
+                                </div>
+
+                                <p class="font-semibold">■座学</p>
+                                <p>
+                                    就労セミナー、就労マナー、コミュニケーション、体調管理（WRAP、IMR）などの講座。<br
+                                    />
+                                    不安の解消やモチベーション向上を行い、自分に合った働き方を見つけていきます。
+                                </p>
+
+                                <p class="font-semibold mt-2">■体験・実習</p>
+                                <p>
+                                    働いてみたい職場での体験・実習を通じて、環境や業務内容が自分に合うかを確認できます。
+                                </p>
+
+                                <p class="font-semibold mt-2">■就労支援</p>
+                                <p class="font-semibold">【障害のある方】</p>
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li>
+                                        ハローワーク・職業センターの登録同行
+                                    </li>
+                                    <li>職場見学や面接同行</li>
+                                    <li>仕事に適応するための支援</li>
+                                </ul>
+
+                                <p class="font-semibold mt-1">【企業】</p>
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li>病気や障害についての理解促進</li>
+                                    <li>業務内容や勤務時間の調整</li>
+                                    <li>配慮すべき点の提案</li>
+                                </ul>
+                                <p class="mt-1">
+                                    ※ジョブコーチ資格を持つスタッフがサポートします。
+                                </p>
+
+                                <p class="font-semibold mt-2">
+                                    ■就職後のフォローアップ
+                                </p>
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li>定期的な職場訪問</li>
+                                    <li>業務内容・勤務時間の調整</li>
+                                    <li>離職後の再就職支援</li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+
+            <section class="mb-24" id="">
+                <ServicesSub>就労定着支援</ServicesSub>
+                <table>
+                    <tr>
+                        <th class="py-4 px-8 rounded-xl">対象者</th>
+                        <td class="py-4 px-8">
+                            障害福祉サービスを利用して一般就労され、就職後6カ月経過した方
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="py-4 px-8 rounded-xl">定員</th>
+                        <td class="py-4 px-8"> -</td>
+                    </tr>
+                    <tr>
+                        <th class="py-4 px-8 rounded-xl">ご利用方法</th>
+                        <td class="py-4 px-8"> </td>
+                    </tr>
+                    <tr>
+                        <th class="py-4 px-8 rounded-xl">利用期間</th>
+                        <td class="py-4 px-8">３年</td>
+                    </tr>
+
+                    <tr>
+                        <th class="py-4 px-8 rounded-xl">支援内容</th>
+                        <td class="py-4 px-8">
+                            <div class="font-bold mb-1">【サポート内容】</div>
+
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>
+                                    定期的な職場訪問(職場での雇用主を交えた振り返り）
+                                </li>
+                                <li>業務内容や勤務時間など職場環境の調整</li>
+                                <li>当事業所スタッフとの定期的な振り返り</li>
+                                <li>
+                                    関係者（支援機関）を含めた定期的な振り返り、支援会議
+                                </li>
+                                <li>
+                                    医療機関との連携（服薬調整や休息の取り方など助言）
+                                </li>
+                                <li>
+                                    就労者交流会の開催や「たまりば」活用の提案
+                                </li>
+                                <li>離職相談(退職手続き）</li>
+                                <li>離職後の支援（失業保険・転職の相談）</li>
+                                <li>
+                                    やむを得ず離職に至った後の再就職支援など
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section> 
+        
+        <section class="mb-24" id="">
+            <ServicesH>ご利用の流れ</ServicesH>
         </section>
 
         <section class="mb-24" id="schedule">
@@ -224,6 +442,11 @@ const tocItems: TocItem[] = [
         </section>
 
         <TransportationAllowance />
+
+        <section class="mb-24" id="gallery">
+            <ServicesH>ギャラリー</ServicesH>
+            <Gallery items={gallery} />
+        </section>
 
         <section class="mb-24" id="activities">
             <ServicesH>活動紹介</ServicesH>

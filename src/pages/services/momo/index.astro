@@ -1,4 +1,5 @@
 ---
+import Gallery from "@components/services/Gallery.astro";
 import Access from "../../../components/Access.astro";
 import Activities from "../../../components/Activities.astro";
 import ServicesH from "../../../components/ServicesH.astro";
@@ -8,6 +9,8 @@ import type { TocItem } from "../../../components/TableOfContents.astro";
 import ServiceSchedule from "../../../components/services/ServiceSchedule.astro";
 import TransportationAllowance from "../../../components/services/TransportationAllowance.astro";
 import MomoLayout from "../../../layouts/services/MomoLayout.astro";
+
+const gallery = await Astro.glob('@assets/momo/*.{jpg,png}', );
 
 const crumbs = [
     {
@@ -90,6 +93,48 @@ const tocItems: TocItem[] = [
 ];
 ---
 
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table tr {
+        border-bottom: solid 4px white;
+    }
+
+    table tr:last-child {
+        border-bottom: none;
+    }
+
+    table th {
+        position: relative;
+        text-align: left;
+        width: 30%;
+        background-color: var(--secondary-color);
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    table th:after {
+        display: block;
+        content: "";
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        top: calc(50% - 10px);
+        right: -10px;
+        border-left: 10px solid var(--secondary-color);
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+    }
+
+    table td {
+        text-align: left;
+        width: 70%;
+    }
+</style>
+
 <MomoLayout
     title="MOMO"
     title_en="就労移行支援B型 "
@@ -99,8 +144,11 @@ const tocItems: TocItem[] = [
     <div class="container mx-auto pt-12">
         <section class="mb-24" id="overview">
             <ServicesH>MOMO</ServicesH>
+
+                    <section class="mb-24" id="">
+
             <div
-                class="leading-relaxed border border-[var(--secondary-color)] p-6 text-xl border-dashed border-8 rounded-3xl"
+                class="leading-relaxed  bg-[var(--secondary-color)] p-6   rounded-xl"
             >
                 <section class="mb-6">
                     <ServicesTopic>これまでのあゆみ</ServicesTopic>
@@ -132,6 +180,136 @@ const tocItems: TocItem[] = [
                     </p>
                 </section>
             </div>
+                </section>
+
+
+            <section class="mb-24" id="">
+                <ServicesSub>就労継続支援B型</ServicesSub>
+                <table>
+                    <tr>
+                        <th class="py-4 px-8 rounded-xl">対象者</th>
+                        <td class="py-4 px-8">
+                            <ul class="list-disc list-inside space-y-1">
+
+                            <li>自分のペースで安心して作業活動に取り組みたい方</li>
+<li>仲間と一緒に楽しくものづくりに取り組みたい方</li>
+<li>将来一般就労に向けてステップアップしたい方</li>
+</ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="py-4 px-8 rounded-xl">定員</th>
+                        <td class="py-4 px-8">20名</td>
+                    </tr>
+                    <tr>
+                        <th class="py-4 px-8 rounded-xl">ご利用方法</th>
+                        <td class="py-4 px-8"> </td>
+                    </tr>
+                    <tr>
+                        <th class="py-4 px-8 rounded-xl">利用期間</th>
+                        <td class="py-4 px-8">65歳まで（応相談）</td>
+                    </tr>
+
+                    <tr>
+                        <th class="py-4 px-8 rounded-xl">支援内容</th>
+                        <td class="py-4 px-8">
+<!-- サポート内容 -->
+<div class="font-bold mb-1">【サポート内容】</div>
+<ul class="list-disc list-inside space-y-1">
+  <li>お一人おひとりに合わせた柔軟な働き方の提案</li>
+  <li>
+    一人一人に合わせた働き方：出勤日数や退勤時間など、希望や体調に合わせてスタッフと相談しながら無理なく続けられる働き方を検討
+  </li>
+  <li>
+    体調に合わせたサポート：体調や希望に応じて作業内容をスタッフと相談しながら決定
+  </li>
+  <li>
+    目標に向けたサポート：不安や悩みがあればスタッフに相談しながら、目標に向けて活動できるよう支援
+  </li>
+</ul>
+
+<!-- 1日の流れ -->
+<div class="overflow-x-auto">
+<div class="font-bold mt-6 mb-1">【1日の流れ】</div>
+
+<div class="space-y-2">
+  <!-- 見出し -->
+  <div class="flex font-semibold border-b pb-1">
+    <div class="w-24">時間</div>
+    <div>内容</div>
+  </div>
+
+  <!-- 行 -->
+  <div class="flex border-b pb-1">
+    <div class="w-24">10:00</div>
+    <div>午前作業・ミーティング／作業開始</div>
+  </div>
+
+  <div class="flex border-b pb-1">
+    <div class="w-24">11:00</div>
+    <div>休憩（10分）／作業開始</div>
+  </div>
+
+  <div class="flex border-b pb-1">
+    <div class="w-24">11:45</div>
+    <div>片付け・掃除</div>
+  </div>
+
+  <div class="flex border-b pb-1">
+    <div class="w-24">12:00</div>
+    <div>午前作業 終了</div>
+  </div>
+
+  <div class="flex border-b pb-1">
+    <div class="w-24">13:00</div>
+    <div>午後作業・ミーティング／作業開始</div>
+  </div>
+
+  <div class="flex border-b pb-1">
+    <div class="w-24">14:00</div>
+    <div>休憩（10分）／作業開始</div>
+  </div>
+
+  <div class="flex border-b pb-1">
+    <div class="w-24">14:45</div>
+    <div>片付け・掃除</div>
+  </div>
+
+  <div class="flex">
+    <div class="w-24">15:00</div>
+    <div>作業終了</div>
+  </div>
+</div>
+
+</div>
+
+<!-- 作業内容について -->
+<div class="font-bold mt-6 mb-1">【作業内容について】</div>
+<ul class="list-disc list-inside space-y-1">
+  <li>
+    室内軽作業：封入、ラベル貼り、ミシンでの編み物、ポスティングなど。細かい作業から少し体を動かす作業まで、得意や興味に合わせて取り組めます。
+  </li>
+  <li>
+    施設外作業：草とり作業（春～秋に週2日・2.5時間）、マンション清掃（週1日・2時間）などの清掃作業
+  </li>
+  <li>
+    陶芸・ものづくり：陶芸や絵画などの作品作り。初心者でも始めやすく、集中力や想像力を高める活動
+  </li>
+</ul>
+
+<!-- 工賃・交通費について -->
+<div class="font-bold mt-6 mb-1">【工賃・交通費について】</div>
+<ul class="list-disc list-inside space-y-1">
+  <li>令和5年の平均工賃：12,537円</li>
+  <li>通所日数に応じて交通費補助あり</li>
+  <li>室内軽作業：1日600円／半日500円</li>
+  <li>施設外作業：草とり作業 時給1000円／マンション清掃 時給650円</li>
+  <li>ものづくり：1日500円＋作品売り上げ</li>
+</ul>
+                        </td>
+                    </tr>
+                </table>
+            </section>
         </section>
 
         <section class="mb-24" id="schedule">
@@ -161,37 +339,37 @@ const tocItems: TocItem[] = [
                 <ul>
                     <li class="w-[calc(100%-8px)]">
                         <ul class="flex flex-row gap-4 p-2">
-                            <li class="w-30 border-b-4">10：00</li>
+                            <li class="w-30 border-b-4 border-[var(--secondary-color)]">10：00</li>
                             <li class="flex-1">朝のミーティング</li>
                         </ul>
                     </li>
                     <li class="w-[calc(100%-8px)]">
                         <ul class="flex flex-row gap-4 p-2">
-                            <li class="w-30 border-b-4">10：30</li>
+                            <li class="w-30 border-b-4 border-[var(--secondary-color)]">10：30</li>
                             <li class="flex-1">午前作業 開始</li>
                         </ul>
                     </li>
                     <li class="w-[calc(100%-8px)]">
                         <ul class="flex flex-row gap-4 p-2">
-                            <li class="w-30 border-b-4">12：15</li>
+                            <li class="w-30 border-b-4 border-[var(--secondary-color)]">12：15</li>
                             <li class="flex-1">昼休憩</li>
                         </ul>
                     </li>
                     <li class="w-[calc(100%-8px)]">
                         <ul class="flex flex-row gap-4 p-2">
-                            <li class="w-30 border-b-4">13：00</li>
+                            <li class="w-30 border-b-4 border-[var(--secondary-color)]">13：00</li>
                             <li class="flex-1">午後作業開始</li>
                         </ul>
                     </li>
                     <li class="w-[calc(100%-8px)]">
                         <ul class="flex flex-row gap-4 p-2">
-                            <li class="w-30 border-b-4">14：45</li>
+                            <li class="w-30 border-b-4 border-[var(--secondary-color)]">14：45</li>
                             <li class="flex-1">片付け</li>
                         </ul>
                     </li>
                     <li class="w-[calc(100%-8px)]">
                         <ul class="flex flex-row gap-4 p-2">
-                            <li class="w-30 border-b-4">15：00</li>
+                            <li class="w-30 border-b-4 border-[var(--secondary-color)]">15：00</li>
                             <li class="flex-1">作業終了</li>
                         </ul>
                     </li>
@@ -200,7 +378,7 @@ const tocItems: TocItem[] = [
             <section class="mb-12">
                 <ServicesSub>その他の活動</ServicesSub>
                 <div
-                    class="w-[30%] float-right border p-1 flex flex-col items-center rounded-md"
+                    class="w-[30%] float-right border p-1 flex flex-col items-center rounded-md border-[var(--secondary-color)]"
                 >
                     <img src="/services/momo/momo-recreation.jpg" class="" />
                     <p>レクリエーション</p>
@@ -231,6 +409,12 @@ const tocItems: TocItem[] = [
 
         <TransportationAllowance />
 
+
+        <section class="mb-24" id="gallery">
+            <ServicesH>ギャラリー</ServicesH>
+            <Gallery items={gallery}/>
+        </section>
+        
         <section class="mb-24" id="activities">
             <ServicesH>活動紹介</ServicesH>
             <Activities items={activities} />

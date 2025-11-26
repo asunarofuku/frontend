@@ -116,6 +116,47 @@ const tocItems: TocItem[] = [
 ];
 ---
 
+<style>
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .table tr {
+        border-bottom: solid 4px white;
+    }
+
+    .table tr:last-child {
+        border-bottom: none;
+    }
+
+    .table th {
+        position: relative;
+        text-align: left;
+        width: 30%;
+        background-color: var(--secondary-color);
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .table th:after {
+        display: block;
+        content: "";
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        top: calc(50% - 10px);
+        right: -10px;
+        border-left: 10px solid var(--secondary-color);
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+    }
+
+    .table td {
+        text-align: left;
+        width: 70%;
+    }
+</style>
 <PalokayamaLayout
     title="ぱる・おかやま"
     title_en="地域活動支援センターI型 "
@@ -125,54 +166,183 @@ const tocItems: TocItem[] = [
     <div class="container mx-auto pt-12">
         <section class="mb-24" id="overview">
             <ServicesH>ぱる・おかやま</ServicesH>
-            <section class="mb-12">
-                <div
-                    class="leading-relaxed border border-[var(--secondary-color)] p-6 text-xl border-dashed border-8 rounded-3xl"
-                >
-                    <ServicesTopic>リカバリー＆あたたかい街づくり</ServicesTopic
+            <section class="mb-24" id="">
+                <section class="mb-12">
+                    <div
+                        class="leading-relaxed bg-[var(--secondary-color)] p-6 rounded-xl"
                     >
-                    <section class="mb-6">
-                        <ServicesTopic>
-                            傷ついた自尊心を回復し、夢・希望をもって自分らしく生きていけるよう応援
-                        </ServicesTopic>
-                        <p>
-                            人としての誇り、自分が自分であることへの自信、人とつながることの喜びと信頼感、安心とゆとりと、社会と再び関わる勇気の回復をゆったりと見守り、喜びもつらさも分かり合いたい。
-                        </p>
-                    </section>
-                    <section class="mb-6">
-                        <ServicesTopic>
-                            障がいのある人もない人もお互いに認め合い、助け合えるあたたかい街づくり
-                        </ServicesTopic>
-                        <p>
-                            当事者の方を生きにくくしているものの一つは「偏見」。それは、病気や障がいを正しく知らないことから生まれるものです。当事者の方の本当の姿を知ってもらうきっかけになるイベントや交流など、様々な取り組みを行いながら、互いの違いを認め合い、支え合える街づくりを目指します。
-                        </p>
-                    </section>
-                </div>
-            </section>
-            <section class="mb-12">
-                <div class="flex flex-row gap-12">
-                    <a href="/services/palokayama/palinfo_2015.pdf">
-                        <div
-                            class="border p-1 flex flex-col items-center rounded-md"
+                        <ServicesTopic
+                            >リカバリー＆あたたかい街づくり</ServicesTopic
                         >
-                            <img
-                                src="/services/palokayama/palinfo_2015.jpg"
-                                class=""
-                            />
-                        </div>
-                    </a>
+                        <section class="mb-6">
+                            <ServicesTopic>
+                                傷ついた自尊心を回復し、夢・希望をもって自分らしく生きていけるよう応援
+                            </ServicesTopic>
+                            <p>
+                                人としての誇り、自分が自分であることへの自信、人とつながることの喜びと信頼感、安心とゆとりと、社会と再び関わる勇気の回復をゆったりと見守り、喜びもつらさも分かり合いたい。
+                            </p>
+                        </section>
+                        <section class="mb-6">
+                            <ServicesTopic>
+                                障がいのある人もない人もお互いに認め合い、助け合えるあたたかい街づくり
+                            </ServicesTopic>
+                            <p>
+                                当事者の方を生きにくくしているものの一つは「偏見」。それは、病気や障がいを正しく知らないことから生まれるものです。当事者の方の本当の姿を知ってもらうきっかけになるイベントや交流など、様々な取り組みを行いながら、互いの違いを認め合い、支え合える街づくりを目指します。
+                            </p>
+                        </section>
+                    </div>
+                </section>
+                <section class="mb-12">
+                    <div class="flex flex-row gap-12">
+                        <a href="/services/palokayama/palinfo_2015.pdf">
+                            <div
+                                class="border p-1 flex flex-col items-center rounded-md"
+                            >
+                                <img
+                                    src="/services/palokayama/palinfo_2015.jpg"
+                                    class=""
+                                />
+                            </div>
+                        </a>
 
-                    <a href="/services/palokayama/peerokayama.pdf">
-                        <div
-                            class="border p-1 flex flex-col items-center rounded-md"
-                        >
-                            <img
-                                src="/services/palokayama/peerokayama.jpg"
-                                class=""
-                            />
-                        </div>
-                    </a>
-                </div>
+                        <a href="/services/palokayama/peerokayama.pdf">
+                            <div
+                                class="border p-1 flex flex-col items-center rounded-md"
+                            >
+                                <img
+                                    src="/services/palokayama/peerokayama.jpg"
+                                    class=""
+                                />
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="mb-24" id="">
+                    <ServicesSub>地域活動支援センターⅠ型</ServicesSub>
+
+                    <table class="table">
+                        <tr>
+                            <th class="py-4 px-8 rounded-xl">対象者</th>
+                            <td class="py-4 px-8">
+                                地域に住む障がいのある方（１８歳以上）
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="py-4 px-8 rounded-xl">定員</th>
+                            <td class="py-4 px-8">20名</td>
+                        </tr>
+                        <tr>
+                            <th class="py-4 px-8 rounded-xl">ご利用方法</th>
+                            <td class="py-4 px-8"> </td>
+                        </tr>
+                        <tr>
+                            <th class="py-4 px-8 rounded-xl">利用期間</th>
+                            <td class="py-4 px-8"
+                                >個々の目標達成や状況の変化に合わせて柔軟に利用が続けれます</td
+                            >
+                        </tr>
+
+                        <tr>
+                            <th class="py-4 px-8 rounded-xl">支援内容</th>
+                            <td class="py-4 px-8">
+                                <div>
+                                    <div class="font-bold mb-1">
+                                        【事業の目的】
+                                    </div>
+                                    <p>
+                                        病気や障がいがあっても、地域で自分らしくいきいきと暮らしていけるよう、<br
+                                        />
+                                        日々の相談支援・仲間づくり・居場所の提供・余暇活動の支援などを行っています。<br
+                                        />
+                                        安心して過ごせるとともに、自分らしさを取り戻し、一歩踏み出せる場づくりを目指しています。<br
+                                        /><br />
+                                        『こんな生活を送りたい』という希望や、困りごとについて相談にのり、<br
+                                        />
+                                        障害福祉サービスの利用など、希望する生活が実現できるようお手伝いします。
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <div class="font-bold mb-1">
+                                        【サポート内容】
+                                    </div>
+
+                                    <p class="font-semibold">■悩み相談</p>
+                                    <p>
+                                        日常生活で不安に感じていること、困りごと、経済的なこと、<br
+                                        />
+                                        福祉サービスの利用などについて、電話・来所・訪問で相談に応じています。
+                                    </p>
+
+                                    <p class="font-semibold mt-2">
+                                        ■生活サポート
+                                    </p>
+                                    <p>
+                                        「医・衣・職・食・友・住」など、生活を安心して過ごすために必要なサポートを行います。
+                                    </p>
+
+                                    <p class="font-semibold mt-2">
+                                        ■サークル活動
+                                    </p>
+                                    <p>
+                                        スポーツ、料理、手芸など、楽しみながら参加できるサークル活動を実施しています。
+                                    </p>
+
+                                    <p class="font-semibold mt-2">
+                                        ■イベントの開催
+                                    </p>
+                                    <p>
+                                        お花見、山登りなど、季節にちなんだイベントを企画・開催しています。
+                                    </p>
+
+                                    <p class="font-semibold mt-2">■地域交流</p>
+                                    <p>
+                                        地域の夏祭りや各種イベントなどに参加し、地域の方々との交流を深めています。
+                                    </p>
+
+                                    <p class="font-semibold mt-2">
+                                        ■ピアサポート活動・当事者活動支援
+                                    </p>
+                                    <p>
+                                        ピアサポート活動を行う「ピアセンタークローバー」と連携し、<br
+                                        />
+                                        より良い居場所づくり・仲間づくりを支援します。<br
+                                        />
+                                        当事者が自分の思いを発言できる場、表現できる場を共につくり、<br
+                                        />
+                                        誰もがいきいき暮らせる地域を目指します。
+                                    </p>
+
+                                    <p class="font-semibold mt-2">
+                                        ■家族交流会
+                                    </p>
+                                    <p>
+                                        家族交流会を開催し、悩みを語り合い交流することで、<br
+                                        />
+                                        ご家族自身が元気を取り戻し、前向きに歩めるようサポートしています。<br
+                                        />
+                                        また、ご本人の良き理解者となれるよう支援を行っています。
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <div class="font-bold mb-1">
+                                        【関連事業】
+                                    </div>
+                                    <ul class="list-disc list-inside space-y-1">
+                                        <li>
+                                            岡山市精神障害者ピアサポーター派遣・養成事業（岡山市委託事業）
+                                        </li>
+                                        <li>
+                                            岡山市障害者基幹相談支援センターサブセンター事業
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
             </section>
         </section>
 

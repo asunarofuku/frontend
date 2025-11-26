@@ -1,0 +1,71 @@
+---
+import { Image, getImage } from 'astro:assets'; // Image と getImage をインポート
+
+// NewsItem型の定義
+interface NewsItem {
+  items: any[];
+}
+
+// Propsを受け取る
+const { items } = Astro.props;
+
+// タイトルを生成して新しいデータ構造を作成
+const imageAssets = await Promise.all(items.map(async (img) => {
+  const fileNameWithExt = img.default.src.substring(img.default.src.lastIndexOf('/') + 1);; // ファイル名を取得
+  const fileName = fileNameWithExt?.split('.')[0] || '画像';
+
+  // ファイル名からタイトルを生成
+  const title = fileName.replace(/-/g, ' ').toUpperCase(); 
+  
+  // リンク先として使用するリサイズされた画像を明示的に生成する
+  const resizedImage = await getImage({
+    src: img.default,         // 元の画像モジュール
+    width: 800,               // リンク先の表示サイズ（元の画像より小さく、または中間サイズ）
+    format: 'webp',           // リンク先のフォーマット
+    quality: 90,
+  });
+
+  return {
+    thumb: img.default,          // Imageコンポーネント用 (ImageMetadata)
+    title: title,
+    full: resizedImage.src,    // リンク先として使用する URL (文字列)
+  };
+}));
+---
+
+<ul class="flex flex-wrap gap-4">
+  {
+    imageAssets.map((item) => (
+      <li class="w-[calc(24%-8px)]">
+        <a href={item.full}>
+          <ul class="flex flex-col gap-2 border-[var(--secondary-color)] border py-2">
+            <li>
+              <ul class="flex flex-col items-center gap-4">
+                <li>
+                  <div class=" flex items-center justify-center">
+                    <Image
+              src={item.thumb} 
+              alt={item.title}
+              width={256}  
+              height={256} 
+              fit="cover"   // どのようにフィットさせるか (cover, contain, etc.)
+              loading="lazy"
+              quality={80}  // 品質も指定可能
+              class="max-w-full max-h-full object-contain"
+            />
+          </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="flex flex-col gap-2">
+                    <div class="">{item.title}</div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </a>
+      </li>
+    ))
+  }
+</ul>

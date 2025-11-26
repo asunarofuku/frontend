@@ -1,4 +1,5 @@
 ---
+import Gallery from "@components/services/Gallery.astro";
 import Access from "../../../components/Access.astro";
 import Activities from "../../../components/Activities.astro";
 import ServicesH from "../../../components/ServicesH.astro";
@@ -8,6 +9,8 @@ import type { TocItem } from "../../../components/TableOfContents.astro";
 import ServiceSchedule from "../../../components/services/ServiceSchedule.astro";
 import TransportationAllowance from "../../../components/services/TransportationAllowance.astro";
 import CloverLayout from "../../../layouts/services/CloverLayout.astro";
+
+const gallery = await Astro.glob("@assets/clover/*.{jpg,png}");
 
 const crumbs = [
     {
@@ -80,6 +83,48 @@ const tocItems: TocItem[] = [
 ];
 ---
 
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table tr {
+        border-bottom: solid 4px white;
+    }
+
+    table tr:last-child {
+        border-bottom: none;
+    }
+
+    table th {
+        position: relative;
+        text-align: left;
+        width: 30%;
+        background-color: var(--secondary-color);
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    table th:after {
+        display: block;
+        content: "";
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        top: calc(50% - 10px);
+        right: -10px;
+        border-left: 10px solid var(--secondary-color);
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+    }
+
+    table td {
+        text-align: left;
+        width: 70%;
+    }
+</style>
+
 <CloverLayout
     title="ピアセンタークローバー"
     title_en="就労移行支援B型 "
@@ -88,93 +133,201 @@ const tocItems: TocItem[] = [
 >
     <div class="container mx-auto pt-12">
         <section class="mb-24" id="overview">
-            <ServicesH>ピアセンタークローバー</ServicesH>
-            <section class="mb-12">
-                <div
-                    class="leading-relaxed border border-[var(--secondary-color)] p-6 text-xl border-dashed border-8 rounded-3xl"
-                >
-                    <section class="mb-6">
-                        <p>
-                            「ピア（peer）」とは、「仲間」「対等」という意味です。
-                        </p>
-                        <p>
-                            ピアセンタークローバーでは、同じ病気の体験をした仲間たちが、自分の経験をもとに、同じような悩みで困っている方々を支えていくピアサポート活動を行っています。
-                        </p>
-                        <p>
-                            ピアセンターで活動するメンバーは、「同じ経験をしているからこそ共感できる」「同じように悩んでいる仲間の力になりたい」「安心できる居場所を作りたい」という思いから、仲間として寄り添えるように活動しています。
-                        </p>
-                        <p>
-                            “クローバー”という名前の由来は、
-                            「四葉のクローバー」<br />
-                            つまり、 「みんなが幸せになることができるように…」という思いが込められています。
-                        </p>
-
-                        <p>
-                            ピアセンター クローバーで
-                            ピアサポーターとして活躍するメンバーは、認定を受けたメンバーです！
-                        </p>
-                        <p>
-                            ６回にわたる講習会（ピアサポーター養成講座）を受講後、ピアセンタークローバーの
-                            面接に合格し、認定を受けたメンバーが活動しています。
-                        </p>
-                    </section>
-                    <section>
-                        <ServicesTopic>私たちが大切にしていること</ServicesTopic
-                        >
-                        <p>
-                            ピアサポーターは一方的にサポートを提供するものではありません。
-                            一緒に会う・話す・動くが基本です。そして、お互いに成長できるように活動していきます。
-                        </p>
-                        <p>
-                            一緒に活動するメンバーの個人情報や活動時に知り得た情報は、外部には漏らしません。
-                        </p>
-                    </section>
-                </div>
-            </section>
-            <section class="mb-12">
-                <div class="flex flex-row gap-12">
-                    <a href="">
-                        <div
-                            class="border p-1 flex flex-col items-center rounded-md"
-                        >
-                            <img src="/cl.jpg" class="" />
-                            <p>クローバーのブログ</p>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div
-                            class="w-36 border p-1 flex flex-col items-center rounded-md"
-                        >
-                            <img src="/i.svg" class="" />
-                            <p>クローバーのインスタグラム</p>
-                        </div>
-                    </a>
-
-                    <a
-                        href="/services/clover/clover_telephone_pamphlet_202407.pdf"
+            <section class="mb-24" id="overview">
+                <ServicesH>ピアセンタークローバー</ServicesH>
+                <section class="mb-12">
+                    <div
+                        class="leading-relaxed bg-[var(--secondary-color)] p-6 rounded-xl"
                     >
-                        <div
-                            class="border p-1 flex flex-col items-center rounded-md"
+                        <section class="mb-6">
+                            <p>
+                                「ピア（peer）」とは、「仲間」「対等」という意味です。
+                            </p>
+                            <p>
+                                ピアセンタークローバーでは、同じ病気の体験をした仲間たちが、自分の経験をもとに、同じような悩みで困っている方々を支えていくピアサポート活動を行っています。
+                            </p>
+                            <p>
+                                ピアセンターで活動するメンバーは、「同じ経験をしているからこそ共感できる」「同じように悩んでいる仲間の力になりたい」「安心できる居場所を作りたい」という思いから、仲間として寄り添えるように活動しています。
+                            </p>
+                            <p>
+                                “クローバー”という名前の由来は、
+                                「四葉のクローバー」<br />
+                                つまり、 「みんなが幸せになることができるように…」という思いが込められています。
+                            </p>
+
+                            <p>
+                                ピアセンター クローバーで
+                                ピアサポーターとして活躍するメンバーは、認定を受けたメンバーです！
+                            </p>
+                            <p>
+                                ６回にわたる講習会（ピアサポーター養成講座）を受講後、ピアセンタークローバーの
+                                面接に合格し、認定を受けたメンバーが活動しています。
+                            </p>
+                        </section>
+                        <section>
+                            <ServicesTopic
+                                >私たちが大切にしていること</ServicesTopic
+                            >
+                            <p>
+                                ピアサポーターは一方的にサポートを提供するものではありません。
+                                一緒に会う・話す・動くが基本です。そして、お互いに成長できるように活動していきます。
+                            </p>
+                            <p>
+                                一緒に活動するメンバーの個人情報や活動時に知り得た情報は、外部には漏らしません。
+                            </p>
+                        </section>
+                    </div>
+                </section>
+                <section class="mb-12">
+                    <div class="flex flex-row gap-12">
+                        <a href="">
+                            <div
+                                class="border p-1 flex flex-col items-center rounded-md"
+                            >
+                                <img src="/cl.jpg" class="" />
+                                <p>クローバーのブログ</p>
+                            </div>
+                        </a>
+                        <a href="">
+                            <div
+                                class="w-36 border p-1 flex flex-col items-center rounded-md"
+                            >
+                                <img src="/i.png" class="" />
+                                <p>クローバーのインスタグラム</p>
+                            </div>
+                        </a>
+
+                        <a
+                            href="/services/clover/clover_telephone_pamphlet_202407.pdf"
                         >
-                            <img
-                                src="/services/clover/clover_telephone_pamphlet_202407.jpg"
-                                class=""
-                            />
-                            <p>電話相談</p>
-                        </div>
-                    </a>
-                    <a href="/services/clover/clover_dayori/">
-                        <div
-                            class="border p-1 flex flex-col items-center rounded-md"
+                            <div
+                                class="border p-1 flex flex-col items-center rounded-md"
+                            >
+                                <img
+                                    src="/services/clover/clover_telephone_pamphlet_202407.jpg"
+                                    class=""
+                                />
+                                <p>電話相談</p>
+                            </div>
+                        </a>
+                        <a href="/services/clover/clover_dayori/">
+                            <div
+                                class="border p-1 flex flex-col items-center rounded-md"
+                            >
+                                <img
+                                    src="/services/clover/clover_dayori/cloverdayori_vol1.jpg"
+                                    class=""
+                                />
+                                <p>クローバー便り</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+            </section>
+            <section class="mb-24" id="">
+                <ServicesSub>就労継続支援B型</ServicesSub>
+                <table>
+                    <tr>
+                        <th class="py-4 px-8 rounded-xl">対象者</th>
+                        <td class="py-4 px-8">
+                            ピアサポート活動に興味がある方
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="py-4 px-8 rounded-xl">定員</th>
+                        <td class="py-4 px-8"> 10名</td>
+                    </tr>
+                    <tr>
+                        <th class="py-4 px-8 rounded-xl">ご利用方法</th>
+                        <td class="py-4 px-8"> </td>
+                    </tr>
+                    <tr>
+                        <th class="py-4 px-8 rounded-xl">利用期間</th>
+                        <td class="py-4 px-8">障害福祉サービス受給者証の期限</td
                         >
-                            <img
-                                src="/services/clover/clover_dayori/cloverdayori_vol1.jpg"
-                                class=""
-                            />
-                            <p>クローバー便り</p>
-                        </div>
-                    </a>
-                </div>
+                    </tr>
+
+                    <tr>
+                        <th class="py-4 px-8 rounded-xl">支援内容</th>
+                        <td class="py-4 px-8">
+                            <div>
+                                <div class="font-bold mb-1">【活動の目的】</div>
+                                <p>
+                                    地域の中でピアサポート活動ができるよう、日々のサポートを行っています。<br
+                                    />
+                                    クローバーのメンバーが主体となり、居場所づくりや電話相談、広報活動など、多様な取り組みを通して「支え合い・つながり」を育む活動を行っています。
+                                </p>
+                            </div>
+
+                            <div>
+                                <div class="font-bold mb-1">【活動内容】</div>
+
+                                <p class="font-semibold">■居場所づくり</p>
+                                <p>
+                                    地域活動支援センター「ぱる・おかやま」にて、メンバーが居場所当番を担当。<br
+                                    />
+                                    手芸・料理・文芸創作など、「ぱる・おかやま」の利用者が安心して楽しく参加できるサークル活動を企画・主催しています。
+                                </p>
+
+                                <p class="font-semibold mt-2">■電話相談</p>
+                                <p>
+                                    クローバーのメンバーが電話相談を担当しています。<br
+                                    />
+                                    同じ経験をもつ仲間だからこそ、分かり合える、共感できる対話があります。<br
+                                    />
+                                    利用を希望される方は『クローバー電話相談パンフレット』をご覧ください。
+                                </p>
+
+                                <p class="font-semibold mt-2">
+                                    ■交流会・講演会の運営
+                                </p>
+                                <p>
+                                    地域の当事者や家族が参加できる交流会を定期的に開催しています。<br
+                                    />
+                                    また、啓発活動や研修などの講師依頼を受け、登壇することもあります。
+                                </p>
+
+                                <p class="font-semibold mt-2">
+                                    ■勉強会・相談会
+                                </p>
+                                <p>
+                                    ピアサポートの質向上を目的とした勉強会を開催。<br
+                                    />
+                                    活動の中で感じる不安や困りごとを共有し、相談し合う場を設けています。<br
+                                    />
+                                    ピアサポーター同士が支え合い、つながりを深める活動です。
+                                </p>
+
+                                <p class="font-semibold mt-2">
+                                    ■創作活動・事務作業
+                                </p>
+                                <p>
+                                    交流会やイベントで使用する資料・準備物・お土産の制作、<br
+                                    />
+                                    広報誌（クローバー便り）に掲載する作品の制作などを行っています。<br
+                                    />
+                                    メンバーが得意なことを活かし、分担して取り組みます。
+                                </p>
+
+                                <p class="font-semibold mt-2">■広報活動</p>
+                                <p>
+                                    ブログやInstagramなどのSNSで日々の活動を発信しています。<br
+                                    />
+                                    また、広報誌「クローバー便り」を制作し、活動報告や取材記事、創作作品などを掲載しています。
+                                </p>
+
+                                <p class="font-semibold mt-2">
+                                    ■自立支援協議会ホームページの管理
+                                </p>
+                                <p>
+                                    自立支援協議会ホームページ（え～んじゃネット）の管理運営をクローバーで行っています。<br
+                                    />
+                                    パソコンが得意なメンバーが活躍しています。
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </section>
         </section>
 
@@ -248,6 +401,11 @@ const tocItems: TocItem[] = [
             </section>
         </section>
         <TransportationAllowance />
+
+        <section class="mb-24" id="gallery">
+            <ServicesH>ギャラリー</ServicesH>
+            <Gallery items={gallery} />
+        </section>
 
         <section class="mb-24" id="activities">
             <ServicesH>活動紹介</ServicesH>
