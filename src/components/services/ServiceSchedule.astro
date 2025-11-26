@@ -35,7 +35,7 @@ const { name } = Astro.props;
 
 <div class="grid grid-cols-2 gap-12">
     <div>
-        <ServicesSub>{currentSchedules[name]?.date}</ServicesSub>
+        <ServicesSub>{currentSchedules["JSCA"]?.date}</ServicesSub>
         <a href={currentSchedules[name]?.file.url}>
             <div class="p-2 bg-[var(--secondary-color)]">
                 <img src={currentSchedules[name]?.file.thumb.url} />

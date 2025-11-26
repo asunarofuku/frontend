@@ -4,7 +4,7 @@ import { POSTS_PER_PAGE, REST_API_SCHEDULES_URL, REST_API_URL } from "../site";
 import H from "./H.astro";
 import ScheduleList from "./ScheduleList.astro";
 
-let response = await fetch(`${REST_API_URL}posts?per_page=${POSTS_PER_PAGE}&page=0`);
+let response = await fetch(`${REST_API_URL}posts?per_page=${POSTS_PER_PAGE}&page=1`);
 if (!response.ok) {
   throw new Error(`HTTP error! status: ${response.status}`);
 }
